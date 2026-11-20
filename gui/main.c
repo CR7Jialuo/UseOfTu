@@ -262,7 +262,7 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
             do_action(hwnd, act);
             return 0;
         }
-        if (x < g_gui.cw - GUI_PANEL_W) {
+        if (x < g_gui.cw - gui_panel_width()) {
             int hit = gui_hit_test(&g_gui, x, y);
             if (hit > 0) {
                 g_gui.selected = hit;
@@ -488,7 +488,8 @@ static int resolve_data_dir(char *out, size_t cap, const char *cli_dir)
 /* ---------------- 截图模式 ---------------- */
 
 static int run_screenshot(int argc, char **argv, const char *out, int route_from, int route_to,
-                          int hover_id, int critical, int w, int h, const char *via_csv)
+                          int hover_id, int critical, int w, int h, const char *via_csv,
+                          int dpi_force)
 {
     GpBitmap *bmp = NULL;
     GpGraphics *gr = NULL;
@@ -502,6 +503,9 @@ static int run_screenshot(int argc, char **argv, const char *out, int route_from
             fprintf(stderr, "init failed: dir=%s err=%s\n", g_data_dir, err);
             return 2;
         }
+    }
+    if (dpi_force > 0) {
+        gui_render_set_dpi(dpi_force);
     }
     gui_fit_view(&g_gui, w, h);
     if (critical) {
@@ -573,6 +577,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     int hover_id = 0, critical = 0;
     int open_id = 0;
     const char *via_csv = NULL;
+    int dpi_force = 0;
     int size_w = 1400, size_h = 900;
     int selftest = 0;
     int i;
@@ -592,6 +597,8 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
                 shot = argv[++i];
             } else if (strcmp(argv[i], "--open") == 0 && i + 1 < argc) {
                 open_id = atoi(argv[++i]);
+            } else if (strcmp(argv[i], "--dpi") == 0 && i + 1 < argc) {
+                dpi_force = atoi(argv[++i]);
             } else if (strcmp(argv[i], "--via") == 0 && i + 1 < argc) {
                 via_csv = argv[++i];
             } else if (strcmp(argv[i], "--hover") == 0 && i + 1 < argc) {
@@ -644,7 +651,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
         snprintf(base, sizeof(base), "%s/basemap.png", g_data_dir);
         gui_render_init(base);
         rc = run_screenshot(0, NULL, shot, route_from, route_to, hover_id, critical, size_w,
-                            size_h, via_csv);
+                            size_h, via_csv, dpi_force);
         gui_render_shutdown();
         GdiplusShutdown(token);
         return rc;
@@ -709,6 +716,13 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     }
     {
         RECT rc;
+        HDC sdc = GetDC(NULL);
+        int dpi = 96;
+        if (sdc != NULL) {
+            dpi = GetDeviceCaps(sdc, LOGPIXELSX);
+            ReleaseDC(NULL, sdc);
+        }
+        gui_render_set_dpi(dpi);
         GetClientRect(hwnd, &rc);
         g_gui.cw = rc.right;
         g_gui.ch = rc.bottom;

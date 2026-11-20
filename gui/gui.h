@@ -95,6 +95,8 @@ const char *gui_spot_name(const Gui *g, int id);
 
 /* 右侧栏按钮命中：返回动作编号（见 render.c 的 ACT_*），未命中返回 0 */
 int  gui_panel_hit(const Gui *g, int x, int y);
+int  gui_panel_width(void);
+int  gui_render_set_dpi(int dpi);
 int  gui_toggle_critical(Gui *g);
 
 /* 渲染层（render.c） */

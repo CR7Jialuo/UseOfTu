@@ -81,6 +81,7 @@ nav --data data/campus_real bench --nodes 100      # 算法基准
 navgui.exe --data data/campus_real --shot out.png --route 1 5 --size 1440x920
 navgui.exe --data data/campus_real --selftest        # 开窗 0.8 秒自动关闭，冒烟测试
 navgui.exe --data data/campus_real --open 5          # 启动即定位到 5 号地点
+navgui.exe --shot out.png --route 18 6 --dpi 144     # 按 144 DPI 缩放渲染（验证高 DPI 布局）
 ```
 
 ## 目录结构

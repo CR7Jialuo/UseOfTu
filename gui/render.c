@@ -44,6 +44,48 @@ static GpFont *s_font_title = NULL;
 static GpFont *s_font_small = NULL;
 static char s_basemap_path[512];
 
+/* ---------------- DPI 缩放 ----------------
+ * 设计：所有面板坐标写成“96 DPI 下的逻辑值”，绘制时乘 s_dpi/96。
+ * 地图本身由世界坐标变换绘制，不需要缩放；字体在 DPI 变化时重建。
+ */
+static int s_dpi = 96;
+
+#define UI(v) ((int)((double)(v) * s_dpi / 96.0 + 0.5))
+
+int gui_render_set_dpi(int dpi)
+{
+    if (dpi < 72) {
+        dpi = 96;
+    }
+    if (dpi > 480) {
+        dpi = 480;
+    }
+    if (dpi == s_dpi && s_font_ui != NULL) {
+        return s_dpi;
+    }
+    if (s_font_ui != NULL) {
+        GdipDeleteFont(s_font_ui);
+        GdipDeleteFont(s_font_title);
+        GdipDeleteFont(s_font_small);
+        s_font_ui = NULL;
+    }
+    s_dpi = dpi;
+    if (s_family != NULL) {
+        double k = (double)s_dpi / 96.0;
+        GdipCreateFont(s_family, (REAL)(FONT_UI * k), FontStyleRegular, UnitPixel, &s_font_ui);
+        GdipCreateFont(s_family, (REAL)(FONT_TITLE * k), FontStyleBold, UnitPixel, &s_font_title);
+        GdipCreateFont(s_family, (REAL)(FONT_SMALL * k), FontStyleRegular, UnitPixel, &s_font_small);
+    }
+    return s_dpi;
+}
+
+int gui_panel_width(void)
+{
+    return UI(GUI_PANEL_W);
+}
+
+
+
 /* UTF-8 -> UTF-16，环形缓冲，供一次绘制内多处调用 */
 #define WBUFS 48
 static const WCHAR *W(const char *utf8)
@@ -164,6 +206,30 @@ static void text_at(GpGraphics *gr, GpFont *font, int x, int y, int w, int h, co
     GdipCreateSolidFill(color, &b);
     GdipDrawString(gr, W(s), -1, font, &r, NULL, (GpBrush *)b);
     GdipDeleteBrush((GpBrush *)b);
+}
+
+static void text_right(GpGraphics *gr, GpFont *font, int x, int y, int w, int h, const char *s,
+                       ARGB color)
+{
+    GpSolidFill *b = NULL;
+    GpStringFormat *fmt = NULL;
+    RectF r;
+
+    r.X = (REAL)x;
+    r.Y = (REAL)y;
+    r.Width = (REAL)w;
+    r.Height = (REAL)h;
+    GdipCreateStringFormat(0, LANG_NEUTRAL, &fmt);
+    if (fmt != NULL) {
+        GdipSetStringFormatAlign(fmt, StringAlignmentFar);
+        GdipSetStringFormatLineAlign(fmt, StringAlignmentNear);
+    }
+    GdipCreateSolidFill(color, &b);
+    GdipDrawString(gr, W(s), -1, font, &r, fmt, (GpBrush *)b);
+    GdipDeleteBrush((GpBrush *)b);
+    if (fmt != NULL) {
+        GdipDeleteStringFormat(fmt);
+    }
 }
 
 static void dot(GpGraphics *gr, int cx, int cy, int r, ARGB fill_color, ARGB ring_color)
@@ -402,7 +468,7 @@ static void draw_spots(Gui *g, GpGraphics *gr)
 static void draw_tooltip(Gui *g, GpGraphics *gr)
 {
     const Spot *s;
-    int x, y, w = 268, h = 86;
+    int x, y, w = UI(268), h = UI(86);
     char line1[128], line2[96];
 
     if (g->hover <= 0) {
@@ -412,13 +478,13 @@ static void draw_tooltip(Gui *g, GpGraphics *gr)
     if (s == NULL) {
         return;
     }
-    x = g->mouse_x + 18;
-    y = g->mouse_y + 18;
-    if (x + w > g->cw - GUI_PANEL_W - 8) {
-        x = g->cw - GUI_PANEL_W - w - 8;
+    x = g->mouse_x + UI(18);
+    y = g->mouse_y + UI(18);
+    if (x + w > g->cw - gui_panel_width() - UI(8)) {
+        x = g->cw - gui_panel_width() - w - UI(8);
     }
-    if (y + h > g->ch - GUI_STATUS_H - 8) {
-        y = g->ch - GUI_STATUS_H - h - 8;
+    if (y + h > g->ch - UI(GUI_STATUS_H) - UI(8)) {
+        y = g->ch - UI(GUI_STATUS_H) - h - UI(8);
     }
     fill(gr, x, y, w, h, 0xF2FFFFFF);
     stroke(gr, x, y, x + w, y, C_BORDER, 1.0f);
@@ -428,9 +494,9 @@ static void draw_tooltip(Gui *g, GpGraphics *gr)
 
     snprintf(line1, sizeof(line1), "%s（编号 %d）", s->name, s->id);
     snprintf(line2, sizeof(line2), "%s · 地图编号 %02d", spot_type_label(s->type), s->id);
-    text_at(gr, s_font_ui, x + 12, y + 10, w - 24, 24, line1, C_NAVY);
-    text_at(gr, s_font_small, x + 12, y + 36, w - 24, 20, line2, C_MUTED);
-    text_at(gr, s_font_small, x + 12, y + 58, w - 24, 20, s->brief, 0xFF374151);
+    text_at(gr, s_font_ui, x + UI(12), y + UI(10), w - UI(24), UI(24), line1, C_NAVY);
+    text_at(gr, s_font_small, x + UI(12), y + UI(36), w - UI(24), UI(20), line2, C_MUTED);
+    text_at(gr, s_font_small, x + UI(12), y + UI(58), w - UI(24), UI(20), s->brief, 0xFF374151);
 }
 
 static void draw_scale_bar(Gui *g, GpGraphics *gr)
@@ -439,18 +505,18 @@ static void draw_scale_bar(Gui *g, GpGraphics *gr)
     int px = (int)(meters * g->scale);
     int x = PAD, y = g->ch - GUI_STATUS_H - 26;
 
-    if (px < 30) {
+    if (px < UI(30)) {
         px = (int)(200.0 * g->scale);
         meters = 200.0;
     }
-    fill(gr, x, y, px, 5, 0xFF374151);
-    fill(gr, x + px, y, px, 5, 0xFFFFFFFF);
-    stroke(gr, x + px, y - 1, x + px, y + 6, 0xFF374151, 1.0f);
-    text_at(gr, s_font_small, x, y - 22, 60, 18, "0", 0xFF374151);
+    fill(gr, x, y, px, UI(5), 0xFF374151);
+    fill(gr, x + px, y, px, UI(5), 0xFFFFFFFF);
+    stroke(gr, x + px, y - 1, x + px, y + UI(6), 0xFF374151, 1.0f);
+    text_at(gr, s_font_small, x, y - UI(22), UI(60), UI(18), "0", 0xFF374151);
     {
         char buf[32];
         snprintf(buf, sizeof(buf), "%.0f m", meters);
-        text_at(gr, s_font_small, x + 2 * px - 20, y - 22, 80, 18, buf, 0xFF374151);
+        text_at(gr, s_font_small, x + 2 * px - UI(20), y - UI(22), UI(80), UI(18), buf, 0xFF374151);
     }
 }
 
@@ -458,62 +524,65 @@ static void draw_scale_bar(Gui *g, GpGraphics *gr)
 
 static void draw_panel(Gui *g, GpGraphics *gr)
 {
-    int x = g->cw - GUI_PANEL_W;
+    int pw = UI(GUI_PANEL_W);
+    int x = g->cw - pw;
     int y = 0;
-    int h = g->ch - GUI_STATUS_H;
+    int h = g->ch - UI(GUI_STATUS_H);
     char buf[256];
     int i;
     char lines[32][200];
     int n_lines;
 
-    fill(gr, x, y, GUI_PANEL_W, h, 0xFFF7F9FC);
+    fill(gr, x, y, pw, h, 0xFFF7F9FC);
     stroke(gr, x, y, x, h, C_BORDER, 1.0f);
 
     /* 标题 */
-    fill(gr, x, 0, GUI_PANEL_W, 64, C_NAVY);
-    text_at(gr, s_font_title, x + 18, 18, GUI_PANEL_W - 36, 30, "校园导航 · 苍梧校区", C_WHITE);
-    text_at(gr, s_font_small, x + 18, 42, GUI_PANEL_W - 36, 18,
+    fill(gr, x, 0, pw, UI(64), C_NAVY);
+    text_at(gr, s_font_title, x + UI(18), UI(18), pw - UI(36), UI(30), "校园导航 · 苍梧校区", C_WHITE);
+    text_at(gr, s_font_small, x + UI(18), UI(42), pw - UI(36), UI(18),
             "Win32 + GDI+ 图形界面", 0xFFC7D2E0);
 
     /* 起终点卡片 */
-    fill(gr, x + 14, 78, GUI_PANEL_W - 28, 118, C_WHITE);
-    stroke(gr, x + 14, 78, x + GUI_PANEL_W - 14, 78, C_BORDER, 1.0f);
-    text_at(gr, s_font_small, x + 26, 86, 80, 18, "起点", C_MUTED);
-    text_at(gr, s_font_ui, x + 70, 84, 200, 22,
+    fill(gr, x + UI(14), UI(78), pw - UI(28), UI(118), C_WHITE);
+    stroke(gr, x + UI(14), UI(78), x + pw - UI(14), UI(78), C_BORDER, 1.0f);
+    text_at(gr, s_font_small, x + UI(26), UI(86), UI(80), UI(18), "起点", C_MUTED);
+    text_at(gr, s_font_ui, x + UI(70), UI(84), pw - UI(90), UI(22),
             g->from_id > 0 ? gui_spot_name(g, g->from_id) : "（未设置）", C_NAVY);
-    text_at(gr, s_font_small, x + 26, 114, 80, 18, "终点", C_MUTED);
-    text_at(gr, s_font_ui, x + 70, 112, 200, 22,
+    text_at(gr, s_font_small, x + UI(26), UI(114), UI(80), UI(18), "终点", C_MUTED);
+    text_at(gr, s_font_ui, x + UI(70), UI(112), pw - UI(90), UI(22),
             g->to_id > 0 ? gui_spot_name(g, g->to_id) : "（未设置）", C_NAVY);
 
     /* 口径 */
-    text_at(gr, s_font_small, x + 26, 144, 60, 18, "口径", C_MUTED);
-    fill(gr, x + 70, 140, 84, 26, g->by_time ? C_LIGHT : C_BLUE);
-    text_at(gr, s_font_small, x + 84, 144, 60, 18, "距离", g->by_time ? C_GRAY : C_WHITE);
-    fill(gr, x + 158, 140, 84, 26, g->by_time ? C_BLUE : C_LIGHT);
-    text_at(gr, s_font_small, x + 172, 144, 60, 18, "时间", g->by_time ? C_WHITE : C_GRAY);
+    text_at(gr, s_font_small, x + UI(26), UI(144), UI(60), UI(18), "口径", C_MUTED);
+    fill(gr, x + UI(70), UI(140), UI(84), UI(26), g->by_time ? C_LIGHT : C_BLUE);
+    text_at(gr, s_font_small, x + UI(84), UI(144), UI(60), UI(18), "距离",
+            g->by_time ? C_GRAY : C_WHITE);
+    fill(gr, x + UI(158), UI(140), UI(84), UI(26), g->by_time ? C_BLUE : C_LIGHT);
+    text_at(gr, s_font_small, x + UI(172), UI(144), UI(60), UI(18), "时间",
+            g->by_time ? C_WHITE : C_GRAY);
 
     /* 按钮 */
-    fill(gr, x + 14, 208, GUI_PANEL_W - 28, 40, C_BLUE);
-    text_at(gr, s_font_ui, x + 14, 217, GUI_PANEL_W - 28, 24, "规划路径（Enter）", C_WHITE);
+    fill(gr, x + UI(14), UI(208), pw - UI(28), UI(40), C_BLUE);
+    text_at(gr, s_font_ui, x + UI(14), UI(217), pw - UI(28), UI(24), "规划路径（Enter）", C_WHITE);
 
-    fill(gr, x + 14, 256, 130, 34, C_LIGHT);
-    text_at(gr, s_font_small, x + 14, 263, 130, 20, "设为起点", C_NAVY);
-    fill(gr, x + 162, 256, 130, 34, C_LIGHT);
-    text_at(gr, s_font_small, x + 162, 263, 130, 20, "设为终点", C_NAVY);
+    fill(gr, x + UI(14), UI(256), UI(130), UI(34), C_LIGHT);
+    text_at(gr, s_font_small, x + UI(14), UI(263), UI(130), UI(20), "设为起点", C_NAVY);
+    fill(gr, x + UI(162), UI(256), UI(130), UI(34), C_LIGHT);
+    text_at(gr, s_font_small, x + UI(162), UI(263), UI(130), UI(20), "设为终点", C_NAVY);
 
-    fill(gr, x + 14, 298, 130, 34, C_LIGHT);
-    text_at(gr, s_font_small, x + 14, 305, 130, 20, "最近食堂", C_NAVY);
-    fill(gr, x + 162, 298, 130, 34, C_LIGHT);
-    text_at(gr, s_font_small, x + 162, 305, 130, 20, "最近校医院", C_NAVY);
+    fill(gr, x + UI(14), UI(298), UI(130), UI(34), C_LIGHT);
+    text_at(gr, s_font_small, x + UI(14), UI(305), UI(130), UI(20), "最近食堂", C_NAVY);
+    fill(gr, x + UI(162), UI(298), UI(130), UI(34), C_LIGHT);
+    text_at(gr, s_font_small, x + UI(162), UI(305), UI(130), UI(20), "最近校医院", C_NAVY);
 
-    fill(gr, x + 14, 340, GUI_PANEL_W - 28, 32, C_LIGHT);
+    fill(gr, x + UI(14), UI(340), pw - UI(28), UI(32), C_LIGHT);
     {
         char tour_label[80];
         snprintf(tour_label, sizeof(tour_label), "巡游规划（右击加途经点，已选 %d）", g->n_via);
-        text_at(gr, s_font_small, x + 26, 346, GUI_PANEL_W - 40, 20, tour_label, C_NAVY);
+        text_at(gr, s_font_small, x + UI(26), UI(346), pw - UI(40), UI(20), tour_label, C_NAVY);
     }
 
-    fill(gr, x + 14, 380, GUI_PANEL_W - 28, 32, g->show_critical ? 0xFFF59E0B : C_LIGHT);
+    fill(gr, x + UI(14), UI(380), pw - UI(28), UI(32), g->show_critical ? 0xFFF59E0B : C_LIGHT);
     {
         char crit[80];
         if (g->show_critical) {
@@ -521,16 +590,16 @@ static void draw_panel(Gui *g, GpGraphics *gr)
         } else {
             snprintf(crit, sizeof(crit), "关键道路分析（桥/割点）");
         }
-        text_at(gr, s_font_small, x + 26, 386, GUI_PANEL_W - 40, 20, crit,
+        text_at(gr, s_font_small, x + UI(26), UI(386), pw - UI(40), UI(20), crit,
                 g->show_critical ? C_WHITE : C_NAVY);
     }
 
     /* 转向指引 */
-    fill(gr, x + 14, 424, GUI_PANEL_W - 28, 1, C_BORDER);
-    text_at(gr, s_font_ui, x + 16, 432, GUI_PANEL_W - 32, 22, "转向指引", C_NAVY);
+    fill(gr, x + UI(14), UI(424), pw - UI(28), 1, C_BORDER);
+    text_at(gr, s_font_ui, x + UI(16), UI(432), pw - UI(32), UI(22), "转向指引", C_NAVY);
 
     {
-        int max_lines = (h - 460 - 34) / 22;
+        int max_lines = (h - UI(460) - UI(34)) / UI(22);
         if (max_lines < 1) {
             max_lines = 1;
         }
@@ -540,24 +609,24 @@ static void draw_panel(Gui *g, GpGraphics *gr)
         n_lines = g->show_instructions ? gui_build_instructions(g, lines, max_lines) : 0;
     }
     if (n_lines == 0) {
-        text_at(gr, s_font_small, x + 16, 460, GUI_PANEL_W - 32, 40,
+        text_at(gr, s_font_small, x + UI(16), UI(460), pw - UI(32), UI(40),
                 "选好起终点后点“规划路径”，这里会列出逐段指引。", C_MUTED);
     } else {
-        int ty = 458;
-        for (i = 0; i < n_lines && ty < h - 56; ++i) {
-            text_at(gr, s_font_small, x + 16, ty, GUI_PANEL_W - 32, 20, lines[i], 0xFF374151);
-            ty += 22;
+        int ty = UI(458);
+        for (i = 0; i < n_lines && ty < h - UI(56); ++i) {
+            text_at(gr, s_font_small, x + UI(16), ty, pw - UI(32), UI(20), lines[i], 0xFF374151);
+            ty += UI(22);
         }
-        if (n_lines >= (h - 460 - 34) / 22 && g->path.count > 3) {
+        if (n_lines >= (h - UI(460) - UI(34)) / UI(22) && g->path.count > 3) {
             char more[64];
             snprintf(more, sizeof(more), "指引较多，已截断（共 %d 步）", g->path.count - 1);
-            text_at(gr, s_font_small, x + 16, h - 48, GUI_PANEL_W - 32, 18, more, C_MUTED);
+            text_at(gr, s_font_small, x + UI(16), h - UI(48), pw - UI(32), UI(18), more, C_MUTED);
         }
     }
 
     /* 底部信息 */
     snprintf(buf, sizeof(buf), "%d 个地点 · %d 条道路", g->campus.n_spots, g->campus.n_roads);
-    text_at(gr, s_font_small, x + 16, h - 26, GUI_PANEL_W - 32, 18, buf, C_MUTED);
+    text_at(gr, s_font_small, x + UI(16), h - UI(26), pw - UI(32), UI(18), buf, C_MUTED);
 }
 
 static void draw_status_bar(Gui *g, GpGraphics *gr)
@@ -571,10 +640,10 @@ static void draw_status_bar(Gui *g, GpGraphics *gr)
     if (g->has_path) {
         snprintf(buf, sizeof(buf), "%.1f 米 · 约 %.1f 分钟 · %d 个节点 · %.2f ms", gui_path_len(g),
                  gui_path_time(g), g->path.count, g->path_ms);
-        text_at(gr, s_font_small, PAD, y + 8, 520, 20, buf, 0xFF111827);
+        text_at(gr, s_font_small, UI(PAD), y + UI(8), UI(520), UI(20), buf, 0xFF111827);
     }
-    text_at(gr, s_font_small, g->cw - 560, y + 8, 540, 20, g->status,
-            g->status_error ? 0xFFB91C1C : C_MUTED);
+    text_right(gr, s_font_small, g->cw - UI(760), y + UI(8), UI(760) - UI(PAD), UI(20), g->status,
+               g->status_error ? 0xFFB91C1C : C_MUTED);
 }
 
 void gui_paint(Gui *g, void *grp, int w, int h)
@@ -602,29 +671,32 @@ void gui_paint(Gui *g, void *grp, int w, int h)
 /* 侧栏按钮命中测试（与 draw_panel 的排版保持一致） */
 int gui_panel_hit(const Gui *g, int x, int y)
 {
-    int px = g->cw - GUI_PANEL_W;
+    int pw = UI(GUI_PANEL_W);
+    int px = g->cw - pw;
     int lx = x - px;
+    int ly;
 
     if (x < px) {
         return 0;
     }
-    if (y >= 140 && y <= 166) {
-        if (lx >= 70 && lx <= 154) return 6;      /* 距离口径 */
-        if (lx >= 158 && lx <= 242) return 7;     /* 时间口径 */
+    ly = y;
+    if (ly >= UI(140) && ly <= UI(166)) {
+        if (lx >= UI(70) && lx <= UI(154)) return 6;      /* 距离口径 */
+        if (lx >= UI(158) && lx <= UI(242)) return 7;     /* 时间口径 */
     }
-    if (lx >= 14 && lx <= GUI_PANEL_W - 14) {
-        if (y >= 208 && y <= 248) return 1;       /* 规划 */
-        if (y >= 256 && y <= 290) {
-            return (lx <= 144) ? 2 : 3;           /* 设为起点 / 终点 */
+    if (lx >= UI(14) && lx <= pw - UI(14)) {
+        if (ly >= UI(208) && ly <= UI(248)) return 1;     /* 规划 */
+        if (ly >= UI(256) && ly <= UI(290)) {
+            return (lx <= UI(144)) ? 2 : 3;               /* 设为起点 / 终点 */
         }
-        if (y >= 298 && y <= 332) {
-            return (lx <= 144) ? 4 : 5;           /* 最近食堂 / 校医院 */
+        if (ly >= UI(298) && ly <= UI(332)) {
+            return (lx <= UI(144)) ? 4 : 5;               /* 最近食堂 / 校医院 */
         }
-        if (y >= 340 && y <= 372) {
-            return 9;                             /* 巡游规划 */
+        if (ly >= UI(340) && ly <= UI(372)) {
+            return 9;                                     /* 巡游规划 */
         }
-        if (y >= 380 && y <= 412) {
-            return 8;                             /* 关键道路 */
+        if (ly >= UI(380) && ly <= UI(412)) {
+            return 8;                                     /* 关键道路 */
         }
     }
     return 0;

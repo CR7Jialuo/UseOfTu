@@ -60,7 +60,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\export_submission.
 
 ## 五、待办队列（从上下往下做）
 
-- [ ] M-G GUI：界面整体 DPI 缩放（面板/字体按 DPI 放大；目前只放大了窗口尺寸）
+- [x] M-G GUI：界面整体 DPI 缩放（面板/字体/状态栏/提示卡按 96→实际 DPI 等比放大，`--dpi` 可强制）
 - [ ] M-H 文档：报告/PPT 随功能变化再校准一次
 
 - [x] M-A GUI：`.ico` 图标（windres 链入）、高 DPI 下窗口尺寸放大、导出当前视图菜单、路径逐段动画
