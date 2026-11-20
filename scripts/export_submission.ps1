@@ -1,4 +1,4 @@
-# Package the submission: git archive + built exe + final docs -> dist zip (ASCII only).
+# Package the submission: tracked files + built exe + final documents -> dist zip (ASCII only).
 $ErrorActionPreference = 'Stop'
 [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
 $OutputEncoding = [System.Text.UTF8Encoding]::new($false)
@@ -18,13 +18,16 @@ $stage = 'dist\stage'
 if (Test-Path $stage) { Remove-Item -Recurse -Force $stage }
 New-Item -ItemType Directory -Force -Path $stage | Out-Null
 
-Write-Host 'exporting tracked files via git archive ...'
-$tar = 'dist\stage.tar'
-& $git archive --format=tar --output $tar HEAD
+Write-Host 'exporting tracked files (git archive, zip) ...'
+$archive = 'dist\stage.zip'
+if (Test-Path $archive) { Remove-Item $archive -Force }
+& $git archive --format=zip --output $archive HEAD
 if ($LASTEXITCODE -ne 0) { exit 1 }
-& tar -xf $tar -C $stage
-if ($LASTEXITCODE -ne 0) { exit 1 }
-Remove-Item $tar -Force
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+[System.IO.Compression.ZipFile]::ExtractToDirectory((Resolve-Path $archive).Path, (Resolve-Path $stage).Path)
+Remove-Item $archive -Force
+$count = (Get-ChildItem $stage -Recurse -File | Measure-Object).Count
+Write-Host ("  files: " + $count)
 
 Write-Host 'adding built binary ...'
 New-Item -ItemType Directory -Force -Path (Join-Path $stage 'bin') | Out-Null
@@ -34,10 +37,15 @@ if (Test-Path 'build\nav.exe') {
     Write-Host 'warning: build\nav.exe missing (run scripts\build.ps1)' -ForegroundColor Yellow
 }
 
-Write-Host 'adding final documents ...'
-$docs = Get-ChildItem 'docs' -File | Where-Object { $_.Extension -in '.docx', '.pdf', '.pptx' }
-foreach ($d in $docs) {
-    Copy-Item $d.FullName (Join-Path $stage ("docs\" + $d.Name)) -Force
+Write-Host 'overlaying final documents ...'
+if (Test-Path 'dist\final') {
+    $docsDir = Join-Path $stage 'docs'
+    if (-not (Test-Path $docsDir)) { New-Item -ItemType Directory -Force -Path $docsDir | Out-Null }
+    Get-ChildItem 'dist\final' -File | Where-Object { $_.Extension -in '.docx', '.pdf', '.pptx' } |
+        ForEach-Object {
+            Copy-Item -LiteralPath $_.FullName -Destination (Join-Path $docsDir $_.Name) -Force
+            Write-Host ('  ' + $_.Name)
+        }
 }
 
 $zip = 'dist\' + $name + '-submit.zip'
@@ -45,7 +53,6 @@ if (Test-Path $zip) { Remove-Item $zip -Force }
 Compress-Archive -Path (Join-Path $stage '*') -DestinationPath $zip -CompressionLevel Optimal
 Write-Host ('package: ' + $zip) -ForegroundColor Green
 
-Write-Host 'contents:'
-$entry = Get-ChildItem $stage -Recurse -File | Measure-Object
-Write-Host ("  files: " + $entry.Count)
+$count = (Get-ChildItem $stage -Recurse -File | Measure-Object).Count
+Write-Host ("total files in package: " + $count)
 Get-ChildItem $stage | Select-Object Name | ForEach-Object { Write-Host ("  - " + $_.Name) }
