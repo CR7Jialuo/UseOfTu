@@ -8,6 +8,10 @@
 #ifdef _WIN32
 #include <direct.h>
 #include <windows.h>
+#else
+#include <errno.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #endif
 
 void platform_init_console(void)
@@ -181,8 +185,13 @@ int platform_mkdir(const char *path)
     }
     return (GetLastError() == ERROR_ALREADY_EXISTS) ? 0 : -1;
 #else
-    (void)path;
-    return -1;
+    if (path == NULL) {
+        return -1;
+    }
+    if (mkdir(path, 0777) == 0) {
+        return 0;
+    }
+    return (errno == EEXIST) ? 0 : -1;
 #endif
 }
 
