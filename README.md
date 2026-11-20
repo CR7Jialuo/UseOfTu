@@ -1,5 +1,7 @@
 # 校园导航系统（图的最短路径）
 
+[![C tests](https://github.com/CR7Jialuo/UseOfTu/actions/workflows/ci.yml/badge.svg)](https://github.com/CR7Jialuo/UseOfTu/actions/workflows/ci.yml)
+
 > 本科毕业设计（论文）· C11 · Win32 + GDI+ · 江苏海洋大学苍梧校区真实路网
 
 用**无向带权图**建模校园路网，实现两点最短路、转向指引、多点巡游、最近设施、全源最短路、
@@ -123,7 +125,9 @@ campus-nav/
 - 单元测试：22 组 1592 项断言（工具层、数据层、算法层、应用层）
 - 随机交叉验证：30 张随机图上 Dijkstra / Floyd / Bellman-Ford 结果互比
 - 端到端：14 个场景，覆盖全部子命令与错误路径
-- CI：GitHub Actions 在 Linux 上 `make && make test && make e2e`（GUI 仅 Windows 可编译）
+- CI：GitHub Actions 两个作业
+  - `build-and-test`（Linux）：`make && make test && make e2e`
+  - `windows-gui`（Windows Server）：装 MinGW → 构建 CLI+GUI → 跑测试 → 离屏渲染并上传截图
 
 ## 文档
 

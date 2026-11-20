@@ -62,7 +62,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\export_submission.
 
 - [x] M-A GUI：`.ico` 图标（windres 链入）、高 DPI 下窗口尺寸放大、导出当前视图菜单、路径逐段动画
 - [x] M-B GUI：视图菜单(缩放/关键道路)、快捷键说明、方向键平移、--open 定位
-- [x] M-C 应用：`--open` 定位、e2e 增加 GUI 离屏渲染与自检两项检查
+- [x] M-C 应用：`--open` 定位、多点巡游（右击加途经点）、e2e 增加 GUI 检查
+- [x] M-F CI：Windows 作业全绿（MinGW 安装→构建 CLI+GUI→测试→离屏渲染→上传截图）
 - [x] M-D 文档：PPT 改版（真实数据 + GUI 截图，12 页）、报告插图换真实路网（27 页）
 - [x] M-E 交付：重打 zip（112 文件、6.07 MB、含双 exe）、README 附图、CI 复验
 
