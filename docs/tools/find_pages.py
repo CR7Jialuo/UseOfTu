@@ -38,40 +38,30 @@ def main(argv):
         text = page.get_text("text")
         pages.append(text)
 
-    header = norm("课程设计报告")
     body_start = None
     for i, text in enumerate(pages):
-        # 正文页页脚形如“第 1 页”，用它定位正文起始页（避免与封面标题混淆）
-        if re.search(r"第\s*1\s*页", text) and header in norm(text):
+        # 正文页页脚形如“第 1 页 共 N 页”
+        if re.search(r"第\s*1\s*页", text):
             body_start = i
             break
-    if body_start is None:
-        for i, text in enumerate(pages):
-            first_line = next((ln for ln in text.splitlines() if ln.strip()), "")
-            if norm(first_line) == header:
-                body_start = i
-                break
     if body_start is None:
         print("warning: body start not found, assume 0")
         body_start = 0
 
     result = {}
-    cursor = body_start
+    roman = {"摘  要": "I", "Abstract": "II"}
     for entry in entries:
-        if entry.strip() == "摘  要" or entry.strip() == "摘要":
-            result[entry] = "I"  # 摘要位于前置部分，用罗马数字
+        if entry.strip() in roman:
+            result[entry] = roman[entry.strip()]
             continue
         key = norm(entry)
         found = None
-        for i in range(cursor, len(pages)):
-            if key in norm(pages[i]):
+        for i in range(body_start, len(pages)):
+            lines = [norm(ln) for ln in pages[i].splitlines() if ln.strip()]
+            if any(ln == key or ln.startswith(key) for ln in lines):
                 found = i
                 break
-        if found is None:
-            result[entry] = "00"
-        else:
-            result[entry] = found - body_start + 1
-            cursor = found
+        result[entry] = (found - body_start + 1) if found is not None else "00"
 
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
