@@ -353,7 +353,7 @@ ABSTRACT = (
     "BFS 等最短路径算法，并用 Tarjan 算法完成割点与桥的分析，用 Prim、Kruskal 构造最小生成树，"
     "用 Held-Karp 动态规划与 2-opt 启发式求解多点巡游问题。系统支持按距离或步行时间两种权重口径"
     "进行路径规划、最近设施查询、全源最短路矩阵、关键道路分析与图编辑，并提供 CSV 数据导入导出"
-    "和带 CRC32 校验的二进制快照。工程上用脚本统一构建与测试，共 21 组、1578 项自动化断言，"
+    "和带 CRC32 校验的二进制快照。工程上用脚本统一构建与测试，共 22 组、1592 项自动化断言，"
     "并在 GitHub Actions 上完成持续集成。测试结果表明，在 24 个地点、41 条道路的校园图上，"
     "单次 Dijkstra 查询耗时约 3 微秒，随机 120 节点图上的 Floyd 计算约 1 毫秒，"
     "系统能够在毫秒级完成交互查询，并正确处理不连通、负权、非法输入与数据损坏等异常情况。"
@@ -489,7 +489,7 @@ def build_body(doc):
         "（4）实现 Tarjan 割点/桥分析、Prim/Kruskal 最小生成树、Held-Karp 多点巡游；",
         "（5）实现 CSV 导入导出与带 CRC32 校验的二进制快照，支持图编辑；",
         "（6）实现命令行子命令与交互菜单，并绘制 ASCII 校园地图；",
-        "（7）编写 1578 项自动化断言与 14 个端到端场景，接入 GitHub Actions；",
+        "（7）编写 1592 项自动化断言与 14 个端到端场景，接入 GitHub Actions；",
         "（8）完成本报告与答辩用的图表、幻灯片。",
     ]:
         para(doc, item, indent=False)
@@ -797,7 +797,7 @@ def build_body(doc):
               "CHECK_STR 比较字符串。失败时打印文件名、行号与实际/期望值，便于定位。")
 
     heading(doc, "6.2 单元测试", 2)
-    total_checks = sum(g[1] for g in groups) if groups else 1578
+    total_checks = sum(g[1] for g in groups) if groups else 1592
     para(doc, f"单元测试共 {len(groups)} 组、{total_checks} 项断言，覆盖工具层、数据层、算法层与应用集成，"
               "分组统计见表 6-1 与图 6-1。")
     rows = [[name, checks, "通过" if failed == 0 else f"失败 {failed}"]
@@ -861,7 +861,7 @@ def build_body(doc):
               "系统实现了 11 项功能，覆盖 8 类图算法；核心库与界面解耦，可在无控制台环境下被测试程序直接调用；"
               "数据由文件驱动，替换 CSV 即可用于其他校区。")
     para(doc, "工程方面，项目建立了统一的构建、测试与提交前检查脚本，"
-              "共 21 组 1578 项自动化断言与 14 个端到端场景，全部通过；GitHub Actions 在 Linux 上"
+              "共 22 组 1592 项自动化断言与 14 个端到端场景，全部通过；GitHub Actions 在 Linux 上"
               "完成构建与测试，验证了跨平台性。报告与答辩材料由脚本生成，图、表、数据与程序输出一一对应。")
     para(doc, "在过程中也踩到了不少“工程坑”：CSV 分隔符被误写、Floyd 的 next 更新写错方向、"
               "PowerShell 把 UTF-8 脚本读成 ANSI、中文命令行参数乱码、Linux 上 mkdir 未实现等。"

@@ -471,7 +471,7 @@ def write_body(anchor, figures):
             "把《数据结构》中的经典算法落成可运行、可测试、可演示的系统，正是本课题的目标。")
         w.p("本系统以江苏海洋大学苍梧校区为对象，建立了包含 353 个节点（20 个地图编号地点、"
             "319 个路网路口与接驳点）、409 条道路、总长约 22.4 km 的真实路网，"
-            "实现命令行与 Win64 图形两套界面，并用 1578 项自动化断言保证正确性。")
+            "实现命令行与 Win64 图形两套界面，并用 1592 项自动化断言保证正确性。")
 
         w.h2("1.2 国内外研究现状")
         w.p("最短路径算法在 20 世纪 50—60 年代成型：Bellman 与 Ford 的迭代松弛可处理负权边；"
@@ -490,7 +490,7 @@ def write_body(anchor, figures):
             "（4）实现 Tarjan 割点/桥、Prim/Kruskal 最小生成树、Held-Karp 多点巡游；",
             "（5）从高德底图提取真实路网，完成标定、配准、化简与 POI 接入；",
             "（6）实现 CSV/二进制快照持久化、命令行工具与 Win32+GDI+ 图形界面；",
-            "（7）编写 1578 项断言与 14 个端到端场景，接入 GitHub Actions。",
+            "（7）编写 1592 项断言与 14 个端到端场景，接入 GitHub Actions。",
         ]:
             w.p(item, indent=False)
 
@@ -503,7 +503,7 @@ def write_body(anchor, figures):
                  ["编译器", "GCC 16.2.0（w64devkit），C11，-Werror"],
                  ["图形库", "GDI+（gdiplus.dll，Win32 flat API）"],
                  ["构建脚本", "Makefile、scripts/build.ps1、scripts/build_gui.ps1"],
-                 ["测试", "自研断言框架，1578 项断言；端到端脚本 e2e.ps1 / e2e.sh"],
+                 ["测试", "自研断言框架，1592 项断言；端到端脚本 e2e.ps1 / e2e.sh"],
                  ["文档", "python-docx 生成报告，LibreOffice 导出 PDF，Pillow 绘图"]],
                 widths=[3.6, 12.0], cap="表 1-1 开发环境与工具")
 
@@ -702,7 +702,7 @@ def write_body(anchor, figures):
 
         w.h2("6.2 单元测试")
         groups = load_groups()
-        total = sum(g[1] for g in groups) if groups else 1578
+        total = sum(g[1] for g in groups) if groups else 1592
         w.p(f"单元测试共 {len(groups)} 组、{total} 项断言，覆盖工具层、数据层、算法层与应用集成，"
             "分组统计见表 6-1。")
         rows = [[n, c, "通过" if f == 0 else f"失败 {f}"] for n, c, f in groups]
@@ -740,7 +740,7 @@ def write_body(anchor, figures):
         w.big("结论与展望")
         w.p("本文以校园导航为载体，完成了从需求分析、数据结构设计、算法实现到测试与文档的完整闭环。"
             "系统建立了 353 个节点、409 条道路的真实校园路网，实现八类图算法、两套界面、"
-            "1578 项自动化断言，并在 GitHub Actions 上持续集成。")
+            "1592 项自动化断言，并在 GitHub Actions 上持续集成。")
         w.p("工程实践中的主要收获是：把“可测试性”放在“写得快”之前。CSV 分隔符被覆盖、"
             "Floyd 第一跳写反、PowerShell 把 UTF-8 脚本读成 ANSI、中文命令行参数乱码、"
             "Linux 上缺少 <time.h> 与 glibc 的 format-truncation 告警——这些问题单看代码都很难发现，"
@@ -777,7 +777,7 @@ CN_ABSTRACT = [
     "用 Prim、Kruskal 构造最小生成树，用 Held-Karp 动态规划与 2-opt 启发式求解多点巡游。"
     "在表示层，系统提供命令行与 Win32+GDI+ 图形界面两套入口，共用同一核心库；"
     "图形界面支持底图渲染、缩放平移、点选起终点、路径高亮与逐段转向指引。"
-    "工程上用脚本统一构建与测试，共 21 组、1578 项自动化断言，并在 GitHub Actions 上持续集成。"
+    "工程上用脚本统一构建与测试，共 22 组、1592 项自动化断言，并在 GitHub Actions 上持续集成。"
     "测试表明，校区规模下单次 Dijkstra 查询约 3.5 微秒，全源 Floyd 计算约 1 毫秒，"
     "路径结果与程序输出、图形渲染三者一致；系统能正确处理不连通、负权、非法输入与数据损坏等异常。",
 ]
@@ -795,7 +795,7 @@ EN_ABSTRACT = [
     "multi-waypoint tours. Two front ends, a command line tool and a Win32 + GDI+ graphical interface, "
     "share the same core library; the GUI supports map rendering, zooming and panning, point picking, "
     "path highlighting and turn-by-turn guidance.",
-    "All 1578 assertions in 21 groups and 14 end-to-end scenarios pass, and continuous integration "
+    "All 1592 assertions in 22 groups and 14 end-to-end scenarios pass, and continuous integration "
     "runs on GitHub Actions. Measurements show a single Dijkstra query takes about 3.5 microseconds on "
     "the campus graph and a full Floyd computation about 1 millisecond, while path results agree with "
     "both program output and graphical rendering.",

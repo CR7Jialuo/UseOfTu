@@ -1120,6 +1120,56 @@ static void test_campus_consistency(void)
 
 /* ---------------- 6. 性能冒烟 ---------------- */
 
+
+/* 真实数据集回归：防止 data/campus_real 被改坏 */
+static void test_real_dataset(void)
+{
+    Campus c;
+    Graph g;
+    Path path;
+    char err[256];
+    int comp[NAV_MAX_SPOTS + 1];
+    int i;
+
+    printf("== 真实数据集 ==\n");
+    CHECK_INT(campus_load_csv(&c, "data/campus_real/spots.csv", "data/campus_real/roads.csv", err,
+                              sizeof(err)), NAV_OK);
+    CHECK_INT(c.n_spots, 353);
+    CHECK_INT(c.n_roads, 409);
+    CHECK_INT(campus_validate(&c, err, sizeof(err)), NAV_OK);
+    CHECK(campus_is_connected(&c) == 1);
+    CHECK(campus_total_road_length(&c) > 22000.0);
+    CHECK(campus_total_road_length(&c) < 23000.0);
+
+    CHECK_INT(graph_build(&c, 0, &g, err, sizeof(err)), NAV_OK);
+    CHECK_INT(g.n, 353);
+    CHECK_INT(algo_components(&g, comp, err, sizeof(err)), 1);   /* 返回值即连通分量个数 */
+
+    /* 1号门 -> 图书馆 的已知最短路 */
+    CHECK_INT(algo_dijkstra(&g, 1, 5, &path, err, sizeof(err)), NAV_OK);
+    CHECK(path.count > 2);
+    CHECK_NEAR(path.weight, 1114.6, 1.0);
+
+    /* 每个地点（非路口）度数都应为 1（单支路接入） */
+    {
+        int deg[NAV_MAX_SPOTS + 1];
+        int bad = 0;
+        memset(deg, 0, sizeof(deg));
+        for (i = 0; i < c.n_roads; ++i) {
+            ++deg[c.roads[i].from];
+            ++deg[c.roads[i].to];
+        }
+        for (i = 0; i < c.n_spots; ++i) {
+            if (c.spots[i].type != SPOT_JUNCTION && deg[c.spots[i].id] != 1) {
+                ++bad;
+            }
+        }
+        CHECK_INT(bad, 0);
+    }
+
+    graph_free(&g);
+}
+
 static void test_performance(void)
 {
     Campus c;
@@ -1222,6 +1272,7 @@ int main(void)
     run_group("tsp", test_tsp);
     run_group("nearest", test_nearest);
     run_group("cross-validation", test_cross_validation);
+    run_group("real-data", test_real_dataset);
     run_group("consistency", test_campus_consistency);
     run_group("performance", test_performance);
     run_group("app", test_app);

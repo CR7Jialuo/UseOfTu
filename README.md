@@ -14,7 +14,7 @@
 | 真实路网 | 从高德底图提取，353 个节点（20 个地点 + 333 个路口）、409 条道路、总长 22.4 km，全连通 |
 | 双前端 | `nav.exe` 命令行 + `navgui.exe` 图形界面，同一核心库，算法零重复 |
 | 八类算法 | Dijkstra / Floyd / Bellman-Ford / BFS / Tarjan / Prim / Kruskal / Held-Karp |
-| 可测试 | 21 组、1578 项断言，14 个端到端场景，GitHub Actions 持续集成 |
+| 可测试 | 22 组、1592 项断言，14 个端到端场景，GitHub Actions 持续集成 |
 | 可复现 | 全新 clone 即可构建运行；数据、底图、脚本、文档全部入库 |
 
 ## 快速开始（Windows）
@@ -22,7 +22,7 @@
 ```bat
 build.cmd          :: 编译命令行版  -> build\nav.exe
 build_gui.cmd      :: 编译图形版    -> build\navgui.exe
-test.cmd           :: 单元测试（1578 项断言）
+test.cmd           :: 单元测试（1592 项断言）
 run_gui.cmd        :: 打开图形界面（自动定位 data\campus_real）
 ```
 
@@ -119,7 +119,7 @@ campus-nav/
 
 ## 测试与 CI
 
-- 单元测试：21 组 1578 项断言（工具层、数据层、算法层、应用层）
+- 单元测试：22 组 1592 项断言（工具层、数据层、算法层、应用层）
 - 随机交叉验证：30 张随机图上 Dijkstra / Floyd / Bellman-Ford 结果互比
 - 端到端：14 个场景，覆盖全部子命令与错误路径
 - CI：GitHub Actions 在 Linux 上 `make && make test && make e2e`（GUI 仅 Windows 可编译）

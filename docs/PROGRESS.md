@@ -7,7 +7,7 @@
 
 | 项 | 状态 |
 |---|---|
-| 核心库（数据/算法/CSV/快照） | ✅ 完成，1578 项断言通过 |
+| 核心库（数据/算法/CSV/快照） | ✅ 完成，1592 项断言通过 |
 | 真实路网（353 节点 / 409 边 / 22.4 km） | ✅ 完成 |
 | 命令行版 `build\nav.exe` | ✅ 全部子命令实测通过 |
 | 图形版 `build\navgui.exe` | ✅ 可运行；待办：DPI 缩放、图标、细节 |
@@ -42,7 +42,7 @@ LibreOffice Kit：D:\program\deepseek\resources\app.asar.unpacked\dsh\node_modul
 ```powershell
 # 命令行版
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build.ps1
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\test.ps1      # 1578 断言
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\test.ps1      # 1592 断言
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\e2e.ps1       # 14 场景
 
 # 图形版
