@@ -1191,32 +1191,40 @@ static void test_app(void)
     }
 }
 
+static void run_group(const char *name, void (*fn)(void))
+{
+    int before = g_checks;
+    int fails_before = g_fails;
+    fn();
+    printf("[group] %s: %d checks, %d failed\n", name, g_checks - before, g_fails - fails_before);
+}
+
 int main(void)
 {
     printf("校园导航系统 · 自动化测试\n");
     printf("==========================================\n");
 
-    test_crc_and_display();
-    test_default_dataset();
-    test_csv_roundtrip();
-    test_csv_errors();
-    test_binary_roundtrip();
-    test_binary_corruption();
-    test_edit_operations();
-    test_find_spot();
-    test_graph_build();
-    test_dijkstra_basics();
-    test_floyd();
-    test_bellman();
-    test_bfs();
-    test_components_and_tarjan();
-    test_mst();
-    test_tsp();
-    test_nearest();
-    test_cross_validation();
-    test_campus_consistency();
-    test_performance();
-    test_app();
+    run_group("tools", test_crc_and_display);
+    run_group("dataset", test_default_dataset);
+    run_group("csv", test_csv_roundtrip);
+    run_group("csv-errors", test_csv_errors);
+    run_group("binary", test_binary_roundtrip);
+    run_group("binary-corruption", test_binary_corruption);
+    run_group("edit", test_edit_operations);
+    run_group("lookup", test_find_spot);
+    run_group("graph", test_graph_build);
+    run_group("dijkstra", test_dijkstra_basics);
+    run_group("floyd", test_floyd);
+    run_group("bellman", test_bellman);
+    run_group("bfs", test_bfs);
+    run_group("tarjan", test_components_and_tarjan);
+    run_group("mst", test_mst);
+    run_group("tsp", test_tsp);
+    run_group("nearest", test_nearest);
+    run_group("cross-validation", test_cross_validation);
+    run_group("consistency", test_campus_consistency);
+    run_group("performance", test_performance);
+    run_group("app", test_app);
 
     printf("==========================================\n");
     printf("检查项 %d 个，失败 %d 个\n", g_checks, g_fails);

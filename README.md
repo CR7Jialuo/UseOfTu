@@ -100,6 +100,14 @@ campus-nav/
 | Kruskal | O(ElogE) | 稀疏图最小生成树 |
 | Held-Karp | O(2^k·k²) | 途经点 ≤ 12 的精确巡游 |
 
+## 文档
+
+- 报告：`docs/课程设计报告.docx` / `.pdf`（仓库内为脱敏版，个人信息处为【请填写】）
+- 答辩：`docs/答辩演示.pptx`（12 页）
+- 插图：`docs/diagrams/`；生成脚本：`docs/tools/`（Pillow + python-docx + python-pptx）
+- 一键重建：`scripts/make_docs.ps1`（图片 → DOCX → PDF → 回填目录页码 → 再导出 PDF → PPTX）
+- 带真实个人信息的最终版在 `dist/final/`（不提交），由 `scripts/export_submission.ps1` 覆盖进提交包
+
 ## 测试
 
 `tests/test_main.c` 覆盖：

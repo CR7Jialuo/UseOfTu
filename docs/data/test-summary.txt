@@ -1,0 +1,51 @@
+compiler: C:\Users\ZhuanZ\Downloads\learn\.tools\w64devkit\w64devkit\bin\gcc.exe
+校园导航系统 · 自动化测试
+==========================================
+== 工具层 ==
+[group] tools: 7 checks, 0 failed
+== 默认数据集 ==
+[group] dataset: 15 checks, 0 failed
+== CSV 读写 ==
+[group] csv: 106 checks, 0 failed
+== CSV 错误路径 ==
+[group] csv-errors: 16 checks, 0 failed
+== 二进制快照 ==
+[group] binary: 8 checks, 0 failed
+== 快照损坏检测 ==
+[group] binary-corruption: 12 checks, 0 failed
+== 编辑操作 ==
+[group] edit: 29 checks, 0 failed
+== 地点查找 ==
+[group] lookup: 9 checks, 0 failed
+== 图构建 ==
+[group] graph: 18 checks, 0 failed
+== Dijkstra ==
+[group] dijkstra: 19 checks, 0 failed
+== Floyd-Warshall ==
+[group] floyd: 112 checks, 0 failed
+== Bellman-Ford ==
+[group] bellman: 10 checks, 0 failed
+== BFS ==
+[group] bfs: 4 checks, 0 failed
+== 连通分量 / 割点 / 桥 ==
+[group] tarjan: 19 checks, 0 failed
+== 最小生成树 ==
+[group] mst: 10 checks, 0 failed
+== 多点巡游 ==
+[group] tsp: 14 checks, 0 failed
+== 最近设施 ==
+[group] nearest: 9 checks, 0 failed
+== 随机图交叉验证（30 组）==
+[group] cross-validation: 835 checks, 0 failed
+== 校园图算法一致性 ==
+[group] consistency: 289 checks, 0 failed
+== 性能冒烟 ==
+  Dijkstra(128 节点): 0.0000 ms
+  Floyd(128 节点): 1.0000 ms
+[group] performance: 24 checks, 0 failed
+== 应用集成 ==
+[group] app: 13 checks, 0 failed
+==========================================
+检查项 1578 个，失败 0 个
+全部通过。
+all tests passed.
