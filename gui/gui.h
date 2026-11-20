@@ -62,6 +62,8 @@ typedef struct {
     int status_error;
 
     int show_instructions;
+    int anim_segments;      /* 动画：当前已显示的路段数（=0 表示不播放） */
+    int anim_playing;
     int show_critical;      /* 是否高亮桥/割点相关道路 */
     int bridges[GUI_MAX_SHAPE];
     int n_bridges;

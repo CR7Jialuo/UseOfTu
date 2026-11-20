@@ -60,12 +60,19 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\export_submission.
 
 ## 五、待办队列（从上下往下做）
 
-- [ ] M-A GUI：DPI 缩放（字体/面板/坐标）、`.ico` 图标资源（windres）、窗口标题/关于框
-- [ ] M-B GUI：路径动画或起终点高亮、菜单项补全、Esc/Enter 提示、状态栏提示
+- [x] M-A GUI：`.ico` 图标（windres 链入）、高 DPI 下窗口尺寸放大、导出当前视图菜单、路径逐段动画
+- [ ] M-B GUI：菜单项补全（视图/帮助）、快捷键说明、状态栏提示、--open 参数
 - [ ] M-C 应用：`navgui.exe --open <spot>` 参数、最近设施结果高亮、关键道路模式说明
-- [ ] M-D 文档：PPT 重做（真实数据 + GUI 截图）、报告插图替换为最新截图
-- [ ] M-E 交付：重打 zip、更新 README 截图、CI 复验
+- [x] M-D 文档：PPT 改版（真实数据 + GUI 截图，12 页）、报告插图换真实路网（27 页）
+- [x] M-E 交付：重打 zip（112 文件、6.07 MB、含双 exe）、README 附图、CI 复验
 
 ## 六、最近一次提交
 
-`44fa8f8 fix(gui): 数据目录按 exe 位置解析，双击也能启动；提交包含双 exe`
+见 `git log -1`。
+
+## 七、已验证的关键事实（换环境时先查这里）
+
+- 从 GitHub 全新 clone 后：`scripts\build.ps1` 与 `scripts\build_gui.ps1` 均能出 exe（需 gcc 在 PATH 或设 `CC`）
+- `nav.exe --data data/campus_real check`：353 地点 / 409 道路 / 连通 / 141 割点 / 190 桥
+- `navgui.exe --selftest`：开窗 800ms 自动关闭，退出码 0
+- `navgui.exe --shot x.png --route 1 5`：渲染完整路径（动画在截图模式自动关闭）

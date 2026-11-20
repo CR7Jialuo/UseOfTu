@@ -306,6 +306,9 @@ static void draw_path(Gui *g, GpGraphics *gr)
     if (!g->has_path || g->path.count < 2) {
         return;
     }
+    if (g->anim_playing && g->anim_segments <= 0) {
+        return;   /* 动画刚开始，尚未揭示任何路段 */
+    }
     for (i = 0; i + 1 < g->path.count; ++i) {
         int a = g->path.nodes[i];
         int b = g->path.nodes[i + 1];
@@ -341,7 +344,7 @@ static void draw_path(Gui *g, GpGraphics *gr)
             ys[1] = (int)by;
             n = 2;
         }
-        if (n >= 2) {
+        if (n >= 2 && !(g->anim_playing && i >= g->anim_segments)) {
             polyline(gr, xs, ys, n, 0xE6FFFFFF, 11.0f);
             polyline(gr, xs, ys, n, C_PATH, 6.0f);
         }

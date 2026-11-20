@@ -123,7 +123,9 @@ static void do_action(HWND hwnd, int act)
 {
     switch (act) {
     case ACT_PLAN:
-        gui_plan(&g_gui);
+        if (gui_plan(&g_gui) == NAV_OK) {
+            SetTimer(hwnd, 2, 45, NULL);   /* 路径逐段出现的动画 */
+        }
         break;
     case ACT_SET_FROM:
         if (g_gui.selected > 0) {
@@ -204,6 +206,8 @@ static void paint_window(HWND hwnd)
     }
     EndPaint(hwnd, &ps);
 }
+
+static void export_view(HWND hwnd);
 
 static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 {
@@ -287,13 +291,29 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         }
         return 0;
     case WM_COMMAND:
-        if (LOWORD(wp) == 0x9000) {
+        if (LOWORD(wp) == 0x9001) {
+            export_view(hwnd);
+        } else if (LOWORD(wp) == 0x9000) {
             DestroyWindow(hwnd);
         } else {
             do_action(hwnd, (int)LOWORD(wp));
         }
         return 0;
     case WM_TIMER:
+        if (wp == 2) {
+            if (!g_gui.anim_playing) {
+                KillTimer(hwnd, 2);
+                return 0;
+            }
+            ++g_gui.anim_segments;
+            if (g_gui.anim_segments > g_gui.path.count) {
+                g_gui.anim_playing = 0;
+                g_gui.anim_segments = 0;
+                KillTimer(hwnd, 2);
+            }
+            InvalidateRect(hwnd, NULL, FALSE);
+            return 0;
+        }
         KillTimer(hwnd, 1);
         DestroyWindow(hwnd);
         return 0;
@@ -305,6 +325,30 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
     }
 }
 
+static void export_view(HWND hwnd)
+{
+    RECT rc;
+    char path[MAX_PATH];
+    char msg[MAX_PATH + 64];
+    SYSTEMTIME st;
+
+    GetClientRect(hwnd, &rc);
+    if (ensure_backbuffer(rc.right, rc.bottom) != 0) {
+        MessageBoxW(hwnd, W("创建离屏位图失败"), W("导出失败"), MB_OK | MB_ICONERROR);
+        return;
+    }
+    gui_paint(&g_gui, s_back_gr, rc.right, rc.bottom);
+    GetLocalTime(&st);
+    snprintf(path, sizeof(path), "campus-nav-%04d%02d%02d-%02d%02d%02d.png", st.wYear,
+             st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
+    if (save_png(s_back, path) != 0) {
+        MessageBoxW(hwnd, W("保存 PNG 失败"), W("导出失败"), MB_OK | MB_ICONERROR);
+        return;
+    }
+    snprintf(msg, sizeof(msg), "已保存：%s", path);
+    MessageBoxW(hwnd, W(msg), W("导出当前视图"), MB_OK | MB_ICONINFORMATION);
+}
+
 static HMENU build_menu(void)
 {
     HMENU bar = CreateMenu();
@@ -314,6 +358,7 @@ static HMENU build_menu(void)
     HMENU help = CreatePopupMenu();
 
     AppendMenuW(file, MF_STRING, ACT_FIT, W("适应窗口(&F)\tF5"));
+    AppendMenuW(file, MF_STRING, 0x9001, W("导出当前视图(PNG)"));
     AppendMenuW(file, MF_SEPARATOR, 0, NULL);
     AppendMenuW(file, MF_STRING, 0x9000, W("退出(&X)"));
     AppendMenuW(view, MF_STRING, ACT_NEAR_CANTEEN, W("最近食堂"));
@@ -410,6 +455,8 @@ static int run_screenshot(int argc, char **argv, const char *out, int route_from
         g_gui.from_id = route_from;
         g_gui.to_id = route_to;
         gui_plan(&g_gui);
+        g_gui.anim_playing = 0;   /* 截图不要动画，直接画完整路径 */
+        g_gui.anim_segments = 0;
     }
     if (GdipCreateBitmapFromScan0(w, h, 0, PixelFormat32bppPARGB, NULL, &bmp) != Ok) {
         return 3;
@@ -526,9 +573,23 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     if (!RegisterClassExW(&wc)) {
         return 1;
     }
-    hwnd = CreateWindowExW(0, wc.lpszClassName, W("校园导航系统"),
-                           WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1440, 940, NULL,
-                           build_menu(), inst, NULL);
+    {
+        int dpi = 96;
+        int ww = 1440;
+        int wh = 940;
+        HDC sdc = GetDC(NULL);
+        if (sdc != NULL) {
+            dpi = GetDeviceCaps(sdc, LOGPIXELSX);
+            ReleaseDC(NULL, sdc);
+        }
+        if (dpi >= 120) {
+            ww = 1440 * dpi / 96;
+            wh = 940 * dpi / 96;
+        }
+        hwnd = CreateWindowExW(0, wc.lpszClassName, W("校园导航系统"),
+                               WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, ww, wh, NULL,
+                               build_menu(), inst, NULL);
+    }
     if (hwnd == NULL) {
         return 1;
     }

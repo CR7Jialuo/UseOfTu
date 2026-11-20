@@ -317,6 +317,8 @@ int gui_plan(Gui *g)
         return NAV_NOPATH;
     }
     g->has_path = 1;
+    g->anim_playing = 1;
+    g->anim_segments = 0;
     g->status_error = 0;
     snprintf(g->status, sizeof(g->status), "%s → %s：%.1f 米，约 %.1f 分钟（%.2f ms）",
              gui_spot_name(g, g->from_id), gui_spot_name(g, g->to_id),
@@ -494,6 +496,8 @@ int gui_nearest(Gui *g, SpotType type)
     }
     g->to_id = best;
     g->has_path = 1;
+    g->anim_playing = 1;
+    g->anim_segments = 0;
     g->status_error = 0;
     snprintf(g->status, sizeof(g->status), "最近的%s：%s（%.1f 米）", spot_type_label(type),
              gui_spot_name(g, best), gui_path_len(g));
