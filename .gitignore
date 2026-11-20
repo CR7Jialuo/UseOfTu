@@ -1,0 +1,25 @@
+# build artifacts
+build/
+dist/
+*.o
+*.obj
+*.exe
+
+# runtime output
+*.nvg
+*.tmp
+_tmp/
+
+# editors
+.vscode/
+.idea/
+*.iml
+
+# system files
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
+
+# office render cache
+.dsh-office-*/
