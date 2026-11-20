@@ -19,3 +19,55 @@ jobs:
 
       - name: End-to-end tests
         run: make e2e
+
+  # Windows 侧：验证命令行版与图形版都能从干净仓库构建，并跑一次离屏渲染
+  windows-gui:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install MinGW-w64
+        run: choco install mingw --no-progress -y
+
+      - name: Build CLI
+        shell: pwsh
+        run: |
+          $gcc = (Get-Command gcc -ErrorAction SilentlyContinue)
+          if (-not $gcc) { $env:Path = "C:\ProgramData\chocolatey\bin;$env:Path" }
+          $env:CC = (Get-Command gcc).Source
+          Write-Host "gcc: $env:CC"
+          powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build.ps1
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+
+      - name: Unit tests
+        shell: pwsh
+        run: |
+          $env:CC = (Get-Command gcc).Source
+          powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test.ps1
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+
+      - name: Build GUI
+        shell: pwsh
+        run: |
+          $env:CC = (Get-Command gcc).Source
+          powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build_gui.ps1
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+
+      - name: GUI offscreen render
+        shell: pwsh
+        run: |
+          $out = "build/ci-shot.png"
+          & .\build\navgui.exe --data data/campus_real --shot $out --route 1 5 --size 1200x800
+          Start-Sleep -Seconds 3
+          if (-not (Test-Path $out)) { Write-Error "screenshot missing"; exit 1 }
+          $len = (Get-Item $out).Length
+          Write-Host "screenshot bytes: $len"
+          if ($len -lt 20000) { Write-Error "screenshot too small"; exit 1 }
+
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: gui-screenshot
+          path: build/ci-shot.png
+          if-no-files-found: warn
