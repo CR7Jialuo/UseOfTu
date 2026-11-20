@@ -496,9 +496,12 @@ static int run_screenshot(int argc, char **argv, const char *out, int route_from
     (void)argc;
     (void)argv;
     (void)i;
-    if (gui_init(&g_gui, g_data_dir, (char[256]){0}, 256) != NAV_OK) {
-        fprintf(stderr, "init failed\n");
-        return 2;
+    {
+        char err[256] = { 0 };
+        if (gui_init(&g_gui, g_data_dir, err, sizeof(err)) != NAV_OK) {
+            fprintf(stderr, "init failed: dir=%s err=%s\n", g_data_dir, err);
+            return 2;
+        }
     }
     gui_fit_view(&g_gui, w, h);
     if (critical) {
@@ -692,10 +695,17 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
         snprintf(base, sizeof(base), "%s/basemap.png", g_data_dir);
         gui_render_init(base);
     }
-    if (gui_init(&g_gui, g_data_dir, (char[256]){0}, 256) != NAV_OK) {
-        MessageBoxW(hwnd, W("数据加载失败：请检查 data 目录"),
-                    W("错误"), MB_OK | MB_ICONERROR);
-        return 2;
+    {
+        char err[256] = { 0 };
+        if (gui_init(&g_gui, g_data_dir, err, sizeof(err)) != NAV_OK) {
+            char msg[1280];
+            snprintf(msg, sizeof(msg),
+                     "数据目录：%.200s\n错误：%.200s\n\n请确认该目录下存在 spots.csv / roads.csv / "
+                     "meta.json 与 basemap.png。",
+                     g_data_dir, err);
+            MessageBoxW(hwnd, W(msg), W("数据加载失败"), MB_OK | MB_ICONERROR);
+            return 2;
+        }
     }
     {
         RECT rc;

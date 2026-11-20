@@ -60,6 +60,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\export_submission.
 
 ## 五、待办队列（从上下往下做）
 
+- [ ] M-G GUI：界面整体 DPI 缩放（面板/字体按 DPI 放大；目前只放大了窗口尺寸）
+- [ ] M-H 文档：报告/PPT 随功能变化再校准一次
+
 - [x] M-A GUI：`.ico` 图标（windres 链入）、高 DPI 下窗口尺寸放大、导出当前视图菜单、路径逐段动画
 - [x] M-B GUI：视图菜单(缩放/关键道路)、快捷键说明、方向键平移、--open 定位
 - [x] M-C 应用：`--open` 定位、多点巡游（右击加途经点）、e2e 增加 GUI 检查
