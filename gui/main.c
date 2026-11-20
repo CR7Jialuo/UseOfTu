@@ -333,24 +333,14 @@ static HMENU build_menu(void)
 /* ---------------- 截图模式 ---------------- */
 
 static int run_screenshot(int argc, char **argv, const char *out, int route_from, int route_to,
-                          int hover_id, int critical)
+                          int hover_id, int critical, int w, int h)
 {
     GpBitmap *bmp = NULL;
     GpGraphics *gr = NULL;
-    int w = 1400, h = 900;
     int i;
-
     (void)argc;
     (void)argv;
-    for (i = 1; i < argc; ++i) {
-        if (strcmp(argv[i], "--size") == 0 && i + 1 < argc) {
-            int tw = 0, th = 0;
-            if (sscanf(argv[++i], "%dx%d", &tw, &th) == 2) {
-                w = tw;
-                h = th;
-            }
-        }
-    }
+    (void)i;
     if (gui_init(&g_gui, g_data_dir, (char[256]){0}, 256) != NAV_OK) {
         fprintf(stderr, "init failed\n");
         return 2;
@@ -404,6 +394,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     const char *shot = NULL;
     int route_from = 0, route_to = 0;
     int hover_id = 0, critical = 0;
+    int size_w = 1400, size_h = 900;
     int selftest = 0;
     int i;
 
@@ -422,6 +413,12 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
                 shot = argv[++i];
             } else if (strcmp(argv[i], "--hover") == 0 && i + 1 < argc) {
                 hover_id = atoi(argv[++i]);
+            } else if (strcmp(argv[i], "--size") == 0 && i + 1 < argc) {
+                int tw = 0, th = 0;
+                if (sscanf(argv[++i], "%dx%d", &tw, &th) == 2 && tw > 400 && th > 300) {
+                    size_w = tw;
+                    size_h = th;
+                }
             } else if (strcmp(argv[i], "--critical") == 0) {
                 critical = 1;
             } else if (strcmp(argv[i], "--selftest") == 0) {
@@ -462,7 +459,8 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
         char base[512];
         snprintf(base, sizeof(base), "%s/basemap.png", g_data_dir);
         gui_render_init(base);
-        rc = run_screenshot(0, NULL, shot, route_from, route_to, hover_id, critical);
+        rc = run_screenshot(0, NULL, shot, route_from, route_to, hover_id, critical, size_w,
+                            size_h);
         gui_render_shutdown();
         GdiplusShutdown(token);
         return rc;
