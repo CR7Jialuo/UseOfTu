@@ -330,6 +330,53 @@ static HMENU build_menu(void)
     return bar;
 }
 
+
+
+/* 数据目录解析：优先命令行；否则依次尝试 当前目录 / exe 同级 / exe 上一级 */
+static int resolve_data_dir(char *out, size_t cap, const char *cli_dir)
+{
+    static const char *names[] = { "data/campus_real", "data\\campus_real" };
+    char exe[MAX_PATH];
+    int i;
+
+    if (cli_dir != NULL && cli_dir[0] != '\0') {
+        snprintf(out, cap, "%s", cli_dir);
+        return 0;
+    }
+    for (i = 0; i < 2; ++i) {
+        FILE *fp;
+        char probe[MAX_PATH * 2];
+        snprintf(probe, sizeof(probe), "%s/spots.csv", names[i]);
+        fp = fopen(probe, "rb");
+        if (fp != NULL) {
+            fclose(fp);
+            snprintf(out, cap, "%s", names[i]);
+            return 0;
+        }
+    }
+    if (GetModuleFileNameA(NULL, exe, MAX_PATH) > 0) {
+        char *slash = strrchr(exe, '\\');
+        if (slash != NULL) {
+            *slash = '\0';
+        }
+        {
+            char probe[MAX_PATH * 2];
+            snprintf(probe, sizeof(probe), "%s/data/campus_real/spots.csv", exe);
+            if (GetFileAttributesA(probe) != INVALID_FILE_ATTRIBUTES) {
+                snprintf(out, cap, "%s/data/campus_real", exe);
+                return 0;
+            }
+            snprintf(probe, sizeof(probe), "%s/../data/campus_real/spots.csv", exe);
+            if (GetFileAttributesA(probe) != INVALID_FILE_ATTRIBUTES) {
+                snprintf(out, cap, "%s/../data/campus_real", exe);
+                return 0;
+            }
+        }
+    }
+    snprintf(out, cap, "%s", names[0]);
+    return -1;
+}
+
 /* ---------------- 截图模式 ---------------- */
 
 static int run_screenshot(int argc, char **argv, const char *out, int route_from, int route_to,
@@ -405,10 +452,10 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     {
         int argc = 0;
         char **argv = platform_utf8_args(&argc);
-        strcpy(g_data_dir, "data/campus_real");
+        const char *cli_data = NULL;
         for (i = 1; i < argc; ++i) {
             if (strcmp(argv[i], "--data") == 0 && i + 1 < argc) {
-                strcpy(g_data_dir, argv[++i]);
+                cli_data = argv[++i];
             } else if (strcmp(argv[i], "--shot") == 0 && i + 1 < argc) {
                 shot = argv[++i];
             } else if (strcmp(argv[i], "--hover") == 0 && i + 1 < argc) {
@@ -428,6 +475,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
                 route_to = atoi(argv[++i]);
             }
         }
+        resolve_data_dir(g_data_dir, sizeof(g_data_dir), cli_data);
     }
 
     /* 高 DPI 感知：避免系统拉伸导致模糊（Win10 1803+ 才有该 API） */
@@ -456,7 +504,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
 
     if (shot != NULL) {
         int rc;
-        char base[512];
+        char base[1024];
         snprintf(base, sizeof(base), "%s/basemap.png", g_data_dir);
         gui_render_init(base);
         rc = run_screenshot(0, NULL, shot, route_from, route_to, hover_id, critical, size_w,
@@ -484,7 +532,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     }
 
     {
-        char base[512];
+        char base[1024];
         snprintf(base, sizeof(base), "%s/basemap.png", g_data_dir);
         gui_render_init(base);
     }
