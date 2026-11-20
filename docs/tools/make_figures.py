@@ -15,6 +15,7 @@
 """
 
 import csv
+import json
 import math
 import os
 import re
@@ -161,7 +162,8 @@ def load_campus(root):
             line = line.strip()
             if not line or line.startswith("#"):
                 continue
-            rid, a, b, length, minutes = next(csv.reader([line]))
+            row = next(csv.reader([line]))
+            rid, a, b, length, minutes = row[:5]
             roads.append({"id": int(rid), "a": int(a), "b": int(b),
                           "len": float(length), "min": float(minutes)})
     return spots, roads
@@ -212,8 +214,8 @@ def fig_architecture(root, out):
     title_block(d, W, "校园导航系统总体架构", "四层结构：表示层 / 业务层 / 算法层 / 支撑层")
 
     bands = [
-        ("表示层", ["命令行子命令", "交互菜单", "ASCII 校园地图", "JSON 输出"], 160, BLUE),
-        ("业务层", ["路径规划", "多点巡游", "最近设施", "关键道路", "最小生成树"], 380, TEAL),
+        ("表示层", ["Win32 图形界面", "命令行子命令", "交互菜单", "ASCII 地图", "JSON 输出"], 160, BLUE),
+        ("业务层", ["路径规划", "转向指引", "多点巡游", "最近设施", "关键道路", "最小生成树"], 380, TEAL),
         ("算法层", ["Dijkstra", "Floyd", "Bellman-Ford", "Tarjan", "Prim / Kruskal", "Held-Karp"], 600, VIOLET),
         ("支撑层", ["CSV 读写", "二进制快照 + CRC32", "CSR 图结构", "UTF-8 / 计时 / 错误码"], 820, AMBER),
     ]
@@ -539,6 +541,66 @@ def fig_terminal(root, out):
     img.save(out)
 
 
+
+def fig_real_map(root, out):
+    """用真实路网 + 底图生成报告插图（数据来自 data/campus_real）。"""
+    data = os.path.join(root, "data", "campus_real")
+    meta = json.load(open(os.path.join(data, "meta.json"), encoding="utf-8"))
+    m = meta["m_per_px"]
+    ox, oy = meta["px_origin"]
+
+    base = Image.open(os.path.join(data, "basemap.png")).convert("RGB")
+    W, H = base.size
+    img = base.copy()
+    d = ImageDraw.Draw(img)
+
+    def to_px(x, y):
+        return (x / m + ox, oy - y / m)
+
+    # 道路折线
+    with open(os.path.join(data, "shapes.csv"), encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("#") or not line.strip():
+                continue
+            parts = line.strip().split(",")
+            if len(parts) < 3:
+                continue
+            pts = []
+            for pair in parts[2].split(";"):
+                xy = pair.split()
+                if len(xy) == 2:
+                    pts.append(to_px(float(xy[0]), float(xy[1])))
+            if len(pts) >= 2:
+                d.line(pts, fill=(90, 110, 140), width=3, joint="curve")
+
+    # 地点
+    with open(os.path.join(data, "spots.csv"), encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("#") or not line.strip():
+                continue
+            row = next(csv.reader([line]))
+            sid, name, stype, x, y = row[:5]
+            if stype == "junction":
+                continue
+            px, py = to_px(float(x), float(y))
+            d.ellipse((px - 11, py - 11, px + 11, py + 11), fill=(220, 38, 38),
+                      outline=(255, 255, 255), width=3)
+            fnt = font(20, "bold")
+            d.text((px - 7, py - 9), str(int(sid)), font=fnt, fill=(255, 255, 255))
+
+    # 标题条
+    bar = Image.new("RGB", (W, 92), (255, 255, 255))
+    img.paste(bar, (0, 0))
+    d.text((28, 16), "江苏海洋大学（苍梧校区）真实路网", font=font(38, "bold"), fill=(31, 41, 55))
+    d.text((30, 62), "353 个节点（20 个地点 + 333 个路口）· 409 条道路 · 总长 22.4 km",
+           font=font(22), fill=(107, 114, 128))
+
+    # 裁掉右侧空白与底部
+    img = img.crop((0, 0, W, H))
+    img.save(out)
+    print("real map ->", out, img.size)
+
+
 def main(argv):
     root = argv[1] if len(argv) > 1 else os.path.dirname(os.path.dirname(os.path.dirname(
         os.path.abspath(__file__))))
@@ -547,7 +609,7 @@ def main(argv):
 
     fig_architecture(root, os.path.join(out_dir, "architecture.png"))
     fig_flowchart(root, os.path.join(out_dir, "flowchart.png"))
-    fig_campus_map(root, os.path.join(out_dir, "campus-map.png"))
+    fig_real_map(root, os.path.join(out_dir, "campus-map.png"))
     fig_campus_map(root, os.path.join(out_dir, "routing-demo.png"),
                    route=[16, 14, 22, 4], caption="红色为宿舍A区 → 图书馆的最短路径：408.5 米 / 5.2 分钟")
     fig_data_format(root, os.path.join(out_dir, "data-format.png"))

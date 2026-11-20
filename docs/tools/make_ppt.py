@@ -82,7 +82,7 @@ def header(slide, title, subtitle=None):
 
 def footer(slide, idx, total):
     textbox(slide, Inches(0.9), Inches(6.95), Inches(7.0), Inches(0.35),
-            "图的最短路径及其在校园导航中的应用", 10, False, RGBColor(0x9C, 0xA3, 0xAF))
+            "基于最短路径算法的校园导航系统设计与实现", 10, False, RGBColor(0x9C, 0xA3, 0xAF))
     textbox(slide, Inches(11.4), Inches(6.95), Inches(1.0), Inches(0.35), f"{idx} / {total}",
             10, False, RGBColor(0x9C, 0xA3, 0xAF), PP_ALIGN.RIGHT)
 
@@ -174,9 +174,9 @@ def main(argv):
     rect(s, 0, 0, W, H, NAVY)
     rect(s, Inches(0.9), Inches(2.05), Inches(1.6), Inches(0.08), AMBER)
     textbox(s, Inches(0.9), Inches(2.35), Inches(11.5), Inches(1.0),
-            "图的最短路径及其在校园导航中的应用", 40, True, WHITE)
+            "基于最短路径算法的校园导航系统设计与实现", 36, True, WHITE)
     textbox(s, Inches(0.9), Inches(3.45), Inches(11.5), Inches(0.6),
-            "数据结构课程设计 · C11 · 江苏海洋大学（苍梧校区）", 20, False,
+            "本科毕业设计（论文）· C11 + Win32/GDI+ · 江苏海洋大学苍梧校区", 18, False,
             RGBColor(0xC7, 0xD2, 0xE0))
     textbox(s, Inches(0.9), Inches(5.4), Inches(11.5), Inches(1.2),
             PERSON["class"] + "    " + PERSON["name"] + "    " + PERSON["sid"] +
@@ -188,7 +188,7 @@ def main(argv):
     s = blank(prs)
     header(s, "选题背景：校园导航就是一张图")
     bullets(s, [
-        ("问题：24 个地点、41 条道路，从宿舍到图书馆怎么走最近？", True),
+        ("问题：353 个路网节点、409 条道路、22.4 km，从宿舍到教学楼怎么走最近？", True),
         "建模：地点 = 顶点，道路 = 边，长度/步行时间 = 边权 → 无向带权图",
         "单源最短路：任意两地的最快路线（Dijkstra）",
         "全源最短路：任意两地距离一览（Floyd-Warshall）",
@@ -220,7 +220,7 @@ def main(argv):
     idx += 1
     s = blank(prs)
     header(s, "系统设计：四层架构，核心库与界面解耦")
-    picture(s, "architecture.png", max_h=Inches(4.95), top=Inches(1.55), crop_top=140)
+    picture(s, "architecture.png", max_h=Inches(4.7), top=Inches(1.82), crop_top=140)
     footer(s, idx, total)
 
     # 5 数据结构与存储
@@ -272,15 +272,15 @@ def main(argv):
     # 8 数据与工程
     idx += 1
     s = blank(prs)
-    header(s, "数据与工程：可编辑、可校验、可替换")
-    picture(s, "data-format.png", max_h=Inches(4.9), top=Inches(1.6), crop_top=125)
+    header(s, "真实路网：从底图到可导航的图", "0.492 m/px 标定 · 湖面配准 · 二度点合并 · POI 投影")
+    picture(s, "campus-map.png", max_h=Inches(4.7), top=Inches(1.82), crop_top=100)
     footer(s, idx, total)
 
     # 9 演示
     idx += 1
     s = blank(prs)
-    header(s, "运行演示", "命令行：route / critical / mst")
-    picture(s, "terminal-demo.png", max_h=Inches(4.9))
+    header(s, "图形界面：Win32 + GDI+", "缩放平移 · 点选起终点 · 路径高亮 · 逐段转向指引")
+    picture(s, "gui-main.png", max_h=Inches(4.7), top=Inches(1.82), crop_top=0)
     footer(s, idx, total)
 
     # 10 测试
@@ -288,7 +288,7 @@ def main(argv):
     s = blank(prs)
     header(s, "测试：三层验证，全部自动化")
     bullets(s, [
-        ("21 组、1578 项断言，全部通过", True),
+        ("21 组、1578 项断言全部通过；14 个端到端场景全绿", True),
         "单元测试：数据层（CSV 往返、6 类错误、快照篡改/截断）、算法层、编辑与查找",
         "随机交叉验证：30 张随机图，Dijkstra / Floyd / Bellman-Ford 全点对一致",
         "性质测试：路径相邻必有边且权重求和一致；每条桥封闭后图确实分裂",
