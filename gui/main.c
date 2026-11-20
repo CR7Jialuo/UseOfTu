@@ -519,6 +519,8 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     wc.lpfnWndProc = WndProc;
     wc.hInstance = inst;
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+    wc.hIcon = LoadIconW(inst, MAKEINTRESOURCEW(1));
+    wc.hIconSm = wc.hIcon;
     wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
     wc.lpszClassName = L"CampusNavGuiClass";
     if (!RegisterClassExW(&wc)) {
@@ -529,6 +531,13 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
                            build_menu(), inst, NULL);
     if (hwnd == NULL) {
         return 1;
+    }
+    {
+        HICON icon = LoadIconW(inst, MAKEINTRESOURCEW(1));
+        if (icon != NULL) {
+            SendMessageW(hwnd, WM_SETICON, ICON_BIG, (LPARAM)icon);
+            SendMessageW(hwnd, WM_SETICON, ICON_SMALL, (LPARAM)icon);
+        }
     }
 
     {

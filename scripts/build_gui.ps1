@@ -34,8 +34,18 @@ $common = @(
 $core = @('src/campus.c', 'src/graph.c', 'src/algo.c', 'src/platform.c', 'src/crc32.c')
 $gui = @('gui/gui.c', 'gui/render.c', 'gui/main.c')
 
+$windres = Join-Path (Split-Path $gcc) 'windres.exe'
+if (Test-Path $windres) {
+    & $windres -I resources -i resources\app.rc -o build\app_res.o
+    if ($LASTEXITCODE -ne 0) { throw "windres failed" }
+    $res = 'build\app_res.o'
+    Write-Host 'resource compiled: build\app_res.o' -ForegroundColor Cyan
+} else {
+    $res = @()
+}
+
 Write-Host "compiler: $gcc" -ForegroundColor Cyan
-& $gcc @common @core @gui -o 'build/navgui.exe' -mwindows -static `
+& $gcc @common @core @gui $res -o 'build/navgui.exe' -mwindows -static `
     -lgdiplus -lgdi32 -luser32 -lole32 -lshell32 -lcomdlg32 -lm
 if ($LASTEXITCODE -ne 0) { throw "GUI build failed, exit $LASTEXITCODE" }
 Write-Host 'built: build\navgui.exe' -ForegroundColor Green

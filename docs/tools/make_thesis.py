@@ -28,7 +28,9 @@ from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-TEMPLATE = os.path.join(ROOT, "build", "template", "template.docx")
+TEMPLATE = os.path.join(ROOT, "docs", "template", "template.docx")
+if not os.path.exists(TEMPLATE):
+    TEMPLATE = os.path.join(ROOT, "build", "template", "template.docx")
 FIG = os.path.join(ROOT, "docs", "diagrams")
 DATA = os.path.join(ROOT, "docs", "data")
 

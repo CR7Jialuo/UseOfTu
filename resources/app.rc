@@ -1,0 +1,32 @@
+/* 应用资源：图标 + 版本信息（windres 编译后链入 navgui.exe） */
+#include <windows.h>
+
+IDI_APP ICON "app.ico"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION     1,0,0,0
+ PRODUCTVERSION  1,0,0,0
+ FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+ FILEFLAGS       0
+ FILEOS          VOS_NT_WINDOWS32
+ FILETYPE        VFT_APP
+ FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName",      "江苏海洋大学"
+            VALUE "FileDescription",  "校园导航系统（图的最短路径课程设计）"
+            VALUE "FileVersion",      "1.0.0.0"
+            VALUE "InternalName",     "navgui"
+            VALUE "OriginalFilename", "navgui.exe"
+            VALUE "ProductName",      "校园导航系统"
+            VALUE "ProductVersion",   "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
