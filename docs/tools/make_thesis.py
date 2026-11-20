@@ -361,9 +361,29 @@ def fill_cover(doc):
                 cell = t.rows[r].cells[c]
                 cell.text = ""
                 p = cell.paragraphs[0]
-                set_run(p.add_run(val), "楷体_GB2312", 12.0, False)
+                run = p.add_run(val)
+                set_run(run, "楷体_GB2312", 12.0, False)
+                # 去掉模板里的黄色高亮占位
+                rpr = run._element.get_or_add_rPr()
+                for hl in rpr.findall(qn("w:highlight")):
+                    rpr.remove(hl)
             except IndexError:
                 pass
+
+    # 去掉模板封面表格里的黄色高亮（标注用），避免出现在正式报告里
+    if doc.tables:
+        for row in doc.tables[0].rows:
+            for cell in row.cells:
+                for p in cell.paragraphs:
+                    for run in p.runs:
+                        rpr = run._element.find(qn("w:rPr"))
+                        if rpr is not None:
+                            for hl in rpr.findall(qn("w:highlight")):
+                                rpr.remove(hl)
+                tc_pr = cell._tc.find(qn("w:tcPr"))
+                if tc_pr is not None:
+                    for shd in tc_pr.findall(qn("w:shd")):
+                        tc_pr.remove(shd)
 
     # 日期
     for p in doc.paragraphs[:20]:
