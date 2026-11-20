@@ -562,3 +562,63 @@ int gui_toggle_critical(Gui *g)
     g->status_error = 0;
     return 0;
 }
+
+
+void gui_toggle_via(Gui *g, int spot_id)
+{
+    int i;
+
+    for (i = 0; i < g->n_via; ++i) {
+        if (g->via[i] == spot_id) {
+            int k;
+            for (k = i; k + 1 < g->n_via; ++k) {
+                g->via[k] = g->via[k + 1];
+            }
+            --g->n_via;
+            snprintf(g->status, sizeof(g->status), "已移除途经点：%s（还剩 %d 个）",
+                     gui_spot_name(g, spot_id), g->n_via);
+            g->status_error = 0;
+            return;
+        }
+    }
+    if (g->n_via >= 8) {
+        snprintf(g->status, sizeof(g->status), "最多支持 8 个途经点");
+        g->status_error = 1;
+        return;
+    }
+    g->via[g->n_via++] = spot_id;
+    snprintf(g->status, sizeof(g->status), "已添加途经点：%s（共 %d 个）",
+             gui_spot_name(g, spot_id), g->n_via);
+    g->status_error = 0;
+}
+
+int gui_tour(Gui *g)
+{
+    char err[256];
+    double t0;
+    int rc;
+    int order[16];
+
+    if (g->from_id <= 0 || g->to_id <= 0) {
+        snprintf(g->status, sizeof(g->status), "巡游需要先设置起点与终点");
+        g->status_error = 1;
+        return NAV_ERR_ARG;
+    }
+    t0 = now_ms();
+    rc = algo_tsp(&g->graph, g->from_id, g->via, g->n_via, g->to_id, order, &g->path, err,
+                  sizeof(err));
+    g->path_ms = now_ms() - t0;
+    if (rc != NAV_OK) {
+        snprintf(g->status, sizeof(g->status), "巡游规划失败：%.180s", err);
+        g->status_error = 1;
+        return rc;
+    }
+    g->has_path = 1;
+    g->anim_playing = 1;
+    g->anim_segments = 0;
+    g->status_error = 0;
+    snprintf(g->status, sizeof(g->status), "巡游：%s → %d 个途经点 → %s，%.1f 米（%.2f ms）",
+             gui_spot_name(g, g->from_id), g->n_via, gui_spot_name(g, g->to_id), gui_path_len(g),
+             g->path_ms);
+    return NAV_OK;
+}

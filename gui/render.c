@@ -381,6 +381,17 @@ static void draw_spots(Gui *g, GpGraphics *gr)
             r = 8;
         }
         dot(gr, x, y, r, color, C_WHITE);
+        {
+            int vi;
+            for (vi = 0; vi < g->n_via; ++vi) {
+                if (g->via[vi] == s->id) {
+                    char tag[8];
+                    snprintf(tag, sizeof(tag), "%d", vi + 1);
+                    dot(gr, x + 14, y - 14, 8, 0xFFF59E0B, C_WHITE);
+                    text_at(gr, s_font_small, x + 10, y - 23, 20, 18, tag, C_WHITE);
+                }
+            }
+        }
         if (s->id == g->from_id || s->id == g->to_id || s->id == g->selected ||
             s->id == g->hover || g->scale > 0.55) {
             text_at(gr, s_font_small, x + 12, y - 10, 220, 20, s->name, 0xFF111827);
@@ -495,7 +506,14 @@ static void draw_panel(Gui *g, GpGraphics *gr)
     fill(gr, x + 162, 298, 130, 34, C_LIGHT);
     text_at(gr, s_font_small, x + 162, 305, 130, 20, "最近校医院", C_NAVY);
 
-    fill(gr, x + 14, 340, GUI_PANEL_W - 28, 32, g->show_critical ? 0xFFF59E0B : C_LIGHT);
+    fill(gr, x + 14, 340, GUI_PANEL_W - 28, 32, C_LIGHT);
+    {
+        char tour_label[80];
+        snprintf(tour_label, sizeof(tour_label), "巡游规划（右击加途经点，已选 %d）", g->n_via);
+        text_at(gr, s_font_small, x + 26, 346, GUI_PANEL_W - 40, 20, tour_label, C_NAVY);
+    }
+
+    fill(gr, x + 14, 380, GUI_PANEL_W - 28, 32, g->show_critical ? 0xFFF59E0B : C_LIGHT);
     {
         char crit[80];
         if (g->show_critical) {
@@ -503,16 +521,16 @@ static void draw_panel(Gui *g, GpGraphics *gr)
         } else {
             snprintf(crit, sizeof(crit), "关键道路分析（桥/割点）");
         }
-        text_at(gr, s_font_small, x + 26, 346, GUI_PANEL_W - 40, 20, crit,
+        text_at(gr, s_font_small, x + 26, 386, GUI_PANEL_W - 40, 20, crit,
                 g->show_critical ? C_WHITE : C_NAVY);
     }
 
     /* 转向指引 */
-    fill(gr, x + 14, 384, GUI_PANEL_W - 28, 1, C_BORDER);
-    text_at(gr, s_font_ui, x + 16, 392, GUI_PANEL_W - 32, 22, "转向指引", C_NAVY);
+    fill(gr, x + 14, 424, GUI_PANEL_W - 28, 1, C_BORDER);
+    text_at(gr, s_font_ui, x + 16, 432, GUI_PANEL_W - 32, 22, "转向指引", C_NAVY);
 
     {
-        int max_lines = (h - 420 - 34) / 22;
+        int max_lines = (h - 460 - 34) / 22;
         if (max_lines < 1) {
             max_lines = 1;
         }
@@ -522,15 +540,15 @@ static void draw_panel(Gui *g, GpGraphics *gr)
         n_lines = g->show_instructions ? gui_build_instructions(g, lines, max_lines) : 0;
     }
     if (n_lines == 0) {
-        text_at(gr, s_font_small, x + 16, 420, GUI_PANEL_W - 32, 40,
+        text_at(gr, s_font_small, x + 16, 460, GUI_PANEL_W - 32, 40,
                 "选好起终点后点“规划路径”，这里会列出逐段指引。", C_MUTED);
     } else {
-        int ty = 418;
+        int ty = 458;
         for (i = 0; i < n_lines && ty < h - 56; ++i) {
             text_at(gr, s_font_small, x + 16, ty, GUI_PANEL_W - 32, 20, lines[i], 0xFF374151);
             ty += 22;
         }
-        if (n_lines >= (h - 420 - 34) / 22 && g->path.count > 3) {
+        if (n_lines >= (h - 460 - 34) / 22 && g->path.count > 3) {
             char more[64];
             snprintf(more, sizeof(more), "指引较多，已截断（共 %d 步）", g->path.count - 1);
             text_at(gr, s_font_small, x + 16, h - 48, GUI_PANEL_W - 32, 18, more, C_MUTED);
@@ -603,6 +621,9 @@ int gui_panel_hit(const Gui *g, int x, int y)
             return (lx <= 144) ? 4 : 5;           /* 最近食堂 / 校医院 */
         }
         if (y >= 340 && y <= 372) {
+            return 9;                             /* 巡游规划 */
+        }
+        if (y >= 380 && y <= 412) {
             return 8;                             /* 关键道路 */
         }
     }

@@ -46,6 +46,8 @@ typedef struct {
     int hover;         /* 鼠标悬停的地点 id，0 表示无 */
     int selected;      /* 单击选中的地点 */
     int from_id, to_id;
+    int via[8];            /* 巡游途经点（右上角编号显示） */
+    int n_via;
     int pick_mode;     /* 0 无，1 正在选起点，2 正在选终点 */
     int mouse_x, mouse_y;
     int dragging;
@@ -84,6 +86,8 @@ const Shape *gui_shape(const Gui *g, int a, int b);
 
 int  gui_plan(Gui *g);
 int  gui_nearest(Gui *g, SpotType type);
+int  gui_tour(Gui *g);
+void gui_toggle_via(Gui *g, int spot_id);
 double gui_path_len(const Gui *g);
 double gui_path_time(const Gui *g);
 int  gui_build_instructions(const Gui *g, char lines[][200], int max_lines);

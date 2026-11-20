@@ -116,6 +116,7 @@ enum {
     ACT_SWAP,
     ACT_CLEAR,
     ACT_CRITICAL,
+    ACT_TOUR,
     ACT_ZOOM_IN,
     ACT_ZOOM_OUT,
     ACT_ABOUT
@@ -171,6 +172,11 @@ static void do_action(HWND hwnd, int act)
     }
     case ACT_CRITICAL:
         gui_toggle_critical(&g_gui);
+        break;
+    case ACT_TOUR:
+        if (gui_tour(&g_gui) == NAV_OK) {
+            SetTimer(hwnd, 2, 45, NULL);
+        }
         break;
     case ACT_ZOOM_IN:
         gui_zoom_at(&g_gui, g_gui.cw / 2, g_gui.ch / 2, 1.25);
@@ -275,6 +281,15 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
     case WM_LBUTTONUP:
         g_gui.dragging = 0;
         return 0;
+    case WM_RBUTTONDOWN: {
+        int x = GET_X_LPARAM(lp), y = GET_Y_LPARAM(lp);
+        int hit = gui_hit_test(&g_gui, x, y);
+        if (hit > 0) {
+            gui_toggle_via(&g_gui, hit);
+            InvalidateRect(hwnd, NULL, FALSE);
+        }
+        return 0;
+    }
     case WM_MOUSEWHEEL: {
         POINT pt;
         int delta = GET_WHEEL_DELTA_WPARAM(wp);
@@ -300,6 +315,8 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
             do_action(hwnd, ACT_ZOOM_IN);
         } else if (wp == VK_SUBTRACT || wp == VK_OEM_MINUS) {
             do_action(hwnd, ACT_ZOOM_OUT);
+        } else if (wp == 'T') {
+            do_action(hwnd, ACT_TOUR);
         } else if (wp == VK_HOME) {
             do_action(hwnd, ACT_FIT);
         } else if (wp == VK_LEFT) {
@@ -407,6 +424,7 @@ static HMENU build_menu(void)
     AppendMenuW(view, MF_STRING, ACT_NEAR_CANTEEN, W("最近食堂"));
     AppendMenuW(view, MF_STRING, ACT_NEAR_MEDICAL, W("最近校医院"));
     AppendMenuW(path, MF_STRING, ACT_PLAN, W("规划路径(&R)\tEnter"));
+    AppendMenuW(path, MF_STRING, ACT_TOUR, W("多点巡游\tCtrl+T"));
     AppendMenuW(path, MF_STRING, ACT_SWAP, W("交换起终点"));
     AppendMenuW(path, MF_STRING, ACT_CLEAR, W("清除路径\tEsc"));
     AppendMenuW(help, MF_STRING, 0x9002, W("快捷键说明(&K)"));
@@ -470,7 +488,7 @@ static int resolve_data_dir(char *out, size_t cap, const char *cli_dir)
 /* ---------------- 截图模式 ---------------- */
 
 static int run_screenshot(int argc, char **argv, const char *out, int route_from, int route_to,
-                          int hover_id, int critical, int w, int h)
+                          int hover_id, int critical, int w, int h, const char *via_csv)
 {
     GpBitmap *bmp = NULL;
     GpGraphics *gr = NULL;
@@ -499,7 +517,24 @@ static int run_screenshot(int argc, char **argv, const char *out, int route_from
     if (route_from > 0 && route_to > 0) {
         g_gui.from_id = route_from;
         g_gui.to_id = route_to;
-        gui_plan(&g_gui);
+        if (via_csv != NULL && via_csv[0] != '\0') {
+            const char *p = via_csv;
+            while (*p != '\0' && g_gui.n_via < 8) {
+                int id = atoi(p);
+                if (id > 0) {
+                    g_gui.via[g_gui.n_via++] = id;
+                }
+                while (*p != '\0' && *p != ',') {
+                    ++p;
+                }
+                if (*p == ',') {
+                    ++p;
+                }
+            }
+            gui_tour(&g_gui);
+        } else {
+            gui_plan(&g_gui);
+        }
         g_gui.anim_playing = 0;   /* 截图不要动画，直接画完整路径 */
         g_gui.anim_segments = 0;
     }
@@ -534,6 +569,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     int route_from = 0, route_to = 0;
     int hover_id = 0, critical = 0;
     int open_id = 0;
+    const char *via_csv = NULL;
     int size_w = 1400, size_h = 900;
     int selftest = 0;
     int i;
@@ -553,6 +589,8 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
                 shot = argv[++i];
             } else if (strcmp(argv[i], "--open") == 0 && i + 1 < argc) {
                 open_id = atoi(argv[++i]);
+            } else if (strcmp(argv[i], "--via") == 0 && i + 1 < argc) {
+                via_csv = argv[++i];
             } else if (strcmp(argv[i], "--hover") == 0 && i + 1 < argc) {
                 hover_id = atoi(argv[++i]);
             } else if (strcmp(argv[i], "--size") == 0 && i + 1 < argc) {
@@ -603,7 +641,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
         snprintf(base, sizeof(base), "%s/basemap.png", g_data_dir);
         gui_render_init(base);
         rc = run_screenshot(0, NULL, shot, route_from, route_to, hover_id, critical, size_w,
-                            size_h);
+                            size_h, via_csv);
         gui_render_shutdown();
         GdiplusShutdown(token);
         return rc;
