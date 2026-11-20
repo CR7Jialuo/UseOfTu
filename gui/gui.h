@@ -78,6 +78,7 @@ void gui_screen_to_world(const Gui *g, double sx, double sy, double *x, double *
 void gui_zoom_at(Gui *g, int sx, int sy, double factor);
 void gui_pan(Gui *g, int dx, int dy);
 int  gui_hit_test(const Gui *g, int sx, int sy);
+void gui_center_on(Gui *g, int spot_id, double zoom);
 
 const Shape *gui_shape(const Gui *g, int a, int b);
 

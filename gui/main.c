@@ -116,6 +116,8 @@ enum {
     ACT_SWAP,
     ACT_CLEAR,
     ACT_CRITICAL,
+    ACT_ZOOM_IN,
+    ACT_ZOOM_OUT,
     ACT_ABOUT
 };
 
@@ -169,6 +171,12 @@ static void do_action(HWND hwnd, int act)
     }
     case ACT_CRITICAL:
         gui_toggle_critical(&g_gui);
+        break;
+    case ACT_ZOOM_IN:
+        gui_zoom_at(&g_gui, g_gui.cw / 2, g_gui.ch / 2, 1.25);
+        break;
+    case ACT_ZOOM_OUT:
+        gui_zoom_at(&g_gui, g_gui.cw / 2, g_gui.ch / 2, 1.0 / 1.25);
         break;
     case ACT_ABOUT:
         MessageBoxW(hwnd,
@@ -288,10 +296,40 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
             do_action(hwnd, ACT_SET_FROM);
         } else if (wp == '2') {
             do_action(hwnd, ACT_SET_TO);
+        } else if (wp == VK_ADD || wp == VK_OEM_PLUS) {
+            do_action(hwnd, ACT_ZOOM_IN);
+        } else if (wp == VK_SUBTRACT || wp == VK_OEM_MINUS) {
+            do_action(hwnd, ACT_ZOOM_OUT);
+        } else if (wp == VK_HOME) {
+            do_action(hwnd, ACT_FIT);
+        } else if (wp == VK_LEFT) {
+            gui_pan(&g_gui, 60, 0);
+            InvalidateRect(hwnd, NULL, FALSE);
+        } else if (wp == VK_RIGHT) {
+            gui_pan(&g_gui, -60, 0);
+            InvalidateRect(hwnd, NULL, FALSE);
+        } else if (wp == VK_UP) {
+            gui_pan(&g_gui, 0, 60);
+            InvalidateRect(hwnd, NULL, FALSE);
+        } else if (wp == VK_DOWN) {
+            gui_pan(&g_gui, 0, -60);
+            InvalidateRect(hwnd, NULL, FALSE);
+        } else if (wp == VK_SPACE && g_gui.has_path) {
+            g_gui.anim_playing = 1;
+            g_gui.anim_segments = 0;
+            SetTimer(hwnd, 2, 45, NULL);
         }
         return 0;
     case WM_COMMAND:
-        if (LOWORD(wp) == 0x9001) {
+        if (LOWORD(wp) == 0x9002) {
+            MessageBoxW(hwnd,
+                        W("鼠标：滚轮缩放 · 按住拖动平移 · 单击选点\n"
+                          "键盘：1 设为起点 · 2 设为终点 · Enter 规划\n"
+                          "      + / - 缩放 · 方向键平移 · Home 适应窗口\n"
+                          "      空格 重播路径动画 · Esc 清除路径\n"
+                          "菜单：文件可导出当前视图为 PNG"),
+                        W("快捷键说明"), MB_OK | MB_ICONINFORMATION);
+        } else if (LOWORD(wp) == 0x9001) {
             export_view(hwnd);
         } else if (LOWORD(wp) == 0x9000) {
             DestroyWindow(hwnd);
@@ -361,11 +399,18 @@ static HMENU build_menu(void)
     AppendMenuW(file, MF_STRING, 0x9001, W("导出当前视图(PNG)"));
     AppendMenuW(file, MF_SEPARATOR, 0, NULL);
     AppendMenuW(file, MF_STRING, 0x9000, W("退出(&X)"));
+    AppendMenuW(view, MF_STRING, ACT_ZOOM_IN, W("放大\t+"));
+    AppendMenuW(view, MF_STRING, ACT_ZOOM_OUT, W("缩小\t-"));
+    AppendMenuW(view, MF_SEPARATOR, 0, NULL);
+    AppendMenuW(view, MF_STRING, ACT_CRITICAL, W("关键道路高亮"));
+    AppendMenuW(view, MF_SEPARATOR, 0, NULL);
     AppendMenuW(view, MF_STRING, ACT_NEAR_CANTEEN, W("最近食堂"));
     AppendMenuW(view, MF_STRING, ACT_NEAR_MEDICAL, W("最近校医院"));
     AppendMenuW(path, MF_STRING, ACT_PLAN, W("规划路径(&R)\tEnter"));
     AppendMenuW(path, MF_STRING, ACT_SWAP, W("交换起终点"));
     AppendMenuW(path, MF_STRING, ACT_CLEAR, W("清除路径\tEsc"));
+    AppendMenuW(help, MF_STRING, 0x9002, W("快捷键说明(&K)"));
+    AppendMenuW(help, MF_SEPARATOR, 0, NULL);
     AppendMenuW(help, MF_STRING, ACT_ABOUT, W("关于(&A)"));
 
     AppendMenuW(bar, MF_POPUP, (UINT_PTR)file, W("文件(&F)"));
@@ -488,6 +533,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     const char *shot = NULL;
     int route_from = 0, route_to = 0;
     int hover_id = 0, critical = 0;
+    int open_id = 0;
     int size_w = 1400, size_h = 900;
     int selftest = 0;
     int i;
@@ -505,6 +551,8 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
                 cli_data = argv[++i];
             } else if (strcmp(argv[i], "--shot") == 0 && i + 1 < argc) {
                 shot = argv[++i];
+            } else if (strcmp(argv[i], "--open") == 0 && i + 1 < argc) {
+                open_id = atoi(argv[++i]);
             } else if (strcmp(argv[i], "--hover") == 0 && i + 1 < argc) {
                 hover_id = atoi(argv[++i]);
             } else if (strcmp(argv[i], "--size") == 0 && i + 1 < argc) {
@@ -614,7 +662,15 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     {
         RECT rc;
         GetClientRect(hwnd, &rc);
+        g_gui.cw = rc.right;
+        g_gui.ch = rc.bottom;
         gui_fit_view(&g_gui, rc.right, rc.bottom);
+        if (open_id > 0 && campus_spot(&g_gui.campus, open_id) != NULL) {
+            g_gui.selected = open_id;
+            gui_center_on(&g_gui, open_id, 1.6);
+            snprintf(g_gui.status, sizeof(g_gui.status), "已定位：%s（编号 %d）",
+                     gui_spot_name(&g_gui, open_id), open_id);
+        }
     }
 
     ShowWindow(hwnd, SW_SHOW);

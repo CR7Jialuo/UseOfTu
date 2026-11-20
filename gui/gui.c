@@ -291,6 +291,19 @@ int gui_hit_test(const Gui *g, int sx, int sy)
     return best;
 }
 
+void gui_center_on(Gui *g, int spot_id, double zoom)
+{
+    const Spot *s = campus_spot(&g->campus, spot_id);
+    if (s == NULL) {
+        return;
+    }
+    if (zoom > 0.0) {
+        g->scale = zoom;
+    }
+    g->view_x0 = s->x - (double)g->cw / (2.0 * g->scale);
+    g->view_y1 = s->y + (double)g->ch / (2.0 * g->scale);
+}
+
 int gui_plan(Gui *g)
 {
     char err[256];
