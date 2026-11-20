@@ -316,6 +316,28 @@ def page_field(section, prefix="第 ", suffix=" 页"):
     set_run(p.add_run(suffix), SONG, 9)
 
 
+def set_numpages(doc, n):
+    """把页脚 NUMPAGES 域的缓存值改成 n（Word 打开仍会自动刷新）。"""
+    changed = 0
+    for section in doc.sections:
+        for container in (section.footer, section.header, section.first_page_footer,
+                          section.first_page_header, section.even_page_footer,
+                          section.even_page_header):
+            try:
+                paras = container.paragraphs
+            except Exception:
+                continue
+            for p in paras:
+                runs = p.runs
+                for i, r in enumerate(runs):
+                    if "NUMPAGES" in r._r.xml and i + 1 < len(runs):
+                        nxt = runs[i + 1]
+                        if nxt.text.strip().isdigit():
+                            nxt.text = str(n)
+                            changed += 1
+    return changed
+
+
 def restart_numbering(section, start=1):
     sect_pr = section._sectPr
     for old in sect_pr.findall(qn("w:pgNumType")):
@@ -848,6 +870,7 @@ def main(argv):
     ap.add_argument("--out", default=os.path.join(ROOT, "docs", "课程设计报告.docx"))
     ap.add_argument("--mask", action="store_true")
     ap.add_argument("--template", default=TEMPLATE)
+    ap.add_argument("--numpages", type=int, default=0)
     args = ap.parse_args(argv[1:])
 
     if args.mask:
@@ -873,12 +896,24 @@ def main(argv):
     write_toc(anchors[2], pages)
     write_body(anchors[3], None)
     # 结论/致谢/参考文献已写在正文节；第 7 节保持空（其锚点是 body 级 sectPr，不能删）
+    # 再清一次第 7 节：模板在最后还留了“著录格式说明”，前面按边界清空时可能被漏掉
+    clear_section(doc, 7)
 
     # 正文节页码：从 1 开始
     if len(doc.sections) > 5:
         restart_numbering(doc.sections[5], 1)
         if not doc.sections[5].footer.paragraphs[0].text.strip():
             page_field(doc.sections[5])
+
+    if args.numpages > 0:
+        set_numpages(doc, args.numpages)
+
+    # 让 Word/LibreOffice 打开时刷新域（页眉页脚里的“共 N 页”）
+    settings = doc.settings.element
+    if settings.find(qn("w:updateFields")) is None:
+        uf = OxmlElement("w:updateFields")
+        uf.set(qn("w:val"), "true")
+        settings.append(uf)
 
     doc.save(args.out)
     json.dump([t for t, _ in TOC], open(os.path.join(ROOT, "docs", "toc_entries.json"), "w",

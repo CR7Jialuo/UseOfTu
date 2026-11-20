@@ -61,16 +61,21 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\export_submission.
 ## 五、待办队列（从上下往下做）
 
 - [x] M-A GUI：`.ico` 图标（windres 链入）、高 DPI 下窗口尺寸放大、导出当前视图菜单、路径逐段动画
-- [ ] M-B GUI：菜单项补全（视图/帮助）、快捷键说明、状态栏提示、--open 参数
+- [x] M-B GUI：视图菜单(缩放/关键道路)、快捷键说明、方向键平移、--open 定位
 - [ ] M-C 应用：`navgui.exe --open <spot>` 参数、最近设施结果高亮、关键道路模式说明
 - [x] M-D 文档：PPT 改版（真实数据 + GUI 截图，12 页）、报告插图换真实路网（27 页）
 - [x] M-E 交付：重打 zip（112 文件、6.07 MB、含双 exe）、README 附图、CI 复验
 
-## 六、最近一次提交
+## 六、已知环境问题（不是 bug）
+
+- 页眉/页脚的“共 N 页”是 NUMPAGES 域：LibreOffice 转换 PDF 时会按它自己的算法算（比实际多 1~2 页），
+  原模板转换也一样（13 页却显示“共 14 页”）。Word 打开会重新计算，无需处理。
+
+## 七、最近一次提交
 
 见 `git log -1`。
 
-## 七、已验证的关键事实（换环境时先查这里）
+## 八、已验证的关键事实（换环境时先查这里）
 
 - 从 GitHub 全新 clone 后：`scripts\build.ps1` 与 `scripts\build_gui.ps1` 均能出 exe（需 gcc 在 PATH 或设 `CC`）
 - `nav.exe --data data/campus_real check`：353 地点 / 409 道路 / 连通 / 141 割点 / 190 桥

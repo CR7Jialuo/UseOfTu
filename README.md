@@ -1,186 +1,136 @@
 # 校园导航系统（图的最短路径）
 
-> 数据结构课程设计 · C11 · 江苏海洋大学（苍梧校区）示意校园
+> 本科毕业设计（论文）· C11 · Win32 + GDI+ · 江苏海洋大学苍梧校区真实路网
 
-一个用**无向带权图**建模校园路网的命令行导航程序：支持两点最短路、多点巡游、最近设施、全源最短路、关键道路分析、最小生成树，以及图的增删改与持久化。
+用**无向带权图**建模校园路网，实现两点最短路、转向指引、多点巡游、最近设施、全源最短路、
+关键道路（割点/桥）分析、最小生成树，并提供**命令行**与**图形界面**两套入口，核心算法完全共用。
 
-## 功能一览
+![图形界面](docs/diagrams/gui-main.png)
 
-| 编号 | 功能 | 算法/说明 |
-|---|---|---|
-| 1 | 校园示意地图 | 按坐标把 24 个地点与 41 条道路画成 ASCII 图 |
-| 2 | 地点列表 / 详情 | 类型、坐标、简介、相邻道路 |
-| 3 | 路径规划 | Dijkstra（二叉堆，O((V+E)logV)），可按距离或步行时间 |
-| 4 | 多点巡游 | Held-Karp 精确解（途经点 ≤ 12）+ 最近邻 2-opt 近似（> 12） |
-| 5 | 最近设施 | 单源 Dijkstra + 同类设施筛选 |
-| 6 | 全源最短路 | Floyd-Warshall，O(V³)，输出矩阵并重建路径 |
-| 7 | 关键道路分析 | Tarjan 求割点与桥，评估封路风险 |
-| 8 | 最小生成树 | Prim 与 Kruskal 双实现互相校验 |
-| 9 | 图编辑 | 增删地点/道路、改长度与时间、封闭/恢复道路 |
-| 10 | 数据管理 | CSV 导入导出、二进制快照（magic + 版本 + CRC32） |
-| 11 | 算法对比实验 | 随机图基准，输出各算法耗时 |
+## 亮点
 
-## 快速开始
+| 项 | 说明 |
+|---|---|
+| 真实路网 | 从高德底图提取，353 个节点（20 个地点 + 333 个路口）、409 条道路、总长 22.4 km，全连通 |
+| 双前端 | `nav.exe` 命令行 + `navgui.exe` 图形界面，同一核心库，算法零重复 |
+| 八类算法 | Dijkstra / Floyd / Bellman-Ford / BFS / Tarjan / Prim / Kruskal / Held-Karp |
+| 可测试 | 21 组、1578 项断言，14 个端到端场景，GitHub Actions 持续集成 |
+| 可复现 | 全新 clone 即可构建运行；数据、底图、脚本、文档全部入库 |
 
-```bash
-# Windows（脚本自带找 gcc，找不到会提示设置 CC）
-build.cmd          # 编译 -> build\nav.exe
-test.cmd           # 单元测试（1500+ 断言）
-run.cmd            # 交互菜单
+## 快速开始（Windows）
 
-# 或者直接用 PowerShell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verify.ps1
+```bat
+build.cmd          :: 编译命令行版  -> build\nav.exe
+build_gui.cmd      :: 编译图形版    -> build\navgui.exe
+test.cmd           :: 单元测试（1578 项断言）
+run_gui.cmd        :: 打开图形界面（自动定位 data\campus_real）
 ```
 
+已经编译好的可直接双击：
+
+```bat
+build\navgui.exe
+```
+
+> 图形界面会按“当前目录 → exe 同级 → exe 上一级”顺序寻找 `data\campus_real`，
+> 因此双击、从任意目录启动、放进提交包解压后运行都能正常加载数据。
+
+Linux / CI：
+
 ```bash
-# Linux / CI
 make && make test && make e2e
 ```
 
-运行示例：
+## 命令行示例
 
 ```bash
-nav route 宿舍A区 图书馆 --json
-nav route 东大门 图书馆 --by time
-nav tour 东大门 图书馆 第一教学楼 学生一食堂
-nav near 宿舍A区 canteen
-nav critical
-nav bench --nodes 120 --repeat 50
+nav --data data/campus_real check                  # 校验数据：353 地点 / 409 道路 / 连通
+nav --data data/campus_real route 1 5              # 1号门 -> 图书馆（含逐段转向指引）
+nav --data data/campus_real route 18 6 --by time   # 按步行时间（学生公寓A区 -> 文达楼）
+nav --data data/campus_real route 1 5 --json       # JSON 输出，便于脚本比对
+nav --data data/campus_real tour 1 5 6 7           # 多点巡游，顺序自动优化
+nav --data data/campus_real near 3 canteen         # 最近的食堂
+nav --data data/campus_real critical               # 割点与桥（141 / 190）
+nav --data data/campus_real mst                    # 最小生成树（Prim 与 Kruskal 互校验）
+nav --data data/campus_real bench --nodes 100      # 算法基准
+```
+
+## 图形界面
+
+| 操作 | 说明 |
+|---|---|
+| 滚轮 | 以光标为中心缩放 |
+| 按住拖动 | 平移地图 |
+| 单击地点 | 选中（右侧栏与状态栏同步显示） |
+| `1` / `2` | 把选中地点设为起点 / 终点 |
+| `Enter` | 规划路径（逐段播放动画） |
+| `+` / `-` / `Home` | 放大 / 缩小 / 适应窗口 |
+| 方向键 | 平移视图 |
+| `空格` | 重播路径动画 |
+| `Esc` | 清除路径 |
+| 菜单「文件」 | 导出当前视图为 PNG |
+
+右侧栏：起终点、距离/时间口径切换、规划按钮、最近食堂/校医院、关键道路开关、逐段转向指引。
+
+离屏渲染（用于文档配图与回归检查）：
+
+```bash
+navgui.exe --data data/campus_real --shot out.png --route 1 5 --size 1440x920
+navgui.exe --data data/campus_real --selftest        # 开窗 0.8 秒自动关闭，冒烟测试
+navgui.exe --data data/campus_real --open 5          # 启动即定位到 5 号地点
 ```
 
 ## 目录结构
 
 ```text
 campus-nav/
-├─ include/          头文件（nav/campus/graph/algo/app/ui/platform/crc32/bench/err）
-├─ src/              实现（含自动生成的 default_campus.c）
+├─ include/          公共头文件（nav/campus/graph/algo/app/ui/platform/crc32/bench/err）
+├─ src/              核心实现与命令行入口
+├─ gui/              图形界面（gui.h / gui.c / render.c / main.c）
 ├─ tests/            自动化测试（独立编译，直接链接核心 .c）
-├─ data/campus/      校园数据：spots.csv + roads.csv
-├─ docs/             报告、PPT、图表、生成脚本（gen_campus.py / make_docs.py ...）
-├─ scripts/          build/test/run/e2e/verify/export/push
-├─ .github/workflows/ci.yml
-├─ Makefile  build.cmd  test.cmd  run.cmd
-└─ README.md
+├─ data/campus/      示意数据（24 地点 / 41 道路），用于测试
+├─ data/campus_real/ 真实数据（353 节点 / 409 道路，含底图与折线）
+├─ resources/        图标与资源脚本（app.ico / app.rc）
+├─ scripts/          构建、测试、端到端、导出、推送
+├─ docs/             报告、PPT、图表、模板与生成脚本
+└─ .github/          CI 配置
 ```
 
-## 数据格式
+## 算法一览
 
-`data/campus/spots.csv`：
-
-```csv
-# title: 江苏海洋大学（苍梧校区）
-# 字段：编号,名称,类型,横坐标(米),纵坐标(米),简介
-1,东大门,gate,900,360,学校正门 临近公交站与校外主干道
-```
-
-`data/campus/roads.csv`（无向边）：
-
-```csv
-# 字段：编号,起点编号,终点编号,长度(米),步行时间(分钟)
-1,1,12,147.3,1.9
-```
-
-类型取值为 `gate/teaching/library/admin/dorm/canteen/sport/medical/service/scenic`。
-数据由 `docs/tools/gen_campus.py` 生成（坐标 × 路线系数 1.12 得到长度，按 78 米/分钟折算时间），
-`src/default_campus.c` 是同一份数据的内置副本，用于 CSV 缺失时兜底。
-
-> **数据说明**：校园地点的**名称与功能**取自学校实际楼宇类型，但**坐标为教学示意值**，并非实测测绘数据；
-> 距离按校园路网绕行系数估算。若需接入真实地图，替换两个 CSV 即可，核心算法无需改动。
-
-## 算法与复杂度
-
-| 算法 | 复杂度 | 适用场景 |
+| 算法 | 复杂度 | 用途 |
 |---|---|---|
-| Dijkstra（二叉堆） | O((V+E)logV) | 单源、非负权、交互查询 |
-| Floyd-Warshall | O(V³) | 全源矩阵、小规模（V ≤ 128） |
-| Bellman-Ford | O(VE) | 支持负权、检测负权回路 |
-| BFS | O(V+E) | 最少路段数 |
-| Tarjan | O(V+E) | 割点、桥（关键道路） |
-| Prim | O(V²+E) | 稠密图最小生成树 |
-| Kruskal | O(ElogE) | 稀疏图最小生成树 |
-| Held-Karp | O(2^k·k²) | 途经点 ≤ 12 的精确巡游 |
+| Dijkstra（二叉堆 + 惰性删除） | O((V+E)logE) | 单源最短路，交互查询 |
+| Floyd-Warshall | O(V³) | 全源最短路矩阵 |
+| Bellman-Ford | O(VE) | 负权与负环检测 |
+| BFS | O(V+E) | 最少路段数路径 |
+| Tarjan | O(V+E) | 割点与桥 |
+| Prim / Kruskal | O(V²) / O(ElogE) | 最小生成树，互相校验 |
+| Held-Karp + 2-opt | O(2^k·k²) | 多点巡游（k≤12 精确，否则近似） |
 
-## 数据说明
+## 真实路网怎么来的
 
-仓库里有两套数据：
+1. 底图标定：0.492 m/px，2572×2582；
+2. 湖面配准：参考图与路网图之间求相似变换（尺度 1.5086），四个校门落点误差 3.7~12 m；
+3. 拓扑化简：496 节点 / 563 边 → 去自环、重复边、零长边 → 合并二度点 → 319 路口 / 376 边；
+4. POI 投影：20 个地图编号地点投影到最近道路，生成单支路连接。
 
-| 目录 | 内容 | 用途 |
-|---|---|---|
-| `data/campus/` | 24 个示意地点、41 条道路 | 课程演示、单元测试基准（数值为示意值） |
-| `data/campus_real/` | **真实校区路网**：353 个节点（20 个地图编号地点 + 333 个路口）、409 条道路、22.4 km | 真实导航演示 |
+结果：353 节点 / 409 边 / 22.4 km，全连通，每个地点度数均为 1。
 
-真实数据的生成链路（`docs/tools/`）：
+## 测试与 CI
 
-```
-外部路网(KML/GPX/GeoJSON)  →  simplify_network.py   清理 + 二度点合并
-                           →  build_campus_graph.py   20 个 POI 投影接入
-                           →  export_campus_csv.py    spots.csv / roads.csv
-```
-
-用真实数据运行：
-
-```bash
-nav --data data/campus_real route 1 5      # 1号门 → 图书馆：1114.6 米 / 22.3 分钟
-nav --data data/campus_real critical
-python docs/tools/render_route.py --from 18 --to 6 --out route.png   # 底图路线图
-```
-
-路径输出会附带**转向指引**（按折线方位角判定左转/右转/直行，并结合路名与里程）。
-
-## 图形界面（Win64）
-
-`gui/` 是独立的表示层，用 **Win32 + GDI+** 写成，核心算法一行未改：
-
-```bash
-build_gui.cmd     # 编译 -> build\navgui.exe
-run_gui.cmd       # 打开窗口（默认加载 data/campus_real）
-
-# 离屏渲染一帧，便于回归检查与文档配图
-build\navgui.exe --data data/campus_real --shot out.png --route 1 5 --size 1400x900
-# 开窗 0.8 秒自动关闭，用于自动化冒烟测试
-build\navgui.exe --data data/campus_real --selftest
-```
-
-| 模块 | 职责 |
-|---|---|
-| `gui/gui.h` | 状态结构、视图变换、命中测试、规划接口 |
-| `gui/gui.c` | 数据加载（CSV + meta.json + shapes.csv）、缩放平移、路径规划、转向指引 |
-| `gui/render.c` | GDI+ 双缓冲绘制：底图分级、路网、路径、地点、关键道路、侧栏、状态栏 |
-| `gui/main.c` | 窗口类、消息循环、菜单、键盘鼠标、截图与自检模式 |
-
-交互：滚轮缩放、拖拽平移、单击选点、`1/2` 设为起终点、`Enter` 规划、`F5` 适应窗口、`Esc` 清除；
-右侧栏可切换距离/时间口径、查询最近食堂/校医院、高亮关键道路（桥）。
-
-> 说明：GDI+ 在纯 C 下要用 flat API（`GpGraphics`/`GdipDrawString`），且所有中文串走
-> “UTF-8 源码 + `MultiByteToWideChar` 运行时转换”，不用 `L"..."` 宽字面量（会被执行字符集搞乱）。
-> GitHub Actions 的 Linux runner 只构建命令行版；GUI 仅 Windows 可编译。
+- 单元测试：21 组 1578 项断言（工具层、数据层、算法层、应用层）
+- 随机交叉验证：30 张随机图上 Dijkstra / Floyd / Bellman-Ford 结果互比
+- 端到端：14 个场景，覆盖全部子命令与错误路径
+- CI：GitHub Actions 在 Linux 上 `make && make test && make e2e`（GUI 仅 Windows 可编译）
 
 ## 文档
 
-- 报告：`docs/课程设计报告.docx` / `.pdf`（仓库内为脱敏版，个人信息处为【请填写】）
-- 答辩：`docs/答辩演示.pptx`（12 页）
-- 插图：`docs/diagrams/`；生成脚本：`docs/tools/`（Pillow + python-docx + python-pptx）
-- 一键重建：`scripts/make_docs.ps1`（图片 → DOCX → PDF → 回填目录页码 → 再导出 PDF → PPTX）
-- 带真实个人信息的最终版在 `dist/final/`（不提交），由 `scripts/export_submission.ps1` 覆盖进提交包
+- `docs/课程设计报告.docx` / `.pdf`：按学校毕业设计模板排版（27 页）
+- `docs/答辩演示.pptx`：12 页答辩幻灯片
+- `docs/PROGRESS.md`：开发进度与已知问题
+- `docs/tools/`：报告、PPT、图表、图标、数据导出等生成脚本（可复现）
 
-## 测试
+## 许可
 
-`tests/test_main.c` 覆盖：
-
-- 工具层：CRC32 标准向量、UTF-8 显示宽度
-- 数据集：内置数据一致性、CSV 往返与 6 类错误路径、快照往返与篡改/截断检测、编辑操作与重排
-- 算法：链/环/星形/随机图上的最短路、负权与负权回路、连通分量、割点与桥、MST 双算法一致、巡游与暴力枚举对比
-- 交叉验证：30 组随机图，Dijkstra / Floyd / Bellman-Ford 全点对结果一致
-- 性能冒烟：128 节点 Dijkstra 与 Floyd 的时间上限
-
-`scripts/e2e.sh|ps1` 再从命令行角度验证 14 个场景（含 JSON 输出、退出码、导出数据与仓库一致性）。
-
-## 已知限制
-
-- 只有一个校区、24 个地点；更大规模需调整 `NAV_MAX_SPOTS`（矩阵与数组按此静态分配）。
-- 巡游问题在途经点 > 12 时用启发式，不保证最优。
-- 地点删除会重排编号，外部脚本若缓存编号需要重新读取。
-
-## 许可与致谢
-
-课程设计作业，代码独立实现；图论结论与算法伪代码参考《数据结构（C 语言版）》教材与经典文献，见报告"参考文献"。
+课程设计作业，仅供学习参考。
