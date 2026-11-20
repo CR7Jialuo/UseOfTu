@@ -100,6 +100,33 @@ campus-nav/
 | Kruskal | O(ElogE) | 稀疏图最小生成树 |
 | Held-Karp | O(2^k·k²) | 途经点 ≤ 12 的精确巡游 |
 
+## 数据说明
+
+仓库里有两套数据：
+
+| 目录 | 内容 | 用途 |
+|---|---|---|
+| `data/campus/` | 24 个示意地点、41 条道路 | 课程演示、单元测试基准（数值为示意值） |
+| `data/campus_real/` | **真实校区路网**：353 个节点（20 个地图编号地点 + 333 个路口）、409 条道路、22.4 km | 真实导航演示 |
+
+真实数据的生成链路（`docs/tools/`）：
+
+```
+外部路网(KML/GPX/GeoJSON)  →  simplify_network.py   清理 + 二度点合并
+                           →  build_campus_graph.py   20 个 POI 投影接入
+                           →  export_campus_csv.py    spots.csv / roads.csv
+```
+
+用真实数据运行：
+
+```bash
+nav --data data/campus_real route 1 5      # 1号门 → 图书馆：1114.6 米 / 22.3 分钟
+nav --data data/campus_real critical
+python docs/tools/render_route.py --from 18 --to 6 --out route.png   # 底图路线图
+```
+
+路径输出会附带**转向指引**（按折线方位角判定左转/右转/直行，并结合路名与里程）。
+
 ## 文档
 
 - 报告：`docs/课程设计报告.docx` / `.pdf`（仓库内为脱敏版，个人信息处为【请填写】）

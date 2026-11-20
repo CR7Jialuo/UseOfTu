@@ -532,8 +532,9 @@ static int load_roads(Campus *c, const char *path, char *err, size_t cap)
             continue;
         }
         nf = csv_split(line, fields, 8);
-        if (nf != 5) {
-            nav_err_set(err, cap, "道路文件第 %d 行列数为 %d，应为 5", line_no, nf);
+        if (nf != 5 && nf != 6) {
+            nav_err_set(err, cap, "道路文件第 %d 行列数为 %d，应为 5 或 6（第 6 列为路名）",
+                        line_no, nf);
             fclose(fp);
             return NAV_ERR_FMT;
         }
@@ -560,6 +561,11 @@ static int load_roads(Campus *c, const char *path, char *err, size_t cap)
         if (parse_double(fields[3], &r.len_m) != NAV_OK ||
             parse_double(fields[4], &r.walk_min) != NAV_OK) {
             nav_err_set(err, cap, "道路文件第 %d 行长度或时间非法", line_no);
+            fclose(fp);
+            return NAV_ERR_FMT;
+        }
+        if (nf == 6 && copy_field(r.name, sizeof(r.name), fields[5]) != NAV_OK) {
+            nav_err_set(err, cap, "道路文件第 %d 行路名过长", line_no);
             fclose(fp);
             return NAV_ERR_FMT;
         }
@@ -693,7 +699,9 @@ int campus_save_csv(const Campus *c, const char *spots_path, const char *roads_p
     fputs("# 字段：编号,起点编号,终点编号,长度(米),步行时间(分钟)\n", fp);
     for (i = 0; i < c->n_roads; ++i) {
         const Road *r = &c->roads[i];
-        fprintf(fp, "%d,%d,%d,%.1f,%.1f\n", r->id, r->from, r->to, r->len_m, r->walk_min);
+        fprintf(fp, "%d,%d,%d,%.1f,%.1f,", r->id, r->from, r->to, r->len_m, r->walk_min);
+        csv_write_field(fp, r->name);
+        fputc('\n', fp);
     }
     fclose(fp);
     return NAV_OK;

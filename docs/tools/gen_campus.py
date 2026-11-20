@@ -169,11 +169,11 @@ def write_csv(root, roads):
     roads_path = os.path.join(data_dir, "roads.csv")
     with open(roads_path, "w", encoding="utf-8", newline="\n") as f:
         f.write("# 江苏海洋大学（苍梧校区）校园道路表\n")
-        f.write("# 字段：编号,起点编号,终点编号,长度(米),步行时间(分钟)\n")
+        f.write("# 字段：编号,起点编号,终点编号,长度(米),步行时间(分钟),路名\n")
         f.write("# 无向道路，长度按路线系数 %.2f 与 %.1f 米/分钟步行速度估算\n"
                 % (ROAD_FACTOR, WALK_SPEED_M_PER_MIN))
         for r in roads:
-            f.write("%d,%d,%d,%.1f,%.1f\n" % (r["id"], r["from"], r["to"], r["len"], r["min"]))
+            f.write("%d,%d,%d,%.1f,%.1f,%s\n" % (r["id"], r["from"], r["to"], r["len"], r["min"], ""))
     return spots_path, roads_path
 
 

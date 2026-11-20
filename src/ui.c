@@ -359,6 +359,117 @@ static void print_path_nodes(const Campus *c, const Path *p)
     printf("\n");
 }
 
+static double bearing_deg(const Campus *c, int a, int b)
+{
+    const Spot *sa = campus_spot(c, a);
+    const Spot *sb = campus_spot(c, b);
+    double dx, dy, ang;
+    if (sa == NULL || sb == NULL) {
+        return 0.0;
+    }
+    dx = sb->x - sa->x;
+    dy = sb->y - sa->y;
+    ang = atan2(dx, dy) * 180.0 / 3.14159265358979323846;
+    if (ang < 0.0) {
+        ang += 360.0;
+    }
+    return ang;
+}
+
+static double angle_delta(double from, double to)
+{
+    double d = to - from;
+    while (d > 180.0) {
+        d -= 360.0;
+    }
+    while (d < -180.0) {
+        d += 360.0;
+    }
+    return d;
+}
+
+static const char *compass_label(double b)
+{
+    static const char *names[8] = { "北", "东北", "东", "东南", "南", "西南", "西", "西北" };
+    int idx = (int)((b + 22.5) / 45.0) % 8;
+    return names[idx];
+}
+
+static const char *road_name_of(const Campus *c, int a, int b)
+{
+    const Road *r = find_road(c, a, b);
+    if (r == NULL || r->name[0] == '\0') {
+        return "校内道路";
+    }
+    if (strcmp(r->name, "连接步道") == 0) {
+        return "步行连接道";
+    }
+    return r->name;
+}
+
+static const char *turn_label(double delta)
+{
+    double d = fabs(delta);
+    if (d < 25.0) {
+        return "直行";
+    }
+    if (d < 60.0) {
+        return delta > 0 ? "稍向右" : "稍向左";
+    }
+    if (d < 135.0) {
+        return delta > 0 ? "右转" : "左转";
+    }
+    return "掉头";
+}
+
+/* 把路径翻译成“沿某路向某方向走多少米、在哪左/右转”的指引 */
+static void print_turn_instructions(const Campus *c, const Path *p)
+{
+    int n = p->count;
+    int s, e;
+    double prev_b = 0.0;
+    int first = 1;
+
+    if (n < 2) {
+        return;
+    }
+    printf("  转向指引：\n");
+    s = 0;
+    while (s < n - 1) {
+        double len = seg_len_m(c, p->nodes[s], p->nodes[s + 1]);
+        double b_start = bearing_deg(c, p->nodes[s], p->nodes[s + 1]);
+        const char *road = road_name_of(c, p->nodes[s], p->nodes[s + 1]);
+
+        e = s;
+        while (e + 2 < n) {
+            const char *r2 = road_name_of(c, p->nodes[e + 1], p->nodes[e + 2]);
+            double b2 = bearing_deg(c, p->nodes[e + 1], p->nodes[e + 2]);
+            if (strcmp(r2, road) == 0 && fabs(angle_delta(b_start, b2)) < 25.0) {
+                len += seg_len_m(c, p->nodes[e + 1], p->nodes[e + 2]);
+                ++e;
+            } else {
+                break;
+            }
+        }
+
+        if (first) {
+            printf("    出发：沿%s向%s行进 %.0f 米\n", road, compass_label(b_start), len);
+            first = 0;
+        } else {
+            double d = angle_delta(prev_b, b_start);
+            if (strcmp(turn_label(d), "直行") == 0) {
+                printf("    继续沿%s向%s行进 %.0f 米\n", road, compass_label(b_start), len);
+            } else {
+                printf("    在路口%s，进入%s向%s行进 %.0f 米\n", turn_label(d), road,
+                       compass_label(b_start), len);
+            }
+        }
+        prev_b = bearing_deg(c, p->nodes[e], p->nodes[e + 1]);
+        s = e + 1;
+    }
+    printf("    到达：%s\n", c->spots[p->nodes[n - 1] - 1].name);
+}
+
 void ui_print_path(const Campus *c, const Path *p, int by_time)
 {
     if (c == NULL || p == NULL) {
@@ -370,6 +481,7 @@ void ui_print_path(const Campus *c, const Path *p, int by_time)
     }
     printf("\n  最短路径（按%s）：\n    ", by_time ? "步行时间" : "距离");
     print_path_nodes(c, p);
+    print_turn_instructions(c, p);
     printf("  总距离 %.1f 米，预计步行 %.1f 分钟\n", ui_path_length_m(c, p), ui_path_time_min(c, p));
     if (p->settled > 0) {
         printf("  路径经过 %d 个节点、%d 段道路；Dijkstra 出堆 %ld 次，松弛 %ld 次\n", p->count,

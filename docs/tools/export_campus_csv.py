@@ -88,10 +88,10 @@ def main():
 
     # 写 roads
     with open(os.path.join(OUT, "roads.csv"), "w", encoding="utf-8", newline="\n") as f:
-        f.write("# 字段：编号,起点编号,终点编号,长度(米),步行时间(分钟)\n")
+        f.write("# 字段：编号,起点编号,终点编号,长度(米),步行时间(分钟),路名\n")
         for i, (a, b, length, cls, name) in enumerate(sorted(rows), start=1):
             minutes = length * CLS_MIN_PER_M.get(cls, 1.2 / 60.0)
-            f.write(f"{i},{a},{b},{length:.1f},{max(minutes, 0.1):.1f}\n")
+            f.write(f"{i},{a},{b},{length:.1f},{max(minutes, 0.1):.1f},{name}\n")
 
     total = sum(r[2] for r in rows)
     print(f"spots={len(nodes)} roads={len(rows)} (skipped {skipped}) total={total:.0f} m")

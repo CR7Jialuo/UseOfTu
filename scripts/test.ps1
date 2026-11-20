@@ -22,6 +22,10 @@ if (-not $gcc) {
 }
 
 New-Item -ItemType Directory -Force -Path 'build' | Out-Null
+# Some environments have a non-writable system temp dir; keep gcc's temp files local.
+New-Item -ItemType Directory -Force -Path 'build\tmp' | Out-Null
+$env:TMP = (Resolve-Path 'build\tmp').Path
+$env:TEMP = $env:TMP
 
 $common = @(
     '-std=c11', '-O2', '-Wall', '-Wextra', '-Wpedantic', '-Werror',
