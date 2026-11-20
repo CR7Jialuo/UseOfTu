@@ -87,6 +87,24 @@ Check 'export 与仓库数据一致' {
     (($a -join "`n") -eq ($b -join "`n")) -and (($c -join "`n") -eq ($d -join "`n"))
 }
 
+
+Write-Host ''
+Write-Host '--- 图形界面（Windows）---' -ForegroundColor Cyan
+
+$gui = 'build\navgui.exe'
+if (Test-Path $gui) {
+    Remove-Item 'build\e2e_shot.png' -ErrorAction SilentlyContinue
+    & $gui --data data/campus_real --shot build\e2e_shot.png --route 1 5 --size 1200x800 *> $null
+    Start-Sleep -Seconds 2
+    Check 'GUI 离屏渲染出图' {
+        (Test-Path 'build\e2e_shot.png') -and ((Get-Item 'build\e2e_shot.png').Length -gt 20000)
+    }
+    & $gui --data data/campus_real --selftest *> $null
+    Check 'GUI 自检退出码 0' { $LASTEXITCODE -eq 0 }
+} else {
+    Write-Host '  (跳过：未构建 navgui.exe)' -ForegroundColor Yellow
+}
+
 Write-Host ""
 if ($script:fail -eq 0) {
     Write-Host 'e2e passed.' -ForegroundColor Green
