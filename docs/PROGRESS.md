@@ -1,41 +1,43 @@
-# 通宵进度存档（上下文压缩后从这里恢复）
+# 开发进度存档（上下文压缩后从这里恢复）
 
 > 目标：把校园导航系统做成可交付的完整应用。
 > 每完成一个里程碑：更新本文件 → `git add -A && git commit && git push`。
 
-## 一、当前状态（滚动更新）
+## 一、完成情况
 
 | 项 | 状态 |
 |---|---|
-| 核心库（数据/算法/CSV/快照） | ✅ 完成，1592 项断言通过 |
-| 真实路网（353 节点 / 409 边 / 22.4 km） | ✅ 完成 |
-| 命令行版 `build\nav.exe` | ✅ 全部子命令实测通过 |
-| 图形版 `build\navgui.exe` | ✅ 可运行；待办：DPI 缩放、图标、细节 |
-| 报告（学校模板，26 页） | ✅ 已生成；封面 4 项待用户补 |
-| PPT（12 页） | ⚠️ 旧版，需按真实数据/GUI 更新 |
-| 提交包 `dist\campus-nav-submit.zip` | ✅ 含双 exe；需随文档更新重打 |
-| GitHub `CR7Jialuo/UseOfTu` | ✅ 已推送；CI 绿 |
+| 核心库（数据 / 算法 / CSV / 快照） | ✅ 22 组 1592 项断言全通过 |
+| 真实路网（353 节点 / 409 边 / 22.4 km） | ✅ 完成并有回归测试 |
+| 命令行 `build\nav.exe` | ✅ 全部子命令实测通过 |
+| 图形 `build\navgui.exe` | ✅ 底图 / 路网 / 路径动画 / 巡游 / 关键道路 / 导出 / DPI / 图标 |
+| 报告（学校模板） | ✅ 28 页，含真实路网与多点巡游插图 |
+| PPT | ✅ 12 页 + 每页演讲者备注 |
+| 提交包 | ✅ `dist\campus-nav-submit.zip`（112 文件，双 exe + 文档） |
+| CI | ✅ Linux 与 Windows 两个作业，Windows 会构建 GUI 并离屏出图 |
+| 使用说明 | ✅ `docs/使用说明.md` |
 
-## 二、关键坐标（改代码时用）
+## 二、关键坐标
 
 ```
 仓库根：C:\Users\ZhuanZ\Downloads\learn\campus-nav
-工具链：.tools\w64devkit\w64devkit\bin\gcc.exe（GCC 16.2，x64）
+工具链：.tools\w64devkit\w64devkit\bin\gcc.exe（GCC 16.2，x64；windres 同目录）
 Python：C:\Users\ZhuanZ\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\python.exe
 LibreOffice Kit：D:\program\deepseek\resources\app.asar.unpacked\dsh\node_modules\@deepseek-ai\libreoffice-kit\lib\cli.js
-模板：build\template\template.docx（8 分节；封面表格 5 行）
+模板：docs\template\template.docx（8 分节；封面表格 5 行）
 ```
 
 ## 三、必须记住的坑
 
-1. **GDI+ 在 C 里**：用 flat API（`GpBitmap`/`GpGraphics`/`GpSolidFill`），`GdipCreateSolidFill` 不是 `GdipCreateSolidBrush`；
-   `GdipDrawString(g, text, -1, font, &rect, NULL, brush)` —— StringFormat 在 brush 之前。
-2. **中文**：源码 UTF-8，运行时 `MultiByteToWideChar`；不要用 `L"\6559"`（那是八进制不是 Unicode 转义）。
+1. **GDI+ 在 C 里**：flat API（`GpBitmap`/`GpGraphics`/`GpSolidFill`），`GdipCreateSolidFill` 不是
+   `GdipCreateSolidBrush`；`GdipDrawString(g, text, -1, font, &rect, NULL, brush)` —— StringFormat 在 brush 之前。
+2. **中文**：源码 UTF-8，运行时 `MultiByteToWideChar`；`L"\6559"` 是八进制不是 Unicode 转义。
 3. **GUI 子进程**会让命令挂住 → 用 `--selftest`（开窗 800ms 自动关）验证窗口模式。
-4. **GCC 临时目录**：脚本里把 TMP/TEMP 指向 `build\tmp`，否则报 "Cannot create temporary file"。
-5. **make_thesis.py 的 Writer**：python-docx 的新段落插在末尾 sectPr 之前，按长度切片会漏；
+4. **GCC 临时目录**：脚本把 TMP/TEMP 指向 `build\tmp`，否则报 "Cannot create temporary file"。
+5. **make_thesis.py 的 Writer**：python-docx 新段落插在末尾 sectPr 之前，按长度切片会漏；
    按 `id()` 去重会因 lxml 元素释放后 id 复用而错乱 → 用**临时属性标记**做 diff。
 6. **报告高亮**：模板封面带 `w:highlight` 与单元格 `w:shd`，要一并清除。
+7. **DPI**：面板坐标写成 96 DPI 逻辑值，绘制时乘 `s_dpi/96`（`UI()` 宏）；字体在 DPI 变化时重建。
 
 ## 四、构建与验证命令
 
@@ -43,47 +45,50 @@ LibreOffice Kit：D:\program\deepseek\resources\app.asar.unpacked\dsh\node_modul
 # 命令行版
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\test.ps1      # 1592 断言
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\e2e.ps1       # 14 场景
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\e2e.ps1       # 14 场景 + 2 项 GUI
 
-# 图形版
+# 图形版（含 windres 资源）
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build_gui.ps1
 .\build\navgui.exe --selftest
 .\build\navgui.exe --shot out.png --route 1 5 --size 1440x920
+.\build\navgui.exe --shot out.png --route 1 5 --via 6,7,11 --dpi 144
 
 # 报告（两遍法：先出 PDF 定位标题，再回填目录页码）
-python docs\tools\find_pages.py build\thesis_pass1.pdf docs\toc_entries.json docs\thesis_pages.json
+python docs\tools\make_thesis.py --out build\pass1.docx
+#   LibreOffice 转 pass1.docx -> pass1.pdf
+python docs\tools\find_pages.py build\pass1.pdf docs\toc_entries.json docs\thesis_pages.json
 python docs\tools\make_thesis.py --pages docs\thesis_pages.json --out docs\课程设计报告.docx
 
 # 打包
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\export_submission.ps1
 ```
 
-## 五、待办队列（从上下往下做）
+## 五、已完成里程碑
 
-- [x] M-G GUI：界面整体 DPI 缩放（面板/字体/状态栏/提示卡按 96→实际 DPI 等比放大，`--dpi` 可强制）
-- [ ] M-H 文档：报告/PPT 随功能变化再校准一次
-
-- [x] M-A GUI：`.ico` 图标（windres 链入）、高 DPI 下窗口尺寸放大、导出当前视图菜单、路径逐段动画
-- [x] M-B GUI：视图菜单(缩放/关键道路)、快捷键说明、方向键平移、--open 定位
-- [x] M-C 应用：`--open` 定位、多点巡游（右击加途经点）、e2e 增加 GUI 检查
-- [x] M-F CI：Windows 作业全绿（MinGW 安装→构建 CLI+GUI→测试→离屏渲染→上传截图）
-- [x] M-D 文档：PPT 改版（真实数据 + GUI 截图，12 页）、报告插图换真实路网（27 页）
-- [x] M-E 交付：重打 zip（112 文件、6.07 MB、含双 exe）、README 附图、CI 复验
+- [x] M-A GUI：`.ico` 图标（windres 链入）、高 DPI 下窗口尺寸放大、导出当前视图、路径逐段动画
+- [x] M-B GUI：视图菜单（缩放 / 关键道路）、快捷键说明、方向键平移、`--open` 定位
+- [x] M-C 应用：多点巡游（右击加途经点、编号标记、`T` 规划）、e2e 增加 GUI 检查
+- [x] M-D 文档：PPT 改版（真实数据 + GUI 截图 + 演讲备注）、报告换真实路网与巡游插图
+- [x] M-E 交付：重打 zip（含双 exe）、README 重写、使用说明
+- [x] M-F CI：Windows 作业全绿（MinGW → 构建 CLI+GUI → 测试 → 离屏渲染 → 上传截图）
+- [x] M-G GUI：界面整体 DPI 缩放（面板 / 字体 / 状态栏 / 提示卡按 96→实际 DPI 等比放大）
 
 ## 六、已知环境问题（不是 bug）
 
-- 页眉/页脚的“共 N 页”是 NUMPAGES 域：LibreOffice 转换 PDF 时会按它自己的算法算（比实际多 1~2 页），
-  原模板转换也一样（13 页却显示“共 14 页”）。Word 打开会重新计算，无需处理。
+- 页眉“共 N 页”是 NUMPAGES 域：LibreOffice 转 PDF 时按自己的算法算（比实际多 1~2 页），
+  原模板转换也一样（13 页却写“共 14 页”）。Word 打开会重算。
 
-## 七、最近一次提交
+## 七、待用户补的信息
 
-见 `git log -1`。
+**封面四项**：学院 / 专业班级 / 指导教师职称 / 企业导师。
+填 `docs/tools/make_thesis.py` 顶部 `PERSON` 字典后重跑两遍法即可。
 
 ## 八、已验证的关键事实（换环境时先查这里）
 
 - 从 GitHub 全新 clone 后：`scripts\build.ps1` 与 `scripts\build_gui.ps1` 均能出 exe（需 gcc 在 PATH 或设 `CC`）
 - `nav.exe --data data/campus_real check`：353 地点 / 409 道路 / 连通 / 141 割点 / 190 桥
+- `nav.exe --data data/campus_real route 1 5`：1114.6 米 / 22.3 分钟
 - `navgui.exe --selftest`：开窗 800ms 自动关闭，退出码 0
 - `navgui.exe --shot x.png --route 1 5`：渲染完整路径（动画在截图模式自动关闭）
-- `scripts\e2e.ps1` 末尾含两项 GUI 检查（离屏出图 >20KB、自检退出码 0）
+- `scripts\e2e.ps1` 末尾含两项 GUI 检查（离屏出图 > 20KB、自检退出码 0）
 - Windows CI 作业：choco 装 MinGW → 构建 CLI+GUI → 跑测试 → 离屏渲染 → 上传截图
