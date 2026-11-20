@@ -10,8 +10,8 @@
 
 #include <stddef.h>
 
-#define NAV_MAX_SPOTS  128   /* 最大地点数 */
-#define NAV_MAX_ROADS  1024  /* 最大道路数 */
+#define NAV_MAX_SPOTS  512   /* 最大地点数（含路网路口） */
+#define NAV_MAX_ROADS  2048  /* 最大道路数 */
 #define NAV_NAME_MAX   64    /* 地点/道路名称最大字节数（UTF-8） */
 #define NAV_BRIEF_MAX  160   /* 简介最大字节数 */
 
@@ -27,7 +27,8 @@
 #define NAV_ERR_NEGCYCLE (-6)
 #define NAV_NOPATH    (-7)
 
-/* 地点类型：驱动"最近设施"查询与地图着色。 */
+/* 地点类型：驱动"最近设施"查询与地图着色。
+ * SPOT_JUNCTION 为路网路口：参与最短路计算，但不在地点列表/地图标注中显示。 */
 typedef enum {
     SPOT_GATE = 0,
     SPOT_TEACHING,
@@ -39,6 +40,7 @@ typedef enum {
     SPOT_MEDICAL,
     SPOT_SERVICE,
     SPOT_SCENIC,
+    SPOT_JUNCTION,
     SPOT_TYPE_COUNT
 } SpotType;
 

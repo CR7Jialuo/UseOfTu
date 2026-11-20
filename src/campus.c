@@ -30,7 +30,8 @@ static const struct {
     { "sport",     "体育设施" },
     { "medical",   "医疗" },
     { "service",   "服务设施" },
-    { "scenic",    "景观" }
+    { "scenic",    "景观" },
+    { "junction",  "路口" }
 };
 
 const char *spot_type_name(SpotType t)

@@ -87,6 +87,7 @@ void ui_banner(const App *app)
 void ui_print_spots(const Campus *c)
 {
     int i, j;
+    int shown = 0;
     if (c == NULL) {
         return;
     }
@@ -103,6 +104,9 @@ void ui_print_spots(const Campus *c)
         int degree = 0;
         char coord[32];
         char idbuf[16];
+        if (s->type == SPOT_JUNCTION) {
+            continue; /* 路口只参与最短路，不在地点列表中显示 */
+        }
         for (j = 0; j < c->n_roads; ++j) {
             if (c->roads[j].from == s->id || c->roads[j].to == s->id) {
                 ++degree;
@@ -116,9 +120,11 @@ void ui_print_spots(const Campus *c)
         nav_print_padded(spot_type_label(s->type), 12);
         nav_print_padded(coord, 16);
         printf("%d\n", degree);
+        ++shown;
     }
     hr('-', 66);
-    printf("  共 %d 个地点。\n", c->n_spots);
+    printf("  共 %d 个地点（另有 %d 个路网路口参与寻路，未列出）。\n", shown,
+           c->n_spots - shown);
 }
 
 void ui_print_spot_detail(const Campus *c, int id)
@@ -210,7 +216,7 @@ void ui_ascii_map(const App *app)
     const Campus *c = &app->campus;
     static char grid[MAP_ROWS][MAP_COLS + 1];
     double m_per_col, m_per_row;
-    int i, r, col, closed = 0;
+    int i, r, col, closed = 0, dense = 0;
 
     if (c == NULL || c->n_spots < 1) {
         return;
@@ -231,21 +237,31 @@ void ui_ascii_map(const App *app)
         grid[r][MAP_COLS] = '\0';
     }
 
+    /* 路网密集时（真实校区）ASCII 图只画地点，避免糊成一片 */
+    dense = c->n_roads > 80;
+    if (!dense) {
+        for (i = 0; i < c->n_roads; ++i) {
+            const Road *rd = &c->roads[i];
+            int x0 = (int)floor(c->spots[rd->from - 1].x / m_per_col + 0.5);
+            int y0 = MAP_ROWS - 1 - (int)floor(c->spots[rd->from - 1].y / m_per_row + 0.5);
+            int x1 = (int)floor(c->spots[rd->to - 1].x / m_per_col + 0.5);
+            int y1 = MAP_ROWS - 1 - (int)floor(c->spots[rd->to - 1].y / m_per_row + 0.5);
+            draw_line(grid, x0, y0, x1, y1, rd->open ? '*' : '+');
+        }
+    }
     for (i = 0; i < c->n_roads; ++i) {
-        const Road *rd = &c->roads[i];
-        int x0 = (int)floor(c->spots[rd->from - 1].x / m_per_col + 0.5);
-        int y0 = MAP_ROWS - 1 - (int)floor(c->spots[rd->from - 1].y / m_per_row + 0.5);
-        int x1 = (int)floor(c->spots[rd->to - 1].x / m_per_col + 0.5);
-        int y1 = MAP_ROWS - 1 - (int)floor(c->spots[rd->to - 1].y / m_per_row + 0.5);
-        if (!rd->open) {
+        if (!c->roads[i].open) {
             ++closed;
         }
-        draw_line(grid, x0, y0, x1, y1, rd->open ? '*' : '+');
     }
     for (i = 0; i < c->n_spots; ++i) {
         const Spot *s = &c->spots[i];
-        int x = (int)floor(s->x / m_per_col + 0.5);
-        int y = MAP_ROWS - 1 - (int)floor(s->y / m_per_row + 0.5);
+        int x, y;
+        if (s->type == SPOT_JUNCTION) {
+            continue;
+        }
+        x = (int)floor(s->x / m_per_col + 0.5);
+        y = MAP_ROWS - 1 - (int)floor(s->y / m_per_row + 0.5);
         if (x < 0) {
             x = 0;
         }
@@ -299,17 +315,46 @@ void ui_ascii_map(const App *app)
     }
 }
 
+static double seg_len_m(const Campus *c, int a, int b)
+{
+    const Road *r = find_road(c, a, b);
+    return r ? r->len_m : 0.0;
+}
+
+/* 只打印“地点”，中间路口折叠成“经 N 个路口 / X 米” */
 static void print_path_nodes(const Campus *c, const Path *p)
 {
     int i;
+    int pend_n = 0;
+    double pend_m = 0.0;
+    int printed = 0;
+
     for (i = 0; i < p->count; ++i) {
+        const Spot *s = &c->spots[p->nodes[i] - 1];
         if (i > 0) {
-            printf(" → ");
+            pend_m += seg_len_m(c, p->nodes[i - 1], p->nodes[i]);
         }
-        printf("%s(%d)", c->spots[p->nodes[i] - 1].name, p->nodes[i]);
-        if ((i + 1) % 4 == 0 && i + 1 < p->count) {
-            printf("\n                ");
+        if (s->type == SPOT_JUNCTION) {
+            ++pend_n;
+            continue;
         }
+        if (printed > 0) {
+            if (pend_n > 0) {
+                printf(" —[经 %d 个路口 %.0f 米]→ ", pend_n, pend_m);
+            } else {
+                printf(" → ");
+            }
+            if (printed % 2 == 0) {
+                printf("\n                ");
+            }
+        }
+        printf("%s(%d)", s->name, s->id);
+        pend_n = 0;
+        pend_m = 0.0;
+        ++printed;
+    }
+    if (pend_n > 0) {
+        printf(" —[经 %d 个路口 %.0f 米]→ ...", pend_n, pend_m);
     }
     printf("\n");
 }
@@ -327,10 +372,10 @@ void ui_print_path(const Campus *c, const Path *p, int by_time)
     print_path_nodes(c, p);
     printf("  总距离 %.1f 米，预计步行 %.1f 分钟\n", ui_path_length_m(c, p), ui_path_time_min(c, p));
     if (p->settled > 0) {
-        printf("  经过 %d 个地点、%d 段道路；Dijkstra 出堆 %ld 次，松弛 %ld 次\n", p->count,
+        printf("  路径经过 %d 个节点、%d 段道路；Dijkstra 出堆 %ld 次，松弛 %ld 次\n", p->count,
                p->count > 0 ? p->count - 1 : 0, p->settled, p->relaxed);
     } else {
-        printf("  经过 %d 个地点、%d 段道路\n", p->count, p->count > 0 ? p->count - 1 : 0);
+        printf("  路径经过 %d 个节点、%d 段道路\n", p->count, p->count > 0 ? p->count - 1 : 0);
     }
 }
 

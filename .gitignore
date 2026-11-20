@@ -24,3 +24,4 @@ desktop.ini
 # office render cache
 .dsh-office-*/
 docs/diagrams/_slide_*.png
+data/campus_real/*_check.png

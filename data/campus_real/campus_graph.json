@@ -1,0 +1,10293 @@
+{
+ "scale_m_per_px": 0.492,
+ "crs": "gcj02-pixel",
+ "transform_from_ref_map": {
+  "scale": 1.5086,
+  "tx": -14.4,
+  "ty": 16.5
+ },
+ "nodes": [
+  {
+   "id": "N002",
+   "x": 423.0,
+   "y": 874.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N003",
+   "x": 432.0,
+   "y": 802.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N005",
+   "x": 453.0,
+   "y": 979.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N013",
+   "x": 496.0,
+   "y": 1301.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N018",
+   "x": 522.3,
+   "y": 691.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N019",
+   "x": 525.0,
+   "y": 1463.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N020",
+   "x": 532.7,
+   "y": 786.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N021",
+   "x": 538.0,
+   "y": 820.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N022",
+   "x": 550.3,
+   "y": 916.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N023",
+   "x": 551.0,
+   "y": 1567.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N024",
+   "x": 553.7,
+   "y": 961.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N025",
+   "x": 554.0,
+   "y": 1624.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N026",
+   "x": 562.3,
+   "y": 1018.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N027",
+   "x": 575.0,
+   "y": 1684.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N028",
+   "x": 575.3,
+   "y": 1116.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N030",
+   "x": 583.7,
+   "y": 1162.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N031",
+   "x": 592.7,
+   "y": 1182.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N032",
+   "x": 595.0,
+   "y": 1846.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N033",
+   "x": 603.0,
+   "y": 1921.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N035",
+   "x": 611.0,
+   "y": 1982.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N036",
+   "x": 624.0,
+   "y": 675.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N038",
+   "x": 635.0,
+   "y": 1682.2,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N039",
+   "x": 636.0,
+   "y": 1144.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N040",
+   "x": 641.1,
+   "y": 1104.9,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N041",
+   "x": 654.0,
+   "y": 904.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N042",
+   "x": 660.0,
+   "y": 1834.2,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N043",
+   "x": 660.7,
+   "y": 1479.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N044",
+   "x": 663.8,
+   "y": 1901.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N045",
+   "x": 665.2,
+   "y": 1791.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N046",
+   "x": 668.0,
+   "y": 999.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N047",
+   "x": 669.5,
+   "y": 1766.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N048",
+   "x": 672.8,
+   "y": 1540.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N049",
+   "x": 673.7,
+   "y": 555.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N050",
+   "x": 675.0,
+   "y": 1966.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N053",
+   "x": 679.8,
+   "y": 1601.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N054",
+   "x": 683.5,
+   "y": 1679.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N055",
+   "x": 685.0,
+   "y": 1892.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N056",
+   "x": 688.0,
+   "y": 2041.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N057",
+   "x": 695.0,
+   "y": 1783.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N061",
+   "x": 715.3,
+   "y": 1191.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N063",
+   "x": 732.8,
+   "y": 1930.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N064",
+   "x": 738.0,
+   "y": 1819.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N066",
+   "x": 747.0,
+   "y": 1462.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N067",
+   "x": 751.8,
+   "y": 1080.9,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N068",
+   "x": 755.8,
+   "y": 1065.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N069",
+   "x": 763.3,
+   "y": 1949.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N070",
+   "x": 765.0,
+   "y": 1524.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N071",
+   "x": 766.0,
+   "y": 1192.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N072",
+   "x": 770.0,
+   "y": 1584.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N073",
+   "x": 776.3,
+   "y": 1096.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N074",
+   "x": 776.7,
+   "y": 1665.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N075",
+   "x": 776.8,
+   "y": 1260.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N077",
+   "x": 786.3,
+   "y": 1173.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N078",
+   "x": 795.8,
+   "y": 1257.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N079",
+   "x": 803.0,
+   "y": 2440.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N080",
+   "x": 803.8,
+   "y": 1454.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N081",
+   "x": 804.0,
+   "y": 2219.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N082",
+   "x": 810.0,
+   "y": 532.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N083",
+   "x": 810.0,
+   "y": 1807.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N084",
+   "x": 813.0,
+   "y": 1524.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N085",
+   "x": 823.0,
+   "y": 1873.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N086",
+   "x": 829.7,
+   "y": 1656.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N087",
+   "x": 831.0,
+   "y": 1448.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N089",
+   "x": 846.0,
+   "y": 1358.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N090",
+   "x": 848.7,
+   "y": 1945.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N092",
+   "x": 858.0,
+   "y": 526.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N093",
+   "x": 864.0,
+   "y": 1040.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N094",
+   "x": 866.3,
+   "y": 1904.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N095",
+   "x": 870.7,
+   "y": 1941.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N096",
+   "x": 874.7,
+   "y": 1162.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N097",
+   "x": 879.0,
+   "y": 1992.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N098",
+   "x": 886.0,
+   "y": 2037.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N099",
+   "x": 887.8,
+   "y": 1241.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N100",
+   "x": 889.0,
+   "y": 1042.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N101",
+   "x": 891.8,
+   "y": 1077.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N102",
+   "x": 904.0,
+   "y": 1152.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N103",
+   "x": 905.8,
+   "y": 1353.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N104",
+   "x": 911.0,
+   "y": 1029.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N105",
+   "x": 913.8,
+   "y": 2206.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N106",
+   "x": 917.0,
+   "y": 650.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N108",
+   "x": 930.3,
+   "y": 2306.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N110",
+   "x": 940.0,
+   "y": 1232.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N113",
+   "x": 945.3,
+   "y": 2416.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N115",
+   "x": 964.0,
+   "y": 2116.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N117",
+   "x": 966.7,
+   "y": 1432.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N118",
+   "x": 969.3,
+   "y": 1429.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N119",
+   "x": 970.0,
+   "y": 1343.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N120",
+   "x": 970.2,
+   "y": 2410.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N122",
+   "x": 977.0,
+   "y": 1012.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N123",
+   "x": 977.0,
+   "y": 2199.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N124",
+   "x": 982.7,
+   "y": 1883.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N126",
+   "x": 989.0,
+   "y": 1224.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N127",
+   "x": 991.3,
+   "y": 1801.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N129",
+   "x": 997.3,
+   "y": 1701.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N132",
+   "x": 1007.0,
+   "y": 1869.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N137",
+   "x": 1029.7,
+   "y": 1005.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N139",
+   "x": 1030.0,
+   "y": 1225.6,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N142",
+   "x": 1037.8,
+   "y": 1051.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N143",
+   "x": 1038.0,
+   "y": 1297.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N144",
+   "x": 1039.0,
+   "y": 1553.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N146",
+   "x": 1045.3,
+   "y": 1095.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N148",
+   "x": 1048.7,
+   "y": 1128.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N149",
+   "x": 1049.0,
+   "y": 1870.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N150",
+   "x": 1055.8,
+   "y": 1411.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N151",
+   "x": 1061.7,
+   "y": 1211.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N154",
+   "x": 1076.8,
+   "y": 1547.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N156",
+   "x": 1081.0,
+   "y": 2051.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N157",
+   "x": 1089.2,
+   "y": 1778.2,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N158",
+   "x": 1092.0,
+   "y": 1404.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N160",
+   "x": 1094.3,
+   "y": 1660.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N163",
+   "x": 1097.0,
+   "y": 1682.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N165",
+   "x": 1106.7,
+   "y": 1858.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N166",
+   "x": 1110.3,
+   "y": 1966.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N169",
+   "x": 1131.7,
+   "y": 483.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N170",
+   "x": 1132.0,
+   "y": 1035.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N171",
+   "x": 1138.2,
+   "y": 527.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N172",
+   "x": 1142.3,
+   "y": 556.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N173",
+   "x": 1146.7,
+   "y": 985.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N174",
+   "x": 1150.7,
+   "y": 1761.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N175",
+   "x": 1153.8,
+   "y": 1031.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N177",
+   "x": 1162.7,
+   "y": 1080.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N179",
+   "x": 1164.0,
+   "y": 1393.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N180",
+   "x": 1166.5,
+   "y": 2382.5,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N182",
+   "x": 1207.8,
+   "y": 974.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N183",
+   "x": 1208.7,
+   "y": 1963.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N184",
+   "x": 1213.8,
+   "y": 1384.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N185",
+   "x": 1216.7,
+   "y": 1413.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N186",
+   "x": 1216.8,
+   "y": 1026.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N187",
+   "x": 1219.3,
+   "y": 2360.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N188",
+   "x": 1219.8,
+   "y": 2032.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N189",
+   "x": 1230.8,
+   "y": 1520.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N190",
+   "x": 1236.3,
+   "y": 1149.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N191",
+   "x": 1238.0,
+   "y": 1772.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N192",
+   "x": 1248.0,
+   "y": 1955.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N193",
+   "x": 1249.3,
+   "y": 2164.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N194",
+   "x": 1250.0,
+   "y": 1889.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N195",
+   "x": 1258.0,
+   "y": 2250.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N197",
+   "x": 1270.8,
+   "y": 1382.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N198",
+   "x": 1274.0,
+   "y": 531.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N199",
+   "x": 1279.3,
+   "y": 962.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N200",
+   "x": 1291.8,
+   "y": 1515.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N201",
+   "x": 1294.0,
+   "y": 1946.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N202",
+   "x": 1301.0,
+   "y": 1573.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N203",
+   "x": 1306.0,
+   "y": 1605.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N204",
+   "x": 1312.0,
+   "y": 1010.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N205",
+   "x": 1315.3,
+   "y": 1659.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N207",
+   "x": 1323.0,
+   "y": 2241.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N208",
+   "x": 1325.0,
+   "y": 451.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N211",
+   "x": 1338.0,
+   "y": 2140.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N212",
+   "x": 1345.0,
+   "y": 1860.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N213",
+   "x": 1348.0,
+   "y": 2227.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N214",
+   "x": 1351.7,
+   "y": 1906.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N216",
+   "x": 1356.8,
+   "y": 1933.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N217",
+   "x": 1363.0,
+   "y": 1992.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N218",
+   "x": 1371.0,
+   "y": 444.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N223",
+   "x": 1389.0,
+   "y": 2228.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N224",
+   "x": 1400.0,
+   "y": 995.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N226",
+   "x": 1422.0,
+   "y": 1766.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N227",
+   "x": 1428.7,
+   "y": 990.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N228",
+   "x": 1437.0,
+   "y": 1835.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N229",
+   "x": 1447.7,
+   "y": 1119.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N230",
+   "x": 1456.3,
+   "y": 1738.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N231",
+   "x": 1458.7,
+   "y": 1763.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N232",
+   "x": 1459.7,
+   "y": 1487.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N234",
+   "x": 1468.7,
+   "y": 1830.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N235",
+   "x": 1479.7,
+   "y": 1610.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N236",
+   "x": 1482.0,
+   "y": 1907.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N237",
+   "x": 1483.0,
+   "y": 1348.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N238",
+   "x": 1495.7,
+   "y": 977.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N239",
+   "x": 1498.3,
+   "y": 1724.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N241",
+   "x": 1534.7,
+   "y": 971.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N243",
+   "x": 1536.7,
+   "y": 610.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N244",
+   "x": 1537.0,
+   "y": 1826.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N246",
+   "x": 1543.3,
+   "y": 1014.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N247",
+   "x": 1547.3,
+   "y": 1868.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N249",
+   "x": 1551.8,
+   "y": 1894.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N250",
+   "x": 1555.0,
+   "y": 1337.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N251",
+   "x": 1558.3,
+   "y": 1927.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N252",
+   "x": 1570.3,
+   "y": 1991.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N256",
+   "x": 1595.8,
+   "y": 1982.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N257",
+   "x": 1599.7,
+   "y": 1464.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N259",
+   "x": 1603.8,
+   "y": 1883.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N260",
+   "x": 1605.8,
+   "y": 2195.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N261",
+   "x": 1608.6,
+   "y": 1915.1,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N262",
+   "x": 1610.7,
+   "y": 2006.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N264",
+   "x": 1616.0,
+   "y": 912.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N266",
+   "x": 1622.0,
+   "y": 2251.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N268",
+   "x": 1626.3,
+   "y": 678.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N269",
+   "x": 1629.2,
+   "y": 1598.2,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N271",
+   "x": 1632.7,
+   "y": 2002.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N272",
+   "x": 1633.0,
+   "y": 2188.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N275",
+   "x": 1638.7,
+   "y": 1699.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N280",
+   "x": 1645.7,
+   "y": 1852.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N283",
+   "x": 1653.7,
+   "y": 1909.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N284",
+   "x": 1659.3,
+   "y": 1726.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N285",
+   "x": 1660.7,
+   "y": 399.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N287",
+   "x": 1662.0,
+   "y": 2154.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N289",
+   "x": 1667.6,
+   "y": 2142.1,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N290",
+   "x": 1678.7,
+   "y": 1827.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N291",
+   "x": 1678.8,
+   "y": 2182.5,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N292",
+   "x": 1680.0,
+   "y": 902.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N293",
+   "x": 1680.2,
+   "y": 2247.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N294",
+   "x": 1680.7,
+   "y": 949.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N295",
+   "x": 1683.7,
+   "y": 2294.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N296",
+   "x": 1684.0,
+   "y": 2216.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N297",
+   "x": 1684.7,
+   "y": 990.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N301",
+   "x": 1699.3,
+   "y": 636.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N302",
+   "x": 1702.7,
+   "y": 666.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N303",
+   "x": 1704.0,
+   "y": 1684.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N304",
+   "x": 1705.0,
+   "y": 1978.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N306",
+   "x": 1724.7,
+   "y": 389.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N307",
+   "x": 1729.0,
+   "y": 1511.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N308",
+   "x": 1729.0,
+   "y": 1821.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N309",
+   "x": 1732.8,
+   "y": 850.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N310",
+   "x": 1739.8,
+   "y": 891.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N311",
+   "x": 1742.0,
+   "y": 493.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N312",
+   "x": 1746.8,
+   "y": 937.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N313",
+   "x": 1752.0,
+   "y": 633.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N314",
+   "x": 1762.0,
+   "y": 1031.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N315",
+   "x": 1769.0,
+   "y": 1077.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N316",
+   "x": 1776.0,
+   "y": 1970.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N317",
+   "x": 1778.0,
+   "y": 734.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N318",
+   "x": 1789.0,
+   "y": 1813.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N319",
+   "x": 1806.8,
+   "y": 1300.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N320",
+   "x": 1826.8,
+   "y": 1424.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N321",
+   "x": 1832.0,
+   "y": 926.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N322",
+   "x": 1836.7,
+   "y": 1498.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N323",
+   "x": 1839.0,
+   "y": 370.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N324",
+   "x": 1841.0,
+   "y": 1558.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N325",
+   "x": 1843.0,
+   "y": 1551.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N327",
+   "x": 1860.0,
+   "y": 2273.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N328",
+   "x": 1860.7,
+   "y": 1800.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N329",
+   "x": 1866.7,
+   "y": 1837.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N330",
+   "x": 1873.7,
+   "y": 1282.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N331",
+   "x": 1881.2,
+   "y": 1417.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N332",
+   "x": 1882.3,
+   "y": 1794.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N337",
+   "x": 1896.0,
+   "y": 1035.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N338",
+   "x": 1902.3,
+   "y": 1371.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N339",
+   "x": 1913.4,
+   "y": 2252.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N340",
+   "x": 1915.0,
+   "y": 927.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N342",
+   "x": 1920.0,
+   "y": 1428.6,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N345",
+   "x": 1928.1,
+   "y": 1460.5,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N346",
+   "x": 1931.0,
+   "y": 1912.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N348",
+   "x": 1943.7,
+   "y": 776.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N349",
+   "x": 1945.0,
+   "y": 1029.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N352",
+   "x": 1967.7,
+   "y": 772.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N353",
+   "x": 1969.7,
+   "y": 1360.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N355",
+   "x": 1981.0,
+   "y": 1421.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N356",
+   "x": 1996.0,
+   "y": 1779.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N361",
+   "x": 2006.0,
+   "y": 1464.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N363",
+   "x": 2013.3,
+   "y": 1036.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N364",
+   "x": 2020.2,
+   "y": 2053.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N365",
+   "x": 2021.3,
+   "y": 1082.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N366",
+   "x": 2023.0,
+   "y": 2134.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N367",
+   "x": 2024.7,
+   "y": 249.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N368",
+   "x": 2025.3,
+   "y": 1120.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N371",
+   "x": 2031.7,
+   "y": 1404.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N372",
+   "x": 2034.7,
+   "y": 1348.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N374",
+   "x": 2040.6,
+   "y": 1293.5,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N375",
+   "x": 2044.0,
+   "y": 1607.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N376",
+   "x": 2051.0,
+   "y": 1497.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N377",
+   "x": 2054.2,
+   "y": 1427.5,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N378",
+   "x": 2054.3,
+   "y": 1665.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N380",
+   "x": 2057.0,
+   "y": 414.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N384",
+   "x": 2059.3,
+   "y": 753.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N386",
+   "x": 2064.0,
+   "y": 788.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N387",
+   "x": 2065.0,
+   "y": 1768.8,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N389",
+   "x": 2070.5,
+   "y": 881.1,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N390",
+   "x": 2073.0,
+   "y": 590.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N391",
+   "x": 2073.6,
+   "y": 535.6,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N392",
+   "x": 2074.6,
+   "y": 867.2,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N393",
+   "x": 2077.3,
+   "y": 531.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N394",
+   "x": 2083.0,
+   "y": 2127.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N395",
+   "x": 2087.3,
+   "y": 1491.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N396",
+   "x": 2098.7,
+   "y": 1027.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N397",
+   "x": 2104.7,
+   "y": 1066.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N398",
+   "x": 2110.7,
+   "y": 1106.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N403",
+   "x": 2124.8,
+   "y": 857.6,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N404",
+   "x": 2125.7,
+   "y": 1489.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N405",
+   "x": 2127.0,
+   "y": 2119.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N406",
+   "x": 2131.2,
+   "y": 887.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N408",
+   "x": 2135.0,
+   "y": 1258.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N412",
+   "x": 2142.0,
+   "y": 1305.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N414",
+   "x": 2150.7,
+   "y": 1648.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N415",
+   "x": 2157.2,
+   "y": 959.2,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N417",
+   "x": 2163.1,
+   "y": 1082.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N419",
+   "x": 2167.3,
+   "y": 1745.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N420",
+   "x": 2168.7,
+   "y": 1479.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N424",
+   "x": 2177.7,
+   "y": 1149.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N426",
+   "x": 2187.7,
+   "y": 1255.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N428",
+   "x": 2189.8,
+   "y": 847.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N430",
+   "x": 2199.3,
+   "y": 2217.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N437",
+   "x": 2223.2,
+   "y": 1505.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N438",
+   "x": 2224.0,
+   "y": 1819.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N439",
+   "x": 2229.0,
+   "y": 1374.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N440",
+   "x": 2231.3,
+   "y": 1164.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N443",
+   "x": 2249.7,
+   "y": 2011.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N445",
+   "x": 2251.7,
+   "y": 1591.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N446",
+   "x": 2253.0,
+   "y": 1621.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N447",
+   "x": 2255.7,
+   "y": 325.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N450",
+   "x": 2267.0,
+   "y": 1395.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N451",
+   "x": 2268.7,
+   "y": 2097.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N452",
+   "x": 2274.3,
+   "y": 466.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N456",
+   "x": 2284.3,
+   "y": 1500.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N459",
+   "x": 2294.0,
+   "y": 586.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N460",
+   "x": 2294.7,
+   "y": 1903.7,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N461",
+   "x": 2296.0,
+   "y": 1960.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N462",
+   "x": 2299.0,
+   "y": 621.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N463",
+   "x": 2300.8,
+   "y": 1614.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N467",
+   "x": 2315.3,
+   "y": 1732.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N468",
+   "x": 2329.0,
+   "y": 2139.4,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N469",
+   "x": 2329.4,
+   "y": 2196.2,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N470",
+   "x": 2331.7,
+   "y": 2105.3,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N471",
+   "x": 2332.0,
+   "y": 2087.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N484",
+   "x": 2405.0,
+   "y": 949.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N488",
+   "x": 2438.0,
+   "y": 480.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N490",
+   "x": 2476.0,
+   "y": 1730.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N491",
+   "x": 2502.0,
+   "y": 1908.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "N496",
+   "x": 2571.0,
+   "y": 1338.0,
+   "kind": "junction",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "P01",
+   "x": 1678.2,
+   "y": 2237.2,
+   "kind": "poi",
+   "name": "1号门（主校门）",
+   "type": "gate"
+  },
+  {
+   "id": "P02",
+   "x": 2287.7,
+   "y": 2164.7,
+   "kind": "poi",
+   "name": "南门",
+   "type": "gate"
+  },
+  {
+   "id": "P03",
+   "x": 939.0,
+   "y": 2329.2,
+   "kind": "poi",
+   "name": "2号门",
+   "type": "gate"
+  },
+  {
+   "id": "P04",
+   "x": 2076.5,
+   "y": 876.4,
+   "kind": "poi",
+   "name": "3号门",
+   "type": "gate"
+  },
+  {
+   "id": "P05",
+   "x": 1450.5,
+   "y": 2013.9,
+   "kind": "poi",
+   "name": "图书馆",
+   "type": "library"
+  },
+  {
+   "id": "P06",
+   "x": 1563.6,
+   "y": 1805.7,
+   "kind": "poi",
+   "name": "文达楼",
+   "type": "teaching"
+  },
+  {
+   "id": "P07",
+   "x": 1657.1,
+   "y": 1482.9,
+   "kind": "poi",
+   "name": "计算机工程学院",
+   "type": "teaching"
+  },
+  {
+   "id": "P08",
+   "x": 1587.7,
+   "y": 1090.6,
+   "kind": "poi",
+   "name": "电子工程学院",
+   "type": "teaching"
+  },
+  {
+   "id": "P09",
+   "x": 1955.8,
+   "y": 1567.3,
+   "kind": "poi",
+   "name": "艺术学院",
+   "type": "teaching"
+  },
+  {
+   "id": "P10",
+   "x": 1020.5,
+   "y": 1482.9,
+   "kind": "poi",
+   "name": "第1食堂",
+   "type": "canteen"
+  },
+  {
+   "id": "P11",
+   "x": 1165.3,
+   "y": 1582.4,
+   "kind": "poi",
+   "name": "第二食堂",
+   "type": "canteen"
+  },
+  {
+   "id": "P12",
+   "x": 697.7,
+   "y": 1380.3,
+   "kind": "poi",
+   "name": "第三食堂",
+   "type": "canteen"
+  },
+  {
+   "id": "P13",
+   "x": 2302.8,
+   "y": 942.8,
+   "kind": "poi",
+   "name": "东区食堂（兴海楼）",
+   "type": "canteen"
+  },
+  {
+   "id": "P14",
+   "x": 2019.2,
+   "y": 1148.0,
+   "kind": "poi",
+   "name": "体育馆",
+   "type": "sport"
+  },
+  {
+   "id": "P15",
+   "x": 780.6,
+   "y": 2197.9,
+   "kind": "poi",
+   "name": "游泳馆",
+   "type": "sport"
+  },
+  {
+   "id": "P16",
+   "x": 890.8,
+   "y": 837.2,
+   "kind": "poi",
+   "name": "第一田径场",
+   "type": "sport"
+  },
+  {
+   "id": "P17",
+   "x": 1808.0,
+   "y": 562.6,
+   "kind": "poi",
+   "name": "第二田径场",
+   "type": "sport"
+  },
+  {
+   "id": "P18",
+   "x": 444.2,
+   "y": 849.2,
+   "kind": "poi",
+   "name": "学生公寓A区",
+   "type": "dorm"
+  },
+  {
+   "id": "P19",
+   "x": 993.3,
+   "y": 1238.5,
+   "kind": "poi",
+   "name": "学生公寓B区",
+   "type": "dorm"
+  },
+  {
+   "id": "P20",
+   "x": 2218.3,
+   "y": 449.5,
+   "kind": "poi",
+   "name": "学生公寓D区",
+   "type": "dorm"
+  },
+  {
+   "id": "A02",
+   "x": 2289.8,
+   "y": 2164.1,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A03",
+   "x": 931.6,
+   "y": 2329.6,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A04",
+   "x": 2072.3,
+   "y": 875.2,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A07",
+   "x": 1652.2,
+   "y": 1455.0,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A08",
+   "x": 1516.3,
+   "y": 1102.4,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A09",
+   "x": 1923.1,
+   "y": 1565.8,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A10",
+   "x": 1065.8,
+   "y": 1475.9,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A11",
+   "x": 1167.8,
+   "y": 1584.8,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A12",
+   "x": 734.9,
+   "y": 1375.1,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A13",
+   "x": 2319.1,
+   "y": 908.3,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A14",
+   "x": 2027.7,
+   "y": 1147.2,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A16",
+   "x": 946.4,
+   "y": 828.0,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A18",
+   "x": 434.7,
+   "y": 877.9,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  },
+  {
+   "id": "A20",
+   "x": 2271.2,
+   "y": 442.5,
+   "kind": "attach",
+   "name": "",
+   "type": ""
+  }
+ ],
+ "edges": [
+  {
+   "a": "N307",
+   "b": "N322",
+   "len_m": 53.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1729.0,
+     1511.0
+    ],
+    [
+     1836.7,
+     1498.7
+    ]
+   ]
+  },
+  {
+   "a": "N070",
+   "b": "N048",
+   "len_m": 46.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     765.0,
+     1524.0
+    ],
+    [
+     672.8,
+     1540.0
+    ]
+   ]
+  },
+  {
+   "a": "N169",
+   "b": "N208",
+   "len_m": 96.4,
+   "name": "秋霞路",
+   "cls": "campus",
+   "shape": [
+    [
+     1131.7,
+     483.3
+    ],
+    [
+     1325.0,
+     451.0
+    ]
+   ]
+  },
+  {
+   "a": "N169",
+   "b": "N092",
+   "len_m": 136.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1131.7,
+     483.3
+    ],
+    [
+     858.0,
+     526.0
+    ]
+   ]
+  },
+  {
+   "a": "N169",
+   "b": "N171",
+   "len_m": 21.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1131.7,
+     483.3
+    ],
+    [
+     1138.2,
+     527.0
+    ]
+   ]
+  },
+  {
+   "a": "N272",
+   "b": "N262",
+   "len_m": 90.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1633.0,
+     2188.8
+    ],
+    [
+     1614.0,
+     2034.8
+    ],
+    [
+     1610.7,
+     2006.3
+    ]
+   ]
+  },
+  {
+   "a": "N272",
+   "b": "N291",
+   "len_m": 22.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1633.0,
+     2188.8
+    ],
+    [
+     1678.8,
+     2182.5
+    ]
+   ]
+  },
+  {
+   "a": "N272",
+   "b": "N260",
+   "len_m": 13.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1633.0,
+     2188.8
+    ],
+    [
+     1605.8,
+     2195.0
+    ]
+   ]
+  },
+  {
+   "a": "N048",
+   "b": "N043",
+   "len_m": 30.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     672.8,
+     1540.0
+    ],
+    [
+     660.7,
+     1479.3
+    ]
+   ]
+  },
+  {
+   "a": "N048",
+   "b": "N023",
+   "len_m": 61.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     672.8,
+     1540.0
+    ],
+    [
+     551.0,
+     1567.0
+    ]
+   ]
+  },
+  {
+   "a": "N048",
+   "b": "N053",
+   "len_m": 30.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     672.8,
+     1540.0
+    ],
+    [
+     679.8,
+     1601.0
+    ]
+   ]
+  },
+  {
+   "a": "N144",
+   "b": "N154",
+   "len_m": 18.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1039.0,
+     1553.0
+    ],
+    [
+     1076.8,
+     1547.0
+    ]
+   ]
+  },
+  {
+   "a": "N308",
+   "b": "N284",
+   "len_m": 76.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1729.0,
+     1821.8
+    ],
+    [
+     1707.0,
+     1716.8
+    ],
+    [
+     1659.3,
+     1726.3
+    ]
+   ]
+  },
+  {
+   "a": "N308",
+   "b": "N318",
+   "len_m": 29.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1729.0,
+     1821.8
+    ],
+    [
+     1789.0,
+     1813.0
+    ]
+   ]
+  },
+  {
+   "a": "N308",
+   "b": "N290",
+   "len_m": 24.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1729.0,
+     1821.8
+    ],
+    [
+     1678.7,
+     1827.7
+    ]
+   ]
+  },
+  {
+   "a": "N285",
+   "b": "N306",
+   "len_m": 31.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1660.7,
+     399.3
+    ],
+    [
+     1724.7,
+     389.3
+    ]
+   ]
+  },
+  {
+   "a": "N285",
+   "b": "N218",
+   "len_m": 144.2,
+   "name": "秋霞路",
+   "cls": "campus",
+   "shape": [
+    [
+     1660.7,
+     399.3
+    ],
+    [
+     1371.0,
+     444.0
+    ]
+   ]
+  },
+  {
+   "a": "N285",
+   "b": "N301",
+   "len_m": 118.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1660.7,
+     399.3
+    ],
+    [
+     1699.3,
+     636.3
+    ]
+   ]
+  },
+  {
+   "a": "N310",
+   "b": "N309",
+   "len_m": 20.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1739.8,
+     891.0
+    ],
+    [
+     1732.8,
+     850.0
+    ]
+   ]
+  },
+  {
+   "a": "N310",
+   "b": "N348",
+   "len_m": 152.5,
+   "name": "春晖路",
+   "cls": "campus",
+   "shape": [
+    [
+     1739.8,
+     891.0
+    ],
+    [
+     1953.0,
+     871.8
+    ],
+    [
+     1943.7,
+     776.3
+    ]
+   ]
+  },
+  {
+   "a": "N310",
+   "b": "N292",
+   "len_m": 29.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1739.8,
+     891.0
+    ],
+    [
+     1680.0,
+     902.0
+    ]
+   ]
+  },
+  {
+   "a": "N310",
+   "b": "N312",
+   "len_m": 22.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1739.8,
+     891.0
+    ],
+    [
+     1746.8,
+     937.0
+    ]
+   ]
+  },
+  {
+   "a": "N171",
+   "b": "N198",
+   "len_m": 66.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1138.2,
+     527.0
+    ],
+    [
+     1274.0,
+     531.0
+    ]
+   ]
+  },
+  {
+   "a": "N171",
+   "b": "N172",
+   "len_m": 14.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1138.2,
+     527.0
+    ],
+    [
+     1142.3,
+     556.3
+    ]
+   ]
+  },
+  {
+   "a": "N047",
+   "b": "N047",
+   "len_m": 61.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     669.5,
+     1766.0
+    ],
+    [
+     678.3,
+     1713.7
+    ],
+    [
+     698.3,
+     1738.3
+    ],
+    [
+     669.5,
+     1766.0
+    ]
+   ]
+  },
+  {
+   "a": "N047",
+   "b": "N045",
+   "len_m": 12.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     669.5,
+     1766.0
+    ],
+    [
+     665.2,
+     1791.0
+    ]
+   ]
+  },
+  {
+   "a": "N047",
+   "b": "N057",
+   "len_m": 72.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     669.5,
+     1766.0
+    ],
+    [
+     679.2,
+     1709.8
+    ],
+    [
+     709.7,
+     1735.7
+    ],
+    [
+     695.0,
+     1783.0
+    ]
+   ]
+  },
+  {
+   "a": "N447",
+   "b": "N393",
+   "len_m": 164.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2255.7,
+     325.3
+    ],
+    [
+     2116.0,
+     415.0
+    ],
+    [
+     2118.0,
+     430.0
+    ],
+    [
+     2136.2,
+     520.6
+    ],
+    [
+     2077.3,
+     531.3
+    ]
+   ]
+  },
+  {
+   "a": "N447",
+   "b": "A20",
+   "len_m": 58.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2255.7,
+     325.3
+    ],
+    [
+     2271.2,
+     442.5
+    ]
+   ]
+  },
+  {
+   "a": "A20",
+   "b": "N452",
+   "len_m": 11.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2271.2,
+     442.5
+    ],
+    [
+     2274.3,
+     466.3
+    ]
+   ]
+  },
+  {
+   "a": "N252",
+   "b": "N251",
+   "len_m": 32.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1570.3,
+     1991.3
+    ],
+    [
+     1558.3,
+     1927.3
+    ]
+   ]
+  },
+  {
+   "a": "N252",
+   "b": "N256",
+   "len_m": 13.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1570.3,
+     1991.3
+    ],
+    [
+     1595.8,
+     1982.0
+    ]
+   ]
+  },
+  {
+   "a": "N252",
+   "b": "N260",
+   "len_m": 101.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1570.3,
+     1991.3
+    ],
+    [
+     1605.8,
+     2195.0
+    ]
+   ]
+  },
+  {
+   "a": "N387",
+   "b": "N378",
+   "len_m": 51.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2065.0,
+     1768.8
+    ],
+    [
+     2061.0,
+     1727.0
+    ],
+    [
+     2059.2,
+     1704.0
+    ],
+    [
+     2054.3,
+     1665.3
+    ]
+   ]
+  },
+  {
+   "a": "N387",
+   "b": "N419",
+   "len_m": 51.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2065.0,
+     1768.8
+    ],
+    [
+     2167.3,
+     1745.7
+    ]
+   ]
+  },
+  {
+   "a": "N387",
+   "b": "N356",
+   "len_m": 34.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2065.0,
+     1768.8
+    ],
+    [
+     1996.0,
+     1779.0
+    ]
+   ]
+  },
+  {
+   "a": "N148",
+   "b": "N146",
+   "len_m": 16.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1048.7,
+     1128.7
+    ],
+    [
+     1045.3,
+     1095.3
+    ]
+   ]
+  },
+  {
+   "a": "N148",
+   "b": "N102",
+   "len_m": 72.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1048.7,
+     1128.7
+    ],
+    [
+     904.0,
+     1152.8
+    ]
+   ]
+  },
+  {
+   "a": "N148",
+   "b": "N151",
+   "len_m": 41.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1048.7,
+     1128.7
+    ],
+    [
+     1061.7,
+     1211.7
+    ]
+   ]
+  },
+  {
+   "a": "N061",
+   "b": "N039",
+   "len_m": 45.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     715.3,
+     1191.3
+    ],
+    [
+     636.0,
+     1144.8
+    ]
+   ]
+  },
+  {
+   "a": "N061",
+   "b": "N071",
+   "len_m": 24.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     715.3,
+     1191.3
+    ],
+    [
+     766.0,
+     1192.0
+    ]
+   ]
+  },
+  {
+   "a": "N061",
+   "b": "N031",
+   "len_m": 110.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     715.3,
+     1191.3
+    ],
+    [
+     699.0,
+     1273.8
+    ],
+    [
+     592.7,
+     1182.3
+    ]
+   ]
+  },
+  {
+   "a": "N364",
+   "b": "N316",
+   "len_m": 165.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2020.2,
+     2053.0
+    ],
+    [
+     2000.7,
+     1943.7
+    ],
+    [
+     1776.0,
+     1970.0
+    ]
+   ]
+  },
+  {
+   "a": "N364",
+   "b": "N443",
+   "len_m": 114.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2020.2,
+     2053.0
+    ],
+    [
+     2249.7,
+     2011.7
+    ]
+   ]
+  },
+  {
+   "a": "N364",
+   "b": "N366",
+   "len_m": 40.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2020.2,
+     2053.0
+    ],
+    [
+     2023.0,
+     2134.8
+    ]
+   ]
+  },
+  {
+   "a": "N079",
+   "b": "N113",
+   "len_m": 71.0,
+   "name": "主干道",
+   "cls": "arterial",
+   "shape": [
+    [
+     803.0,
+     2440.0
+    ],
+    [
+     945.3,
+     2416.7
+    ]
+   ]
+  },
+  {
+   "a": "N419",
+   "b": "N414",
+   "len_m": 48.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2167.3,
+     1745.7
+    ],
+    [
+     2150.7,
+     1648.7
+    ]
+   ]
+  },
+  {
+   "a": "N419",
+   "b": "N420",
+   "len_m": 154.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2167.3,
+     1745.7
+    ],
+    [
+     2212.7,
+     1743.7
+    ],
+    [
+     2168.7,
+     1479.7
+    ]
+   ]
+  },
+  {
+   "a": "N264",
+   "b": "N199",
+   "len_m": 167.5,
+   "name": "接驳",
+   "cls": "campus",
+   "shape": [
+    [
+     1616.0,
+     912.0
+    ],
+    [
+     1371.0,
+     950.0
+    ],
+    [
+     1355.0,
+     952.0
+    ],
+    [
+     1279.3,
+     962.7
+    ]
+   ]
+  },
+  {
+   "a": "N096",
+   "b": "N102",
+   "len_m": 15.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     874.7,
+     1162.3
+    ],
+    [
+     904.0,
+     1152.8
+    ]
+   ]
+  },
+  {
+   "a": "N096",
+   "b": "N077",
+   "len_m": 43.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     874.7,
+     1162.3
+    ],
+    [
+     786.3,
+     1173.3
+    ]
+   ]
+  },
+  {
+   "a": "N096",
+   "b": "N099",
+   "len_m": 39.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     874.7,
+     1162.3
+    ],
+    [
+     887.8,
+     1241.0
+    ]
+   ]
+  },
+  {
+   "a": "N098",
+   "b": "N105",
+   "len_m": 84.3,
+   "name": "苍梧路",
+   "cls": "campus",
+   "shape": [
+    [
+     886.0,
+     2037.0
+    ],
+    [
+     913.8,
+     2206.0
+    ]
+   ]
+  },
+  {
+   "a": "N041",
+   "b": "N022",
+   "len_m": 51.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     654.0,
+     904.0
+    ],
+    [
+     550.3,
+     916.3
+    ]
+   ]
+  },
+  {
+   "a": "N451",
+   "b": "N443",
+   "len_m": 43.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2268.7,
+     2097.7
+    ],
+    [
+     2249.7,
+     2011.7
+    ]
+   ]
+  },
+  {
+   "a": "N451",
+   "b": "N405",
+   "len_m": 70.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2268.7,
+     2097.7
+    ],
+    [
+     2127.0,
+     2119.0
+    ]
+   ]
+  },
+  {
+   "a": "N451",
+   "b": "A02",
+   "len_m": 34.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2268.7,
+     2097.7
+    ],
+    [
+     2289.8,
+     2164.1
+    ]
+   ]
+  },
+  {
+   "a": "A02",
+   "b": "N469",
+   "len_m": 25.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2289.8,
+     2164.1
+    ],
+    [
+     2292.2,
+     2171.8
+    ],
+    [
+     2329.4,
+     2196.2
+    ]
+   ]
+  },
+  {
+   "a": "N067",
+   "b": "N040",
+   "len_m": 55.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     751.8,
+     1080.9
+    ],
+    [
+     641.1,
+     1104.9
+    ]
+   ]
+  },
+  {
+   "a": "N067",
+   "b": "N073",
+   "len_m": 14.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     751.8,
+     1080.9
+    ],
+    [
+     776.3,
+     1096.3
+    ]
+   ]
+  },
+  {
+   "a": "N067",
+   "b": "N071",
+   "len_m": 55.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     751.8,
+     1080.9
+    ],
+    [
+     766.0,
+     1192.0
+    ]
+   ]
+  },
+  {
+   "a": "N067",
+   "b": "N068",
+   "len_m": 7.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     751.8,
+     1080.9
+    ],
+    [
+     755.8,
+     1065.8
+    ]
+   ]
+  },
+  {
+   "a": "N054",
+   "b": "N053",
+   "len_m": 38.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     683.5,
+     1679.0
+    ],
+    [
+     679.8,
+     1601.0
+    ]
+   ]
+  },
+  {
+   "a": "N054",
+   "b": "N074",
+   "len_m": 46.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     683.5,
+     1679.0
+    ],
+    [
+     776.7,
+     1665.3
+    ]
+   ]
+  },
+  {
+   "a": "N054",
+   "b": "N038",
+   "len_m": 23.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     683.5,
+     1679.0
+    ],
+    [
+     635.0,
+     1682.2
+    ]
+   ]
+  },
+  {
+   "a": "N154",
+   "b": "A10",
+   "len_m": 35.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1076.8,
+     1547.0
+    ],
+    [
+     1065.8,
+     1475.9
+    ]
+   ]
+  },
+  {
+   "a": "A10",
+   "b": "N150",
+   "len_m": 32.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1065.8,
+     1475.9
+    ],
+    [
+     1055.8,
+     1411.0
+    ]
+   ]
+  },
+  {
+   "a": "N154",
+   "b": "N189",
+   "len_m": 76.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1076.8,
+     1547.0
+    ],
+    [
+     1230.8,
+     1520.0
+    ]
+   ]
+  },
+  {
+   "a": "N154",
+   "b": "N160",
+   "len_m": 56.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1076.8,
+     1547.0
+    ],
+    [
+     1094.3,
+     1660.3
+    ]
+   ]
+  },
+  {
+   "a": "N207",
+   "b": "N195",
+   "len_m": 32.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1323.0,
+     2241.0
+    ],
+    [
+     1258.0,
+     2250.8
+    ]
+   ]
+  },
+  {
+   "a": "N101",
+   "b": "N100",
+   "len_m": 17.3,
+   "name": "春晖路",
+   "cls": "campus",
+   "shape": [
+    [
+     891.8,
+     1077.0
+    ],
+    [
+     889.0,
+     1042.0
+    ]
+   ]
+  },
+  {
+   "a": "N101",
+   "b": "N142",
+   "len_m": 73.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     891.8,
+     1077.0
+    ],
+    [
+     1037.8,
+     1051.0
+    ]
+   ]
+  },
+  {
+   "a": "N101",
+   "b": "N073",
+   "len_m": 57.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     891.8,
+     1077.0
+    ],
+    [
+     856.0,
+     1084.0
+    ],
+    [
+     838.0,
+     1086.0
+    ],
+    [
+     776.3,
+     1096.3
+    ]
+   ]
+  },
+  {
+   "a": "N101",
+   "b": "N102",
+   "len_m": 37.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     891.8,
+     1077.0
+    ],
+    [
+     904.0,
+     1152.8
+    ]
+   ]
+  },
+  {
+   "a": "N082",
+   "b": "N049",
+   "len_m": 68.0,
+   "name": "秋霞路",
+   "cls": "campus",
+   "shape": [
+    [
+     810.0,
+     532.0
+    ],
+    [
+     673.7,
+     555.3
+    ]
+   ]
+  },
+  {
+   "a": "N378",
+   "b": "N375",
+   "len_m": 29.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2054.3,
+     1665.3
+    ],
+    [
+     2044.0,
+     1607.0
+    ]
+   ]
+  },
+  {
+   "a": "N378",
+   "b": "N414",
+   "len_m": 48.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2054.3,
+     1665.3
+    ],
+    [
+     2150.7,
+     1648.7
+    ]
+   ]
+  },
+  {
+   "a": "N106",
+   "b": "A16",
+   "len_m": 88.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     917.0,
+     650.0
+    ],
+    [
+     946.4,
+     828.0
+    ]
+   ]
+  },
+  {
+   "a": "A16",
+   "b": "N122",
+   "len_m": 92.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     946.4,
+     828.0
+    ],
+    [
+     977.0,
+     1012.8
+    ]
+   ]
+  },
+  {
+   "a": "N412",
+   "b": "N420",
+   "len_m": 86.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2142.0,
+     1305.0
+    ],
+    [
+     2168.7,
+     1479.7
+    ]
+   ]
+  },
+  {
+   "a": "N110",
+   "b": "N099",
+   "len_m": 26.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     940.0,
+     1232.0
+    ],
+    [
+     887.8,
+     1241.0
+    ]
+   ]
+  },
+  {
+   "a": "N214",
+   "b": "N212",
+   "len_m": 23.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1351.7,
+     1906.7
+    ],
+    [
+     1345.0,
+     1860.0
+    ]
+   ]
+  },
+  {
+   "a": "N214",
+   "b": "N194",
+   "len_m": 50.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1351.7,
+     1906.7
+    ],
+    [
+     1250.0,
+     1889.0
+    ]
+   ]
+  },
+  {
+   "a": "N214",
+   "b": "N216",
+   "len_m": 13.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1351.7,
+     1906.7
+    ],
+    [
+     1356.8,
+     1933.0
+    ]
+   ]
+  },
+  {
+   "a": "N174",
+   "b": "N163",
+   "len_m": 47.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1150.7,
+     1761.7
+    ],
+    [
+     1097.0,
+     1682.8
+    ]
+   ]
+  },
+  {
+   "a": "N174",
+   "b": "N157",
+   "len_m": 31.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1150.7,
+     1761.7
+    ],
+    [
+     1095.7,
+     1776.3
+    ],
+    [
+     1089.2,
+     1778.2
+    ]
+   ]
+  },
+  {
+   "a": "N174",
+   "b": "N191",
+   "len_m": 43.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1150.7,
+     1761.7
+    ],
+    [
+     1238.0,
+     1772.0
+    ]
+   ]
+  },
+  {
+   "a": "N257",
+   "b": "A07",
+   "len_m": 26.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1599.7,
+     1464.3
+    ],
+    [
+     1652.2,
+     1455.0
+    ]
+   ]
+  },
+  {
+   "a": "A07",
+   "b": "N320",
+   "len_m": 87.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1652.2,
+     1455.0
+    ],
+    [
+     1826.8,
+     1424.0
+    ]
+   ]
+  },
+  {
+   "a": "N257",
+   "b": "N232",
+   "len_m": 69.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1599.7,
+     1464.3
+    ],
+    [
+     1459.7,
+     1487.3
+    ]
+   ]
+  },
+  {
+   "a": "N257",
+   "b": "N269",
+   "len_m": 67.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1599.7,
+     1464.3
+    ],
+    [
+     1629.2,
+     1598.2
+    ]
+   ]
+  },
+  {
+   "a": "N053",
+   "b": "N072",
+   "len_m": 45.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     679.8,
+     1601.0
+    ],
+    [
+     770.0,
+     1584.0
+    ]
+   ]
+  },
+  {
+   "a": "N053",
+   "b": "N025",
+   "len_m": 62.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     679.8,
+     1601.0
+    ],
+    [
+     554.0,
+     1624.0
+    ]
+   ]
+  },
+  {
+   "a": "N287",
+   "b": "N289",
+   "len_m": 6.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1662.0,
+     2154.0
+    ],
+    [
+     1667.6,
+     2142.1
+    ]
+   ]
+  },
+  {
+   "a": "N158",
+   "b": "N150",
+   "len_m": 18.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1092.0,
+     1404.8
+    ],
+    [
+     1055.8,
+     1411.0
+    ]
+   ]
+  },
+  {
+   "a": "N158",
+   "b": "N185",
+   "len_m": 65.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1092.0,
+     1404.8
+    ],
+    [
+     1126.1,
+     1399.8
+    ],
+    [
+     1126.0,
+     1408.0
+    ],
+    [
+     1216.7,
+     1413.7
+    ]
+   ]
+  },
+  {
+   "a": "N237",
+   "b": "N229",
+   "len_m": 114.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1483.0,
+     1348.8
+    ],
+    [
+     1447.7,
+     1119.7
+    ]
+   ]
+  },
+  {
+   "a": "N237",
+   "b": "N250",
+   "len_m": 35.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1483.0,
+     1348.8
+    ],
+    [
+     1555.0,
+     1337.8
+    ]
+   ]
+  },
+  {
+   "a": "N237",
+   "b": "N197",
+   "len_m": 105.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1483.0,
+     1348.8
+    ],
+    [
+     1270.8,
+     1382.0
+    ]
+   ]
+  },
+  {
+   "a": "N389",
+   "b": "A04",
+   "len_m": 3.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2070.5,
+     881.1
+    ],
+    [
+     2072.3,
+     875.2
+    ]
+   ]
+  },
+  {
+   "a": "A04",
+   "b": "N392",
+   "len_m": 4.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2072.3,
+     875.2
+    ],
+    [
+     2074.6,
+     867.2
+    ]
+   ]
+  },
+  {
+   "a": "N389",
+   "b": "N396",
+   "len_m": 73.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2070.5,
+     881.1
+    ],
+    [
+     2098.7,
+     1027.7
+    ]
+   ]
+  },
+  {
+   "a": "N389",
+   "b": "N340",
+   "len_m": 79.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2070.5,
+     881.1
+    ],
+    [
+     1915.0,
+     927.0
+    ]
+   ]
+  },
+  {
+   "a": "N080",
+   "b": "N075",
+   "len_m": 96.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     803.8,
+     1454.0
+    ],
+    [
+     776.8,
+     1260.0
+    ]
+   ]
+  },
+  {
+   "a": "N080",
+   "b": "N087",
+   "len_m": 13.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     803.8,
+     1454.0
+    ],
+    [
+     831.0,
+     1448.8
+    ]
+   ]
+  },
+  {
+   "a": "N080",
+   "b": "N066",
+   "len_m": 28.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     803.8,
+     1454.0
+    ],
+    [
+     747.0,
+     1462.8
+    ]
+   ]
+  },
+  {
+   "a": "N374",
+   "b": "A14",
+   "len_m": 72.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2040.6,
+     1293.5
+    ],
+    [
+     2027.7,
+     1147.2
+    ]
+   ]
+  },
+  {
+   "a": "A14",
+   "b": "N368",
+   "len_m": 13.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2027.7,
+     1147.2
+    ],
+    [
+     2025.3,
+     1120.3
+    ]
+   ]
+  },
+  {
+   "a": "N374",
+   "b": "N330",
+   "len_m": 100.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2040.6,
+     1293.5
+    ],
+    [
+     1957.0,
+     1267.0
+    ],
+    [
+     1941.0,
+     1270.0
+    ],
+    [
+     1883.3,
+     1310.3
+    ],
+    [
+     1873.7,
+     1282.7
+    ]
+   ]
+  },
+  {
+   "a": "N374",
+   "b": "N377",
+   "len_m": 66.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2040.6,
+     1293.5
+    ],
+    [
+     2054.2,
+     1427.5
+    ]
+   ]
+  },
+  {
+   "a": "N374",
+   "b": "N372",
+   "len_m": 27.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2040.6,
+     1293.5
+    ],
+    [
+     2034.7,
+     1348.3
+    ]
+   ]
+  },
+  {
+   "a": "N094",
+   "b": "N086",
+   "len_m": 123.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     866.3,
+     1904.3
+    ],
+    [
+     829.7,
+     1656.7
+    ]
+   ]
+  },
+  {
+   "a": "N094",
+   "b": "N124",
+   "len_m": 58.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     866.3,
+     1904.3
+    ],
+    [
+     982.7,
+     1883.3
+    ]
+   ]
+  },
+  {
+   "a": "N094",
+   "b": "N095",
+   "len_m": 18.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     866.3,
+     1904.3
+    ],
+    [
+     870.7,
+     1941.7
+    ]
+   ]
+  },
+  {
+   "a": "N361",
+   "b": "N377",
+   "len_m": 29.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2006.0,
+     1464.0
+    ],
+    [
+     2054.2,
+     1427.5
+    ]
+   ]
+  },
+  {
+   "a": "N236",
+   "b": "N234",
+   "len_m": 38.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1482.0,
+     1907.8
+    ],
+    [
+     1468.7,
+     1830.7
+    ]
+   ]
+  },
+  {
+   "a": "N236",
+   "b": "N249",
+   "len_m": 35.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1482.0,
+     1907.8
+    ],
+    [
+     1551.8,
+     1894.0
+    ]
+   ]
+  },
+  {
+   "a": "N236",
+   "b": "N216",
+   "len_m": 62.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1482.0,
+     1907.8
+    ],
+    [
+     1356.8,
+     1933.0
+    ]
+   ]
+  },
+  {
+   "a": "N083",
+   "b": "N064",
+   "len_m": 36.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     810.0,
+     1807.0
+    ],
+    [
+     738.0,
+     1819.8
+    ]
+   ]
+  },
+  {
+   "a": "N338",
+   "b": "N331",
+   "len_m": 76.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1902.3,
+     1371.3
+    ],
+    [
+     1883.0,
+     1319.0
+    ],
+    [
+     1881.2,
+     1417.7
+    ]
+   ]
+  },
+  {
+   "a": "N338",
+   "b": "N353",
+   "len_m": 33.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1902.3,
+     1371.3
+    ],
+    [
+     1969.7,
+     1360.3
+    ]
+   ]
+  },
+  {
+   "a": "N338",
+   "b": "N342",
+   "len_m": 29.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1902.3,
+     1371.3
+    ],
+    [
+     1920.0,
+     1428.6
+    ]
+   ]
+  },
+  {
+   "a": "N251",
+   "b": "N249",
+   "len_m": 16.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1558.3,
+     1927.3
+    ],
+    [
+     1551.8,
+     1894.0
+    ]
+   ]
+  },
+  {
+   "a": "N251",
+   "b": "N261",
+   "len_m": 25.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1558.3,
+     1927.3
+    ],
+    [
+     1608.6,
+     1915.1
+    ]
+   ]
+  },
+  {
+   "a": "N118",
+   "b": "N143",
+   "len_m": 90.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     969.3,
+     1429.3
+    ],
+    [
+     1034.0,
+     1414.8
+    ],
+    [
+     1027.3,
+     1346.3
+    ],
+    [
+     1038.0,
+     1297.8
+    ]
+   ]
+  },
+  {
+   "a": "N470",
+   "b": "N468",
+   "len_m": 16.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2331.7,
+     2105.3
+    ],
+    [
+     2329.0,
+     2139.4
+    ]
+   ]
+  },
+  {
+   "a": "N461",
+   "b": "N468",
+   "len_m": 89.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2296.0,
+     1960.0
+    ],
+    [
+     2329.0,
+     2139.4
+    ]
+   ]
+  },
+  {
+   "a": "N234",
+   "b": "N231",
+   "len_m": 33.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1468.7,
+     1830.7
+    ],
+    [
+     1464.3,
+     1788.3
+    ],
+    [
+     1458.7,
+     1763.7
+    ]
+   ]
+  },
+  {
+   "a": "N234",
+   "b": "N228",
+   "len_m": 15.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1468.7,
+     1830.7
+    ],
+    [
+     1437.0,
+     1835.0
+    ]
+   ]
+  },
+  {
+   "a": "N165",
+   "b": "N149",
+   "len_m": 28.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1106.7,
+     1858.7
+    ],
+    [
+     1049.0,
+     1870.0
+    ]
+   ]
+  },
+  {
+   "a": "N165",
+   "b": "N166",
+   "len_m": 53.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1106.7,
+     1858.7
+    ],
+    [
+     1110.3,
+     1966.7
+    ]
+   ]
+  },
+  {
+   "a": "N165",
+   "b": "N157",
+   "len_m": 40.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1106.7,
+     1858.7
+    ],
+    [
+     1089.2,
+     1778.2
+    ]
+   ]
+  },
+  {
+   "a": "N345",
+   "b": "N331",
+   "len_m": 31.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1928.1,
+     1460.5
+    ],
+    [
+     1881.2,
+     1417.7
+    ]
+   ]
+  },
+  {
+   "a": "N345",
+   "b": "N342",
+   "len_m": 16.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1928.1,
+     1460.5
+    ],
+    [
+     1920.0,
+     1428.6
+    ]
+   ]
+  },
+  {
+   "a": "N345",
+   "b": "A09",
+   "len_m": 51.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1928.1,
+     1460.5
+    ],
+    [
+     1923.1,
+     1565.8
+    ]
+   ]
+  },
+  {
+   "a": "A09",
+   "b": "N332",
+   "len_m": 132.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1923.1,
+     1565.8
+    ],
+    [
+     1922.0,
+     1590.0
+    ],
+    [
+     1916.0,
+     1602.0
+    ],
+    [
+     1924.0,
+     1790.8
+    ],
+    [
+     1882.3,
+     1794.7
+    ]
+   ]
+  },
+  {
+   "a": "N089",
+   "b": "N103",
+   "len_m": 29.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     846.0,
+     1358.0
+    ],
+    [
+     905.8,
+     1353.0
+    ]
+   ]
+  },
+  {
+   "a": "N439",
+   "b": "N415",
+   "len_m": 207.4,
+   "name": "接驳",
+   "cls": "campus",
+   "shape": [
+    [
+     2229.0,
+     1374.0
+    ],
+    [
+     2213.0,
+     1263.0
+    ],
+    [
+     2210.0,
+     1246.0
+    ],
+    [
+     2171.0,
+     1002.0
+    ],
+    [
+     2167.0,
+     985.0
+    ],
+    [
+     2157.2,
+     959.2
+    ]
+   ]
+  },
+  {
+   "a": "N439",
+   "b": "N440",
+   "len_m": 117.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2229.0,
+     1374.0
+    ],
+    [
+     2260.0,
+     1369.6
+    ],
+    [
+     2231.3,
+     1164.3
+    ]
+   ]
+  },
+  {
+   "a": "N439",
+   "b": "N445",
+   "len_m": 107.7,
+   "name": "接驳",
+   "cls": "campus",
+   "shape": [
+    [
+     2229.0,
+     1374.0
+    ],
+    [
+     2248.0,
+     1506.0
+    ],
+    [
+     2251.0,
+     1524.0
+    ],
+    [
+     2251.7,
+     1591.3
+    ]
+   ]
+  },
+  {
+   "a": "N488",
+   "b": "N452",
+   "len_m": 93.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2438.0,
+     480.0
+    ],
+    [
+     2277.9,
+     495.6
+    ],
+    [
+     2274.3,
+     466.3
+    ]
+   ]
+  },
+  {
+   "a": "N042",
+   "b": "N045",
+   "len_m": 21.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     660.0,
+     1834.2
+    ],
+    [
+     665.2,
+     1791.0
+    ]
+   ]
+  },
+  {
+   "a": "N042",
+   "b": "N064",
+   "len_m": 39.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     660.0,
+     1834.2
+    ],
+    [
+     738.0,
+     1819.8
+    ]
+   ]
+  },
+  {
+   "a": "N042",
+   "b": "N032",
+   "len_m": 32.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     660.0,
+     1834.2
+    ],
+    [
+     595.0,
+     1846.0
+    ]
+   ]
+  },
+  {
+   "a": "N042",
+   "b": "N055",
+   "len_m": 31.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     660.0,
+     1834.2
+    ],
+    [
+     685.0,
+     1892.0
+    ]
+   ]
+  },
+  {
+   "a": "N324",
+   "b": "N269",
+   "len_m": 106.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1841.0,
+     1558.3
+    ],
+    [
+     1648.8,
+     1597.4
+    ],
+    [
+     1629.2,
+     1598.2
+    ]
+   ]
+  },
+  {
+   "a": "N342",
+   "b": "N331",
+   "len_m": 19.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1920.0,
+     1428.6
+    ],
+    [
+     1881.2,
+     1417.7
+    ]
+   ]
+  },
+  {
+   "a": "N342",
+   "b": "N355",
+   "len_m": 30.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1920.0,
+     1428.6
+    ],
+    [
+     1981.0,
+     1421.8
+    ]
+   ]
+  },
+  {
+   "a": "N119",
+   "b": "N103",
+   "len_m": 32.0,
+   "name": "文荟路",
+   "cls": "campus",
+   "shape": [
+    [
+     970.0,
+     1343.0
+    ],
+    [
+     905.8,
+     1353.0
+    ]
+   ]
+  },
+  {
+   "a": "N184",
+   "b": "N177",
+   "len_m": 151.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1213.8,
+     1384.0
+    ],
+    [
+     1189.7,
+     1221.7
+    ],
+    [
+     1162.7,
+     1080.7
+    ]
+   ]
+  },
+  {
+   "a": "N184",
+   "b": "N197",
+   "len_m": 28.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1213.8,
+     1384.0
+    ],
+    [
+     1270.8,
+     1382.0
+    ]
+   ]
+  },
+  {
+   "a": "N184",
+   "b": "N179",
+   "len_m": 24.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1213.8,
+     1384.0
+    ],
+    [
+     1164.0,
+     1393.0
+    ]
+   ]
+  },
+  {
+   "a": "N184",
+   "b": "N185",
+   "len_m": 14.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1213.8,
+     1384.0
+    ],
+    [
+     1216.7,
+     1413.7
+    ]
+   ]
+  },
+  {
+   "a": "N122",
+   "b": "N137",
+   "len_m": 26.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     977.0,
+     1012.8
+    ],
+    [
+     1029.7,
+     1005.3
+    ]
+   ]
+  },
+  {
+   "a": "N122",
+   "b": "N104",
+   "len_m": 33.4,
+   "name": "春晖路",
+   "cls": "campus",
+   "shape": [
+    [
+     977.0,
+     1012.8
+    ],
+    [
+     911.0,
+     1029.0
+    ]
+   ]
+  },
+  {
+   "a": "N314",
+   "b": "N312",
+   "len_m": 46.8,
+   "name": "和衷路",
+   "cls": "campus",
+   "shape": [
+    [
+     1762.0,
+     1031.0
+    ],
+    [
+     1746.8,
+     937.0
+    ]
+   ]
+  },
+  {
+   "a": "N199",
+   "b": "N172",
+   "len_m": 211.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1279.3,
+     962.7
+    ],
+    [
+     1142.3,
+     556.3
+    ]
+   ]
+  },
+  {
+   "a": "N199",
+   "b": "N182",
+   "len_m": 35.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1279.3,
+     962.7
+    ],
+    [
+     1207.8,
+     974.0
+    ]
+   ]
+  },
+  {
+   "a": "N024",
+   "b": "N022",
+   "len_m": 22.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     553.7,
+     961.7
+    ],
+    [
+     550.3,
+     916.3
+    ]
+   ]
+  },
+  {
+   "a": "N024",
+   "b": "N005",
+   "len_m": 50.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     553.7,
+     961.7
+    ],
+    [
+     453.0,
+     979.0
+    ]
+   ]
+  },
+  {
+   "a": "N024",
+   "b": "N026",
+   "len_m": 28.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     553.7,
+     961.7
+    ],
+    [
+     562.3,
+     1018.3
+    ]
+   ]
+  },
+  {
+   "a": "N365",
+   "b": "N363",
+   "len_m": 23.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2021.3,
+     1082.3
+    ],
+    [
+     2013.3,
+     1036.3
+    ]
+   ]
+  },
+  {
+   "a": "N365",
+   "b": "N397",
+   "len_m": 41.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2021.3,
+     1082.3
+    ],
+    [
+     2104.7,
+     1066.7
+    ]
+   ]
+  },
+  {
+   "a": "N365",
+   "b": "N368",
+   "len_m": 18.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2021.3,
+     1082.3
+    ],
+    [
+     2025.3,
+     1120.3
+    ]
+   ]
+  },
+  {
+   "a": "N302",
+   "b": "N301",
+   "len_m": 15.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1702.7,
+     666.7
+    ],
+    [
+     1699.3,
+     636.3
+    ]
+   ]
+  },
+  {
+   "a": "N302",
+   "b": "N268",
+   "len_m": 38.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1702.7,
+     666.7
+    ],
+    [
+     1626.3,
+     678.3
+    ]
+   ]
+  },
+  {
+   "a": "N302",
+   "b": "N309",
+   "len_m": 91.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1702.7,
+     666.7
+    ],
+    [
+     1732.8,
+     850.0
+    ]
+   ]
+  },
+  {
+   "a": "N471",
+   "b": "N460",
+   "len_m": 92.0,
+   "name": "学院路",
+   "cls": "campus",
+   "shape": [
+    [
+     2332.0,
+     2087.0
+    ],
+    [
+     2294.7,
+     1903.7
+    ]
+   ]
+  },
+  {
+   "a": "N440",
+   "b": "N496",
+   "len_m": 187.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2231.3,
+     1164.3
+    ],
+    [
+     2571.0,
+     1338.0
+    ]
+   ]
+  },
+  {
+   "a": "N440",
+   "b": "N456",
+   "len_m": 258.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2231.3,
+     1164.3
+    ],
+    [
+     2439.7,
+     1464.7
+    ],
+    [
+     2284.3,
+     1500.3
+    ]
+   ]
+  },
+  {
+   "a": "N099",
+   "b": "N078",
+   "len_m": 45.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     887.8,
+     1241.0
+    ],
+    [
+     795.8,
+     1257.0
+    ]
+   ]
+  },
+  {
+   "a": "N099",
+   "b": "N103",
+   "len_m": 55.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     887.8,
+     1241.0
+    ],
+    [
+     905.8,
+     1353.0
+    ]
+   ]
+  },
+  {
+   "a": "N238",
+   "b": "N241",
+   "len_m": 19.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1495.7,
+     977.3
+    ],
+    [
+     1534.7,
+     971.3
+    ]
+   ]
+  },
+  {
+   "a": "N238",
+   "b": "N227",
+   "len_m": 33.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1495.7,
+     977.3
+    ],
+    [
+     1428.7,
+     990.3
+    ]
+   ]
+  },
+  {
+   "a": "N238",
+   "b": "A08",
+   "len_m": 62.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1495.7,
+     977.3
+    ],
+    [
+     1516.3,
+     1102.4
+    ]
+   ]
+  },
+  {
+   "a": "A08",
+   "b": "N250",
+   "len_m": 117.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1516.3,
+     1102.4
+    ],
+    [
+     1555.0,
+     1337.8
+    ]
+   ]
+  },
+  {
+   "a": "N173",
+   "b": "N182",
+   "len_m": 30.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1146.7,
+     985.3
+    ],
+    [
+     1207.8,
+     974.0
+    ]
+   ]
+  },
+  {
+   "a": "N173",
+   "b": "N137",
+   "len_m": 58.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1146.7,
+     985.3
+    ],
+    [
+     1029.7,
+     1005.3
+    ]
+   ]
+  },
+  {
+   "a": "N173",
+   "b": "N175",
+   "len_m": 22.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1146.7,
+     985.3
+    ],
+    [
+     1153.8,
+     1031.0
+    ]
+   ]
+  },
+  {
+   "a": "N445",
+   "b": "N437",
+   "len_m": 44.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2251.7,
+     1591.3
+    ],
+    [
+     2223.2,
+     1505.0
+    ]
+   ]
+  },
+  {
+   "a": "N445",
+   "b": "N446",
+   "len_m": 14.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2251.7,
+     1591.3
+    ],
+    [
+     2253.0,
+     1621.0
+    ]
+   ]
+  },
+  {
+   "a": "N021",
+   "b": "N020",
+   "len_m": 16.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     538.0,
+     820.0
+    ],
+    [
+     532.7,
+     786.7
+    ]
+   ]
+  },
+  {
+   "a": "N437",
+   "b": "N460",
+   "len_m": 199.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2223.2,
+     1505.0
+    ],
+    [
+     2242.3,
+     1621.3
+    ],
+    [
+     2294.7,
+     1903.7
+    ]
+   ]
+  },
+  {
+   "a": "N437",
+   "b": "N426",
+   "len_m": 124.2,
+   "name": "学院路",
+   "cls": "campus",
+   "shape": [
+    [
+     2223.2,
+     1505.0
+    ],
+    [
+     2219.4,
+     1455.2
+    ],
+    [
+     2212.6,
+     1390.3
+    ],
+    [
+     2208.2,
+     1379.0
+    ],
+    [
+     2188.3,
+     1269.5
+    ],
+    [
+     2187.7,
+     1255.7
+    ]
+   ]
+  },
+  {
+   "a": "N074",
+   "b": "N086",
+   "len_m": 26.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     776.7,
+     1665.3
+    ],
+    [
+     829.7,
+     1656.7
+    ]
+   ]
+  },
+  {
+   "a": "N074",
+   "b": "N064",
+   "len_m": 78.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     776.7,
+     1665.3
+    ],
+    [
+     738.0,
+     1819.8
+    ]
+   ]
+  },
+  {
+   "a": "N491",
+   "b": "N467",
+   "len_m": 126.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2502.0,
+     1908.0
+    ],
+    [
+     2315.3,
+     1732.3
+    ]
+   ]
+  },
+  {
+   "a": "N087",
+   "b": "N078",
+   "len_m": 95.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     831.0,
+     1448.8
+    ],
+    [
+     795.8,
+     1257.0
+    ]
+   ]
+  },
+  {
+   "a": "N087",
+   "b": "N103",
+   "len_m": 84.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     831.0,
+     1448.8
+    ],
+    [
+     919.0,
+     1433.8
+    ],
+    [
+     905.8,
+     1353.0
+    ]
+   ]
+  },
+  {
+   "a": "N469",
+   "b": "N430",
+   "len_m": 64.8,
+   "name": "主干道",
+   "cls": "arterial",
+   "shape": [
+    [
+     2329.4,
+     2196.2
+    ],
+    [
+     2199.3,
+     2217.7
+    ]
+   ]
+  },
+  {
+   "a": "N469",
+   "b": "N468",
+   "len_m": 28.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2329.4,
+     2196.2
+    ],
+    [
+     2329.0,
+     2139.4
+    ]
+   ]
+  },
+  {
+   "a": "N151",
+   "b": "N139",
+   "len_m": 19.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1061.7,
+     1211.7
+    ],
+    [
+     1029.7,
+     1218.3
+    ],
+    [
+     1030.0,
+     1225.6
+    ]
+   ]
+  },
+  {
+   "a": "N151",
+   "b": "N143",
+   "len_m": 67.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1061.7,
+     1211.7
+    ],
+    [
+     1068.3,
+     1243.3
+    ],
+    [
+     1076.8,
+     1307.0
+    ],
+    [
+     1038.0,
+     1297.8
+    ]
+   ]
+  },
+  {
+   "a": "N063",
+   "b": "N085",
+   "len_m": 52.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     732.8,
+     1930.0
+    ],
+    [
+     823.0,
+     1873.0
+    ]
+   ]
+  },
+  {
+   "a": "N063",
+   "b": "N055",
+   "len_m": 30.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     732.8,
+     1930.0
+    ],
+    [
+     685.0,
+     1892.0
+    ]
+   ]
+  },
+  {
+   "a": "N063",
+   "b": "N069",
+   "len_m": 17.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     732.8,
+     1930.0
+    ],
+    [
+     763.3,
+     1949.7
+    ]
+   ]
+  },
+  {
+   "a": "N397",
+   "b": "N396",
+   "len_m": 19.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2104.7,
+     1066.7
+    ],
+    [
+     2098.7,
+     1027.7
+    ]
+   ]
+  },
+  {
+   "a": "N397",
+   "b": "N398",
+   "len_m": 19.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2104.7,
+     1066.7
+    ],
+    [
+     2110.7,
+     1106.7
+    ]
+   ]
+  },
+  {
+   "a": "N187",
+   "b": "N295",
+   "len_m": 231.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1219.3,
+     2360.7
+    ],
+    [
+     1268.0,
+     2347.5
+    ],
+    [
+     1523.0,
+     2308.0
+    ],
+    [
+     1540.0,
+     2305.0
+    ],
+    [
+     1634.7,
+     2290.0
+    ],
+    [
+     1683.7,
+     2294.7
+    ]
+   ]
+  },
+  {
+   "a": "N187",
+   "b": "N120",
+   "len_m": 124.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1219.3,
+     2360.7
+    ],
+    [
+     970.2,
+     2410.0
+    ]
+   ]
+  },
+  {
+   "a": "N077",
+   "b": "N073",
+   "len_m": 38.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     786.3,
+     1173.3
+    ],
+    [
+     776.3,
+     1096.3
+    ]
+   ]
+  },
+  {
+   "a": "N077",
+   "b": "N078",
+   "len_m": 41.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     786.3,
+     1173.3
+    ],
+    [
+     795.8,
+     1257.0
+    ]
+   ]
+  },
+  {
+   "a": "N247",
+   "b": "N244",
+   "len_m": 21.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1547.3,
+     1868.3
+    ],
+    [
+     1537.0,
+     1826.0
+    ]
+   ]
+  },
+  {
+   "a": "N247",
+   "b": "N280",
+   "len_m": 49.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1547.3,
+     1868.3
+    ],
+    [
+     1600.7,
+     1864.3
+    ],
+    [
+     1645.7,
+     1852.7
+    ]
+   ]
+  },
+  {
+   "a": "N247",
+   "b": "N249",
+   "len_m": 12.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1547.3,
+     1868.3
+    ],
+    [
+     1551.8,
+     1894.0
+    ]
+   ]
+  },
+  {
+   "a": "N163",
+   "b": "N160",
+   "len_m": 11.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1097.0,
+     1682.8
+    ],
+    [
+     1094.3,
+     1660.3
+    ]
+   ]
+  },
+  {
+   "a": "N163",
+   "b": "N129",
+   "len_m": 49.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1097.0,
+     1682.8
+    ],
+    [
+     997.3,
+     1701.7
+    ]
+   ]
+  },
+  {
+   "a": "N239",
+   "b": "N235",
+   "len_m": 56.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1498.3,
+     1724.7
+    ],
+    [
+     1479.7,
+     1610.7
+    ]
+   ]
+  },
+  {
+   "a": "N239",
+   "b": "N275",
+   "len_m": 70.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1498.3,
+     1724.7
+    ],
+    [
+     1638.7,
+     1699.7
+    ]
+   ]
+  },
+  {
+   "a": "N239",
+   "b": "N230",
+   "len_m": 21.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1498.3,
+     1724.7
+    ],
+    [
+     1456.3,
+     1738.3
+    ]
+   ]
+  },
+  {
+   "a": "N311",
+   "b": "N306",
+   "len_m": 51.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1742.0,
+     493.0
+    ],
+    [
+     1724.7,
+     389.3
+    ]
+   ]
+  },
+  {
+   "a": "N120",
+   "b": "N180",
+   "len_m": 97.5,
+   "name": "主干道",
+   "cls": "arterial",
+   "shape": [
+    [
+     970.2,
+     2410.0
+    ],
+    [
+     1166.5,
+     2382.5
+    ]
+   ]
+  },
+  {
+   "a": "N120",
+   "b": "N113",
+   "len_m": 12.7,
+   "name": "主干道",
+   "cls": "arterial",
+   "shape": [
+    [
+     970.2,
+     2410.0
+    ],
+    [
+     945.3,
+     2416.7
+    ]
+   ]
+  },
+  {
+   "a": "N216",
+   "b": "N201",
+   "len_m": 31.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1356.8,
+     1933.0
+    ],
+    [
+     1294.0,
+     1946.0
+    ]
+   ]
+  },
+  {
+   "a": "N216",
+   "b": "N217",
+   "len_m": 29.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1356.8,
+     1933.0
+    ],
+    [
+     1363.0,
+     1992.0
+    ]
+   ]
+  },
+  {
+   "a": "N031",
+   "b": "N039",
+   "len_m": 28.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     592.7,
+     1182.3
+    ],
+    [
+     636.0,
+     1144.8
+    ]
+   ]
+  },
+  {
+   "a": "N031",
+   "b": "N030",
+   "len_m": 10.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     592.7,
+     1182.3
+    ],
+    [
+     583.7,
+     1162.7
+    ]
+   ]
+  },
+  {
+   "a": "N260",
+   "b": "N223",
+   "len_m": 108.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1605.8,
+     2195.0
+    ],
+    [
+     1389.0,
+     2228.8
+    ]
+   ]
+  },
+  {
+   "a": "N260",
+   "b": "N266",
+   "len_m": 28.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1605.8,
+     2195.0
+    ],
+    [
+     1622.0,
+     2251.0
+    ]
+   ]
+  },
+  {
+   "a": "N232",
+   "b": "N200",
+   "len_m": 83.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1459.7,
+     1487.3
+    ],
+    [
+     1291.8,
+     1515.0
+    ]
+   ]
+  },
+  {
+   "a": "N232",
+   "b": "N235",
+   "len_m": 61.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1459.7,
+     1487.3
+    ],
+    [
+     1479.7,
+     1610.7
+    ]
+   ]
+  },
+  {
+   "a": "N195",
+   "b": "N193",
+   "len_m": 42.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1258.0,
+     2250.8
+    ],
+    [
+     1249.3,
+     2164.3
+    ]
+   ]
+  },
+  {
+   "a": "N195",
+   "b": "N108",
+   "len_m": 163.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1258.0,
+     2250.8
+    ],
+    [
+     930.3,
+     2306.3
+    ]
+   ]
+  },
+  {
+   "a": "N200",
+   "b": "N197",
+   "len_m": 66.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1291.8,
+     1515.0
+    ],
+    [
+     1270.8,
+     1382.0
+    ]
+   ]
+  },
+  {
+   "a": "N200",
+   "b": "N189",
+   "len_m": 30.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1291.8,
+     1515.0
+    ],
+    [
+     1230.8,
+     1520.0
+    ]
+   ]
+  },
+  {
+   "a": "N200",
+   "b": "N202",
+   "len_m": 28.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1291.8,
+     1515.0
+    ],
+    [
+     1301.0,
+     1573.0
+    ]
+   ]
+  },
+  {
+   "a": "N321",
+   "b": "N312",
+   "len_m": 42.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1832.0,
+     926.0
+    ],
+    [
+     1746.8,
+     937.0
+    ]
+   ]
+  },
+  {
+   "a": "N450",
+   "b": "N456",
+   "len_m": 52.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2267.0,
+     1395.0
+    ],
+    [
+     2284.3,
+     1500.3
+    ]
+   ]
+  },
+  {
+   "a": "N391",
+   "b": "N367",
+   "len_m": 143.3,
+   "name": "学院路",
+   "cls": "campus",
+   "shape": [
+    [
+     2073.6,
+     535.6
+    ],
+    [
+     2056.7,
+     489.3
+    ],
+    [
+     2057.0,
+     477.0
+    ],
+    [
+     2039.9,
+     361.7
+    ],
+    [
+     2024.7,
+     249.7
+    ]
+   ]
+  },
+  {
+   "a": "N391",
+   "b": "N393",
+   "len_m": 2.8,
+   "name": "学院路",
+   "cls": "campus",
+   "shape": [
+    [
+     2073.6,
+     535.6
+    ],
+    [
+     2077.3,
+     531.3
+    ]
+   ]
+  },
+  {
+   "a": "N391",
+   "b": "N403",
+   "len_m": 160.4,
+   "name": "学院路",
+   "cls": "campus",
+   "shape": [
+    [
+     2073.6,
+     535.6
+    ],
+    [
+     2124.8,
+     857.6
+    ]
+   ]
+  },
+  {
+   "a": "N035",
+   "b": "N050",
+   "len_m": 32.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     611.0,
+     1982.0
+    ],
+    [
+     675.0,
+     1966.8
+    ]
+   ]
+  },
+  {
+   "a": "N446",
+   "b": "N463",
+   "len_m": 23.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2253.0,
+     1621.0
+    ],
+    [
+     2300.8,
+     1614.0
+    ]
+   ]
+  },
+  {
+   "a": "N446",
+   "b": "N460",
+   "len_m": 140.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2253.0,
+     1621.0
+    ],
+    [
+     2262.5,
+     1683.3
+    ],
+    [
+     2294.7,
+     1903.7
+    ]
+   ]
+  },
+  {
+   "a": "N325",
+   "b": "N322",
+   "len_m": 26.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1843.0,
+     1551.7
+    ],
+    [
+     1836.7,
+     1498.7
+    ]
+   ]
+  },
+  {
+   "a": "N330",
+   "b": "N337",
+   "len_m": 122.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1873.7,
+     1282.7
+    ],
+    [
+     1896.0,
+     1035.8
+    ]
+   ]
+  },
+  {
+   "a": "N330",
+   "b": "N319",
+   "len_m": 34.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1873.7,
+     1282.7
+    ],
+    [
+     1806.8,
+     1300.0
+    ]
+   ]
+  },
+  {
+   "a": "N490",
+   "b": "N467",
+   "len_m": 79.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2476.0,
+     1730.0
+    ],
+    [
+     2315.3,
+     1732.3
+    ]
+   ]
+  },
+  {
+   "a": "N315",
+   "b": "N319",
+   "len_m": 111.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1769.0,
+     1077.0
+    ],
+    [
+     1806.8,
+     1300.0
+    ]
+   ]
+  },
+  {
+   "a": "N143",
+   "b": "N139",
+   "len_m": 35.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1038.0,
+     1297.8
+    ],
+    [
+     1030.0,
+     1225.6
+    ]
+   ]
+  },
+  {
+   "a": "N086",
+   "b": "N084",
+   "len_m": 65.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     829.7,
+     1656.7
+    ],
+    [
+     813.0,
+     1524.0
+    ]
+   ]
+  },
+  {
+   "a": "N318",
+   "b": "N328",
+   "len_m": 35.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1789.0,
+     1813.0
+    ],
+    [
+     1860.7,
+     1800.3
+    ]
+   ]
+  },
+  {
+   "a": "N318",
+   "b": "N329",
+   "len_m": 40.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1789.0,
+     1813.0
+    ],
+    [
+     1866.7,
+     1837.7
+    ]
+   ]
+  },
+  {
+   "a": "N045",
+   "b": "N038",
+   "len_m": 55.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     665.2,
+     1791.0
+    ],
+    [
+     635.0,
+     1682.2
+    ]
+   ]
+  },
+  {
+   "a": "N056",
+   "b": "N090",
+   "len_m": 92.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     688.0,
+     2041.0
+    ],
+    [
+     848.7,
+     1945.3
+    ]
+   ]
+  },
+  {
+   "a": "N296",
+   "b": "N291",
+   "len_m": 16.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1684.0,
+     2216.0
+    ],
+    [
+     1678.8,
+     2182.5
+    ]
+   ]
+  },
+  {
+   "a": "N129",
+   "b": "N117",
+   "len_m": 133.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     997.3,
+     1701.7
+    ],
+    [
+     973.7,
+     1523.7
+    ],
+    [
+     966.0,
+     1475.0
+    ],
+    [
+     966.7,
+     1432.7
+    ]
+   ]
+  },
+  {
+   "a": "N129",
+   "b": "N127",
+   "len_m": 49.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     997.3,
+     1701.7
+    ],
+    [
+     991.3,
+     1801.3
+    ]
+   ]
+  },
+  {
+   "a": "N467",
+   "b": "N463",
+   "len_m": 58.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2315.3,
+     1732.3
+    ],
+    [
+     2308.0,
+     1682.0
+    ],
+    [
+     2306.0,
+     1671.0
+    ],
+    [
+     2300.8,
+     1614.0
+    ]
+   ]
+  },
+  {
+   "a": "N339",
+   "b": "N430",
+   "len_m": 142.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1913.4,
+     2252.3
+    ],
+    [
+     2113.5,
+     2216.5
+    ],
+    [
+     2199.3,
+     2217.7
+    ]
+   ]
+  },
+  {
+   "a": "N339",
+   "b": "N293",
+   "len_m": 114.7,
+   "name": "苍梧路",
+   "cls": "campus",
+   "shape": [
+    [
+     1913.4,
+     2252.3
+    ],
+    [
+     1680.2,
+     2247.0
+    ]
+   ]
+  },
+  {
+   "a": "N395",
+   "b": "N377",
+   "len_m": 35.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2087.3,
+     1491.7
+    ],
+    [
+     2054.2,
+     1427.5
+    ]
+   ]
+  },
+  {
+   "a": "N395",
+   "b": "N404",
+   "len_m": 18.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2087.3,
+     1491.7
+    ],
+    [
+     2125.7,
+     1489.3
+    ]
+   ]
+  },
+  {
+   "a": "N395",
+   "b": "N376",
+   "len_m": 18.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2087.3,
+     1491.7
+    ],
+    [
+     2051.0,
+     1497.0
+    ]
+   ]
+  },
+  {
+   "a": "N030",
+   "b": "N028",
+   "len_m": 23.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     583.7,
+     1162.7
+    ],
+    [
+     575.3,
+     1116.3
+    ]
+   ]
+  },
+  {
+   "a": "N030",
+   "b": "N013",
+   "len_m": 80.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     583.7,
+     1162.7
+    ],
+    [
+     496.0,
+     1301.0
+    ]
+   ]
+  },
+  {
+   "a": "N262",
+   "b": "N256",
+   "len_m": 14.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1610.7,
+     2006.3
+    ],
+    [
+     1595.8,
+     1982.0
+    ]
+   ]
+  },
+  {
+   "a": "N262",
+   "b": "N271",
+   "len_m": 11.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1610.7,
+     2006.3
+    ],
+    [
+     1632.7,
+     2002.3
+    ]
+   ]
+  },
+  {
+   "a": "N463",
+   "b": "N456",
+   "len_m": 56.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2300.8,
+     1614.0
+    ],
+    [
+     2284.3,
+     1500.3
+    ]
+   ]
+  },
+  {
+   "a": "N049",
+   "b": "N018",
+   "len_m": 136.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     673.7,
+     555.3
+    ],
+    [
+     507.7,
+     583.3
+    ],
+    [
+     522.3,
+     691.3
+    ]
+   ]
+  },
+  {
+   "a": "N049",
+   "b": "N068",
+   "len_m": 254.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     673.7,
+     555.3
+    ],
+    [
+     755.8,
+     1065.8
+    ]
+   ]
+  },
+  {
+   "a": "N241",
+   "b": "N294",
+   "len_m": 72.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1534.7,
+     971.3
+    ],
+    [
+     1575.5,
+     964.5
+    ],
+    [
+     1680.7,
+     949.3
+    ]
+   ]
+  },
+  {
+   "a": "N241",
+   "b": "N246",
+   "len_m": 21.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1534.7,
+     971.3
+    ],
+    [
+     1543.3,
+     1014.3
+    ]
+   ]
+  },
+  {
+   "a": "N039",
+   "b": "N040",
+   "len_m": 19.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     636.0,
+     1144.8
+    ],
+    [
+     641.1,
+     1104.9
+    ]
+   ]
+  },
+  {
+   "a": "N081",
+   "b": "N105",
+   "len_m": 54.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     804.0,
+     2219.0
+    ],
+    [
+     913.8,
+     2206.0
+    ]
+   ]
+  },
+  {
+   "a": "N250",
+   "b": "N319",
+   "len_m": 125.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1555.0,
+     1337.8
+    ],
+    [
+     1806.8,
+     1300.0
+    ]
+   ]
+  },
+  {
+   "a": "N213",
+   "b": "N211",
+   "len_m": 43.1,
+   "name": "淮海路",
+   "cls": "campus",
+   "shape": [
+    [
+     1348.0,
+     2227.0
+    ],
+    [
+     1338.0,
+     2140.0
+    ]
+   ]
+  },
+  {
+   "a": "N269",
+   "b": "N275",
+   "len_m": 51.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1629.2,
+     1598.2
+    ],
+    [
+     1624.3,
+     1603.3
+    ],
+    [
+     1638.7,
+     1699.7
+    ]
+   ]
+  },
+  {
+   "a": "N346",
+   "b": "N329",
+   "len_m": 48.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1931.0,
+     1912.0
+    ],
+    [
+     1866.7,
+     1837.7
+    ]
+   ]
+  },
+  {
+   "a": "N396",
+   "b": "N363",
+   "len_m": 42.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2098.7,
+     1027.7
+    ],
+    [
+     2013.3,
+     1036.3
+    ]
+   ]
+  },
+  {
+   "a": "N231",
+   "b": "N230",
+   "len_m": 12.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1458.7,
+     1763.7
+    ],
+    [
+     1456.3,
+     1738.3
+    ]
+   ]
+  },
+  {
+   "a": "N231",
+   "b": "N226",
+   "len_m": 18.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1458.7,
+     1763.7
+    ],
+    [
+     1422.0,
+     1766.0
+    ]
+   ]
+  },
+  {
+   "a": "N289",
+   "b": "N304",
+   "len_m": 97.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1667.6,
+     2142.1
+    ],
+    [
+     1665.3,
+     1983.3
+    ],
+    [
+     1705.0,
+     1978.0
+    ]
+   ]
+  },
+  {
+   "a": "N289",
+   "b": "N271",
+   "len_m": 71.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1667.6,
+     2142.1
+    ],
+    [
+     1636.0,
+     2030.8
+    ],
+    [
+     1632.7,
+     2002.3
+    ]
+   ]
+  },
+  {
+   "a": "N372",
+   "b": "N353",
+   "len_m": 32.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2034.7,
+     1348.3
+    ],
+    [
+     1969.7,
+     1360.3
+    ]
+   ]
+  },
+  {
+   "a": "N372",
+   "b": "N371",
+   "len_m": 27.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2034.7,
+     1348.3
+    ],
+    [
+     2031.7,
+     1404.7
+    ]
+   ]
+  },
+  {
+   "a": "N327",
+   "b": "N295",
+   "len_m": 88.6,
+   "name": "主干道",
+   "cls": "arterial",
+   "shape": [
+    [
+     1860.0,
+     2273.0
+    ],
+    [
+     1690.3,
+     2299.7
+    ],
+    [
+     1683.7,
+     2294.7
+    ]
+   ]
+  },
+  {
+   "a": "N424",
+   "b": "N426",
+   "len_m": 52.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2177.7,
+     1149.3
+    ],
+    [
+     2187.7,
+     1255.7
+    ]
+   ]
+  },
+  {
+   "a": "N123",
+   "b": "N105",
+   "len_m": 31.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     977.0,
+     2199.0
+    ],
+    [
+     913.8,
+     2206.0
+    ]
+   ]
+  },
+  {
+   "a": "N275",
+   "b": "N284",
+   "len_m": 16.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1638.7,
+     1699.7
+    ],
+    [
+     1659.3,
+     1726.3
+    ]
+   ]
+  },
+  {
+   "a": "N353",
+   "b": "N355",
+   "len_m": 30.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1969.7,
+     1360.3
+    ],
+    [
+     1981.0,
+     1421.8
+    ]
+   ]
+  },
+  {
+   "a": "N156",
+   "b": "N166",
+   "len_m": 44.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1081.0,
+     2051.8
+    ],
+    [
+     1095.0,
+     2011.0
+    ],
+    [
+     1098.0,
+     2002.0
+    ],
+    [
+     1110.3,
+     1966.7
+    ]
+   ]
+  },
+  {
+   "a": "N156",
+   "b": "N188",
+   "len_m": 69.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1081.0,
+     2051.8
+    ],
+    [
+     1219.8,
+     2032.0
+    ]
+   ]
+  },
+  {
+   "a": "N156",
+   "b": "N115",
+   "len_m": 124.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1081.0,
+     2051.8
+    ],
+    [
+     1031.0,
+     2171.2
+    ],
+    [
+     1017.7,
+     2104.7
+    ],
+    [
+     964.0,
+     2116.0
+    ]
+   ]
+  },
+  {
+   "a": "N071",
+   "b": "N075",
+   "len_m": 33.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     766.0,
+     1192.0
+    ],
+    [
+     776.8,
+     1260.0
+    ]
+   ]
+  },
+  {
+   "a": "N160",
+   "b": "A11",
+   "len_m": 51.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1094.3,
+     1660.3
+    ],
+    [
+     1167.8,
+     1584.8
+    ]
+   ]
+  },
+  {
+   "a": "A11",
+   "b": "N189",
+   "len_m": 44.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1167.8,
+     1584.8
+    ],
+    [
+     1230.8,
+     1520.0
+    ]
+   ]
+  },
+  {
+   "a": "N438",
+   "b": "N443",
+   "len_m": 95.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2224.0,
+     1819.0
+    ],
+    [
+     2249.7,
+     2011.7
+    ]
+   ]
+  },
+  {
+   "a": "N312",
+   "b": "N294",
+   "len_m": 33.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1746.8,
+     937.0
+    ],
+    [
+     1680.7,
+     949.3
+    ]
+   ]
+  },
+  {
+   "a": "N329",
+   "b": "N328",
+   "len_m": 18.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1866.7,
+     1837.7
+    ],
+    [
+     1860.7,
+     1800.3
+    ]
+   ]
+  },
+  {
+   "a": "N075",
+   "b": "A12",
+   "len_m": 79.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     776.8,
+     1260.0
+    ],
+    [
+     720.7,
+     1271.3
+    ],
+    [
+     734.9,
+     1375.1
+    ]
+   ]
+  },
+  {
+   "a": "A12",
+   "b": "N066",
+   "len_m": 43.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     734.9,
+     1375.1
+    ],
+    [
+     747.0,
+     1462.8
+    ]
+   ]
+  },
+  {
+   "a": "N192",
+   "b": "N183",
+   "len_m": 19.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1248.0,
+     1955.0
+    ],
+    [
+     1208.7,
+     1963.3
+    ]
+   ]
+  },
+  {
+   "a": "N291",
+   "b": "N366",
+   "len_m": 171.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1678.8,
+     2182.5
+    ],
+    [
+     1686.0,
+     2178.5
+    ],
+    [
+     2023.0,
+     2134.8
+    ]
+   ]
+  },
+  {
+   "a": "N185",
+   "b": "N189",
+   "len_m": 52.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1216.7,
+     1413.7
+    ],
+    [
+     1230.8,
+     1520.0
+    ]
+   ]
+  },
+  {
+   "a": "N390",
+   "b": "N403",
+   "len_m": 134.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2073.0,
+     590.0
+    ],
+    [
+     2124.8,
+     857.6
+    ]
+   ]
+  },
+  {
+   "a": "N197",
+   "b": "N190",
+   "len_m": 115.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1270.8,
+     1382.0
+    ],
+    [
+     1236.3,
+     1149.3
+    ]
+   ]
+  },
+  {
+   "a": "N137",
+   "b": "N142",
+   "len_m": 22.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1029.7,
+     1005.3
+    ],
+    [
+     1037.8,
+     1051.0
+    ]
+   ]
+  },
+  {
+   "a": "N183",
+   "b": "N166",
+   "len_m": 48.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1208.7,
+     1963.3
+    ],
+    [
+     1110.3,
+     1966.7
+    ]
+   ]
+  },
+  {
+   "a": "N183",
+   "b": "N188",
+   "len_m": 34.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1208.7,
+     1963.3
+    ],
+    [
+     1219.8,
+     2032.0
+    ]
+   ]
+  },
+  {
+   "a": "N177",
+   "b": "N175",
+   "len_m": 24.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1162.7,
+     1080.7
+    ],
+    [
+     1153.8,
+     1031.0
+    ]
+   ]
+  },
+  {
+   "a": "N177",
+   "b": "N146",
+   "len_m": 58.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1162.7,
+     1080.7
+    ],
+    [
+     1045.3,
+     1095.3
+    ]
+   ]
+  },
+  {
+   "a": "N297",
+   "b": "N294",
+   "len_m": 20.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1684.7,
+     990.7
+    ],
+    [
+     1680.7,
+     949.3
+    ]
+   ]
+  },
+  {
+   "a": "N297",
+   "b": "N246",
+   "len_m": 70.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1684.7,
+     990.7
+    ],
+    [
+     1543.3,
+     1014.3
+    ]
+   ]
+  },
+  {
+   "a": "N157",
+   "b": "N127",
+   "len_m": 49.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1089.2,
+     1778.2
+    ],
+    [
+     991.3,
+     1801.3
+    ]
+   ]
+  },
+  {
+   "a": "N188",
+   "b": "N211",
+   "len_m": 78.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1219.8,
+     2032.0
+    ],
+    [
+     1338.0,
+     2140.0
+    ]
+   ]
+  },
+  {
+   "a": "N188",
+   "b": "N193",
+   "len_m": 66.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1219.8,
+     2032.0
+    ],
+    [
+     1249.3,
+     2164.3
+    ]
+   ]
+  },
+  {
+   "a": "N384",
+   "b": "N352",
+   "len_m": 46.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2059.3,
+     753.3
+    ],
+    [
+     1967.7,
+     772.3
+    ]
+   ]
+  },
+  {
+   "a": "N020",
+   "b": "N018",
+   "len_m": 47.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     532.7,
+     786.7
+    ],
+    [
+     522.3,
+     691.3
+    ]
+   ]
+  },
+  {
+   "a": "N020",
+   "b": "N003",
+   "len_m": 50.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     532.7,
+     786.7
+    ],
+    [
+     432.0,
+     802.0
+    ]
+   ]
+  },
+  {
+   "a": "N386",
+   "b": "N392",
+   "len_m": 39.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2064.0,
+     788.0
+    ],
+    [
+     2074.6,
+     867.2
+    ]
+   ]
+  },
+  {
+   "a": "N377",
+   "b": "N371",
+   "len_m": 15.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2054.2,
+     1427.5
+    ],
+    [
+     2031.7,
+     1404.7
+    ]
+   ]
+  },
+  {
+   "a": "N303",
+   "b": "N332",
+   "len_m": 170.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1704.0,
+     1684.0
+    ],
+    [
+     1853.7,
+     1615.7
+    ],
+    [
+     1882.3,
+     1794.7
+    ]
+   ]
+  },
+  {
+   "a": "N322",
+   "b": "N320",
+   "len_m": 37.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1836.7,
+     1498.7
+    ],
+    [
+     1826.8,
+     1424.0
+    ]
+   ]
+  },
+  {
+   "a": "N066",
+   "b": "N043",
+   "len_m": 43.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     747.0,
+     1462.8
+    ],
+    [
+     660.7,
+     1479.3
+    ]
+   ]
+  },
+  {
+   "a": "N380",
+   "b": "N393",
+   "len_m": 58.6,
+   "name": "学院路",
+   "cls": "campus",
+   "shape": [
+    [
+     2057.0,
+     414.0
+    ],
+    [
+     2077.3,
+     531.3
+    ]
+   ]
+  },
+  {
+   "a": "N095",
+   "b": "N090",
+   "len_m": 11.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     870.7,
+     1941.7
+    ],
+    [
+     848.7,
+     1945.3
+    ]
+   ]
+  },
+  {
+   "a": "N095",
+   "b": "N097",
+   "len_m": 25.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     870.7,
+     1941.7
+    ],
+    [
+     879.0,
+     1992.0
+    ]
+   ]
+  },
+  {
+   "a": "N259",
+   "b": "N261",
+   "len_m": 16.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1603.8,
+     1883.0
+    ],
+    [
+     1608.6,
+     1915.1
+    ]
+   ]
+  },
+  {
+   "a": "N261",
+   "b": "N283",
+   "len_m": 22.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1608.6,
+     1915.1
+    ],
+    [
+     1653.7,
+     1909.7
+    ]
+   ]
+  },
+  {
+   "a": "N261",
+   "b": "N256",
+   "len_m": 41.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1608.6,
+     1915.1
+    ],
+    [
+     1617.0,
+     1975.8
+    ],
+    [
+     1595.8,
+     1982.0
+    ]
+   ]
+  },
+  {
+   "a": "N019",
+   "b": "N043",
+   "len_m": 67.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     525.0,
+     1463.0
+    ],
+    [
+     660.7,
+     1479.3
+    ]
+   ]
+  },
+  {
+   "a": "N340",
+   "b": "N337",
+   "len_m": 65.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1915.0,
+     927.0
+    ],
+    [
+     1886.3,
+     933.3
+    ],
+    [
+     1896.0,
+     1035.8
+    ]
+   ]
+  },
+  {
+   "a": "N340",
+   "b": "N349",
+   "len_m": 52.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1915.0,
+     927.0
+    ],
+    [
+     1945.0,
+     1029.8
+    ]
+   ]
+  },
+  {
+   "a": "N139",
+   "b": "N126",
+   "len_m": 20.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1030.0,
+     1225.6
+    ],
+    [
+     989.0,
+     1224.0
+    ]
+   ]
+  },
+  {
+   "a": "N055",
+   "b": "N044",
+   "len_m": 11.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     685.0,
+     1892.0
+    ],
+    [
+     663.8,
+     1901.0
+    ]
+   ]
+  },
+  {
+   "a": "N414",
+   "b": "N404",
+   "len_m": 79.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2150.7,
+     1648.7
+    ],
+    [
+     2125.7,
+     1489.3
+    ]
+   ]
+  },
+  {
+   "a": "N332",
+   "b": "N328",
+   "len_m": 11.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1882.3,
+     1794.7
+    ],
+    [
+     1860.7,
+     1800.3
+    ]
+   ]
+  },
+  {
+   "a": "N046",
+   "b": "N026",
+   "len_m": 52.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     668.0,
+     999.0
+    ],
+    [
+     562.3,
+     1018.3
+    ]
+   ]
+  },
+  {
+   "a": "N462",
+   "b": "N428",
+   "len_m": 123.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2299.0,
+     621.0
+    ],
+    [
+     2189.8,
+     847.0
+    ]
+   ]
+  },
+  {
+   "a": "N038",
+   "b": "N027",
+   "len_m": 29.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     635.0,
+     1682.2
+    ],
+    [
+     575.0,
+     1684.0
+    ]
+   ]
+  },
+  {
+   "a": "N211",
+   "b": "N193",
+   "len_m": 45.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1338.0,
+     2140.0
+    ],
+    [
+     1249.3,
+     2164.3
+    ]
+   ]
+  },
+  {
+   "a": "N392",
+   "b": "N352",
+   "len_m": 70.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2074.6,
+     867.2
+    ],
+    [
+     1967.7,
+     772.3
+    ]
+   ]
+  },
+  {
+   "a": "N392",
+   "b": "N403",
+   "len_m": 25.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2074.6,
+     867.2
+    ],
+    [
+     2124.8,
+     857.6
+    ]
+   ]
+  },
+  {
+   "a": "N417",
+   "b": "N415",
+   "len_m": 60.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2163.1,
+     1082.7
+    ],
+    [
+     2157.2,
+     959.2
+    ]
+   ]
+  },
+  {
+   "a": "N417",
+   "b": "N426",
+   "len_m": 92.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2163.1,
+     1082.7
+    ],
+    [
+     2178.0,
+     1131.0
+    ],
+    [
+     2163.0,
+     1138.0
+    ],
+    [
+     2187.7,
+     1255.7
+    ]
+   ]
+  },
+  {
+   "a": "N417",
+   "b": "N406",
+   "len_m": 97.2,
+   "name": "学院路",
+   "cls": "campus",
+   "shape": [
+    [
+     2163.1,
+     1082.7
+    ],
+    [
+     2131.2,
+     887.7
+    ]
+   ]
+  },
+  {
+   "a": "N323",
+   "b": "N306",
+   "len_m": 57.0,
+   "name": "秋霞路",
+   "cls": "campus",
+   "shape": [
+    [
+     1839.0,
+     370.0
+    ],
+    [
+     1724.7,
+     389.3
+    ]
+   ]
+  },
+  {
+   "a": "N420",
+   "b": "N404",
+   "len_m": 21.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2168.7,
+     1479.7
+    ],
+    [
+     2125.7,
+     1489.3
+    ]
+   ]
+  },
+  {
+   "a": "N224",
+   "b": "N227",
+   "len_m": 14.3,
+   "name": "春晖路",
+   "cls": "campus",
+   "shape": [
+    [
+     1400.0,
+     995.0
+    ],
+    [
+     1428.7,
+     990.3
+    ]
+   ]
+  },
+  {
+   "a": "N406",
+   "b": "N403",
+   "len_m": 15.1,
+   "name": "学院路",
+   "cls": "campus",
+   "shape": [
+    [
+     2131.2,
+     887.7
+    ],
+    [
+     2124.8,
+     857.6
+    ]
+   ]
+  },
+  {
+   "a": "N406",
+   "b": "N415",
+   "len_m": 37.4,
+   "name": "学院路",
+   "cls": "campus",
+   "shape": [
+    [
+     2131.2,
+     887.7
+    ],
+    [
+     2157.2,
+     959.2
+    ]
+   ]
+  },
+  {
+   "a": "N337",
+   "b": "N349",
+   "len_m": 24.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1896.0,
+     1035.8
+    ],
+    [
+     1945.0,
+     1029.8
+    ]
+   ]
+  },
+  {
+   "a": "N235",
+   "b": "N205",
+   "len_m": 84.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1479.7,
+     1610.7
+    ],
+    [
+     1315.3,
+     1659.3
+    ]
+   ]
+  },
+  {
+   "a": "N227",
+   "b": "N229",
+   "len_m": 64.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1428.7,
+     990.3
+    ],
+    [
+     1447.7,
+     1119.7
+    ]
+   ]
+  },
+  {
+   "a": "N170",
+   "b": "N142",
+   "len_m": 47.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1132.0,
+     1035.0
+    ],
+    [
+     1037.8,
+     1051.0
+    ]
+   ]
+  },
+  {
+   "a": "N243",
+   "b": "N198",
+   "len_m": 135.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1536.7,
+     610.7
+    ],
+    [
+     1274.0,
+     531.0
+    ]
+   ]
+  },
+  {
+   "a": "N243",
+   "b": "N268",
+   "len_m": 55.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1536.7,
+     610.7
+    ],
+    [
+     1626.3,
+     678.3
+    ]
+   ]
+  },
+  {
+   "a": "N175",
+   "b": "N186",
+   "len_m": 31.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1153.8,
+     1031.0
+    ],
+    [
+     1216.8,
+     1026.0
+    ]
+   ]
+  },
+  {
+   "a": "N319",
+   "b": "N320",
+   "len_m": 61.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1806.8,
+     1300.0
+    ],
+    [
+     1826.8,
+     1424.0
+    ]
+   ]
+  },
+  {
+   "a": "N484",
+   "b": "A13",
+   "len_m": 46.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2405.0,
+     949.0
+    ],
+    [
+     2319.1,
+     908.3
+    ]
+   ]
+  },
+  {
+   "a": "A13",
+   "b": "N428",
+   "len_m": 70.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2319.1,
+     908.3
+    ],
+    [
+     2189.8,
+     847.0
+    ]
+   ]
+  },
+  {
+   "a": "N108",
+   "b": "N105",
+   "len_m": 50.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     930.3,
+     2306.3
+    ],
+    [
+     913.8,
+     2206.0
+    ]
+   ]
+  },
+  {
+   "a": "N108",
+   "b": "A03",
+   "len_m": 11.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     930.3,
+     2306.3
+    ],
+    [
+     931.6,
+     2329.6
+    ]
+   ]
+  },
+  {
+   "a": "A03",
+   "b": "N113",
+   "len_m": 43.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     931.6,
+     2329.6
+    ],
+    [
+     934.2,
+     2376.0
+    ],
+    [
+     945.3,
+     2416.7
+    ]
+   ]
+  },
+  {
+   "a": "N230",
+   "b": "N205",
+   "len_m": 88.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1456.3,
+     1738.3
+    ],
+    [
+     1321.3,
+     1698.3
+    ],
+    [
+     1315.3,
+     1659.3
+    ]
+   ]
+  },
+  {
+   "a": "N022",
+   "b": "A18",
+   "len_m": 60.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     550.3,
+     916.3
+    ],
+    [
+     434.7,
+     877.9
+    ]
+   ]
+  },
+  {
+   "a": "A18",
+   "b": "N002",
+   "len_m": 6.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     434.7,
+     877.9
+    ],
+    [
+     423.0,
+     874.0
+    ]
+   ]
+  },
+  {
+   "a": "N044",
+   "b": "N033",
+   "len_m": 31.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     663.8,
+     1901.0
+    ],
+    [
+     603.0,
+     1921.0
+    ]
+   ]
+  },
+  {
+   "a": "N044",
+   "b": "N050",
+   "len_m": 32.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     663.8,
+     1901.0
+    ],
+    [
+     675.0,
+     1966.8
+    ]
+   ]
+  },
+  {
+   "a": "N349",
+   "b": "N363",
+   "len_m": 33.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1945.0,
+     1029.8
+    ],
+    [
+     2013.3,
+     1036.3
+    ]
+   ]
+  },
+  {
+   "a": "N371",
+   "b": "N355",
+   "len_m": 26.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2031.7,
+     1404.7
+    ],
+    [
+     1981.0,
+     1421.8
+    ]
+   ]
+  },
+  {
+   "a": "N428",
+   "b": "N459",
+   "len_m": 251.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2189.8,
+     847.0
+    ],
+    [
+     2177.0,
+     760.0
+    ],
+    [
+     2174.0,
+     749.0
+    ],
+    [
+     2141.3,
+     548.3
+    ],
+    [
+     2282.7,
+     521.7
+    ],
+    [
+     2294.0,
+     586.0
+    ]
+   ]
+  },
+  {
+   "a": "N428",
+   "b": "N403",
+   "len_m": 32.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2189.8,
+     847.0
+    ],
+    [
+     2124.8,
+     857.6
+    ]
+   ]
+  },
+  {
+   "a": "N348",
+   "b": "N317",
+   "len_m": 84.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1943.7,
+     776.3
+    ],
+    [
+     1778.0,
+     734.0
+    ]
+   ]
+  },
+  {
+   "a": "N348",
+   "b": "N352",
+   "len_m": 12.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1943.7,
+     776.3
+    ],
+    [
+     1967.7,
+     772.3
+    ]
+   ]
+  },
+  {
+   "a": "N093",
+   "b": "N068",
+   "len_m": 54.7,
+   "name": "春晖路",
+   "cls": "campus",
+   "shape": [
+    [
+     864.0,
+     1040.0
+    ],
+    [
+     755.8,
+     1065.8
+    ]
+   ]
+  },
+  {
+   "a": "N229",
+   "b": "N190",
+   "len_m": 105.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1447.7,
+     1119.7
+    ],
+    [
+     1236.3,
+     1149.3
+    ]
+   ]
+  },
+  {
+   "a": "N271",
+   "b": "N283",
+   "len_m": 54.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1632.7,
+     2002.3
+    ],
+    [
+     1639.7,
+     1975.3
+    ],
+    [
+     1661.7,
+     1969.7
+    ],
+    [
+     1653.7,
+     1909.7
+    ]
+   ]
+  },
+  {
+   "a": "N398",
+   "b": "N368",
+   "len_m": 42.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2110.7,
+     1106.7
+    ],
+    [
+     2025.3,
+     1120.3
+    ]
+   ]
+  },
+  {
+   "a": "N398",
+   "b": "N408",
+   "len_m": 75.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2110.7,
+     1106.7
+    ],
+    [
+     2135.0,
+     1258.0
+    ]
+   ]
+  },
+  {
+   "a": "N283",
+   "b": "N280",
+   "len_m": 28.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1653.7,
+     1909.7
+    ],
+    [
+     1648.7,
+     1874.7
+    ],
+    [
+     1645.7,
+     1852.7
+    ]
+   ]
+  },
+  {
+   "a": "N203",
+   "b": "N205",
+   "len_m": 27.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1306.0,
+     1605.0
+    ],
+    [
+     1315.3,
+     1659.3
+    ]
+   ]
+  },
+  {
+   "a": "N069",
+   "b": "N090",
+   "len_m": 42.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     763.3,
+     1949.7
+    ],
+    [
+     848.7,
+     1945.3
+    ]
+   ]
+  },
+  {
+   "a": "N069",
+   "b": "N050",
+   "len_m": 44.3,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     763.3,
+     1949.7
+    ],
+    [
+     675.0,
+     1966.8
+    ]
+   ]
+  },
+  {
+   "a": "N028",
+   "b": "N026",
+   "len_m": 48.6,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     575.3,
+     1116.3
+    ],
+    [
+     562.3,
+     1018.3
+    ]
+   ]
+  },
+  {
+   "a": "N028",
+   "b": "N040",
+   "len_m": 32.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     575.3,
+     1116.3
+    ],
+    [
+     641.1,
+     1104.9
+    ]
+   ]
+  },
+  {
+   "a": "N320",
+   "b": "N331",
+   "len_m": 26.9,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1826.8,
+     1424.0
+    ],
+    [
+     1881.2,
+     1417.7
+    ]
+   ]
+  },
+  {
+   "a": "N127",
+   "b": "N132",
+   "len_m": 34.2,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     991.3,
+     1801.3
+    ],
+    [
+     1007.0,
+     1869.0
+    ]
+   ]
+  },
+  {
+   "a": "N313",
+   "b": "N301",
+   "len_m": 26.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1752.0,
+     633.0
+    ],
+    [
+     1699.3,
+     636.3
+    ]
+   ]
+  },
+  {
+   "a": "N146",
+   "b": "N142",
+   "len_m": 22.1,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1045.3,
+     1095.3
+    ],
+    [
+     1037.8,
+     1051.0
+    ]
+   ]
+  },
+  {
+   "a": "N172",
+   "b": "N182",
+   "len_m": 208.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1142.3,
+     556.3
+    ],
+    [
+     1160.0,
+     673.0
+    ],
+    [
+     1163.0,
+     694.0
+    ],
+    [
+     1207.8,
+     974.0
+    ]
+   ]
+  },
+  {
+   "a": "N280",
+   "b": "N290",
+   "len_m": 38.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1645.7,
+     1852.7
+    ],
+    [
+     1643.5,
+     1813.4
+    ],
+    [
+     1678.7,
+     1827.7
+    ]
+   ]
+  },
+  {
+   "a": "N309",
+   "b": "N268",
+   "len_m": 99.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1732.8,
+     850.0
+    ],
+    [
+     1626.3,
+     678.3
+    ]
+   ]
+  },
+  {
+   "a": "N186",
+   "b": "N182",
+   "len_m": 26.0,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1216.8,
+     1026.0
+    ],
+    [
+     1207.8,
+     974.0
+    ]
+   ]
+  },
+  {
+   "a": "N186",
+   "b": "N204",
+   "len_m": 47.5,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1216.8,
+     1026.0
+    ],
+    [
+     1312.0,
+     1010.0
+    ]
+   ]
+  },
+  {
+   "a": "N186",
+   "b": "N190",
+   "len_m": 61.4,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1216.8,
+     1026.0
+    ],
+    [
+     1236.3,
+     1149.3
+    ]
+   ]
+  },
+  {
+   "a": "N366",
+   "b": "N394",
+   "len_m": 29.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     2023.0,
+     2134.8
+    ],
+    [
+     2083.0,
+     2127.0
+    ]
+   ]
+  },
+  {
+   "a": "N036",
+   "b": "N018",
+   "len_m": 50.7,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     624.0,
+     675.0
+    ],
+    [
+     522.3,
+     691.3
+    ]
+   ]
+  },
+  {
+   "a": "N284",
+   "b": "N290",
+   "len_m": 50.8,
+   "name": "校内道路",
+   "cls": "campus",
+   "shape": [
+    [
+     1659.3,
+     1726.3
+    ],
+    [
+     1678.7,
+     1827.7
+    ]
+   ]
+  },
+  {
+   "a": "P01",
+   "b": "N293",
+   "len_m": 4.9,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     1678.2,
+     2237.2
+    ],
+    [
+     1680.2,
+     2247.0
+    ]
+   ]
+  },
+  {
+   "a": "P02",
+   "b": "A02",
+   "len_m": 1.0,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     2287.7,
+     2164.7
+    ],
+    [
+     2289.8,
+     2164.1
+    ]
+   ]
+  },
+  {
+   "a": "P03",
+   "b": "A03",
+   "len_m": 3.6,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     939.0,
+     2329.2
+    ],
+    [
+     931.6,
+     2329.6
+    ]
+   ]
+  },
+  {
+   "a": "P04",
+   "b": "A04",
+   "len_m": 2.2,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     2076.5,
+     876.4
+    ],
+    [
+     2072.3,
+     875.2
+    ]
+   ]
+  },
+  {
+   "a": "P05",
+   "b": "N217",
+   "len_m": 44.4,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     1450.5,
+     2013.9
+    ],
+    [
+     1363.0,
+     1992.0
+    ]
+   ]
+  },
+  {
+   "a": "P06",
+   "b": "N244",
+   "len_m": 16.5,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     1563.6,
+     1805.7
+    ],
+    [
+     1537.0,
+     1826.0
+    ]
+   ]
+  },
+  {
+   "a": "P07",
+   "b": "A07",
+   "len_m": 13.9,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     1657.1,
+     1482.9
+    ],
+    [
+     1652.2,
+     1455.0
+    ]
+   ]
+  },
+  {
+   "a": "P08",
+   "b": "A08",
+   "len_m": 35.6,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     1587.7,
+     1090.6
+    ],
+    [
+     1516.3,
+     1102.4
+    ]
+   ]
+  },
+  {
+   "a": "P09",
+   "b": "A09",
+   "len_m": 16.1,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     1955.8,
+     1567.3
+    ],
+    [
+     1923.1,
+     1565.8
+    ]
+   ]
+  },
+  {
+   "a": "P10",
+   "b": "A10",
+   "len_m": 22.6,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     1020.5,
+     1482.9
+    ],
+    [
+     1065.8,
+     1475.9
+    ]
+   ]
+  },
+  {
+   "a": "P11",
+   "b": "A11",
+   "len_m": 1.7,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     1165.3,
+     1582.4
+    ],
+    [
+     1167.8,
+     1584.8
+    ]
+   ]
+  },
+  {
+   "a": "P12",
+   "b": "A12",
+   "len_m": 18.5,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     697.7,
+     1380.3
+    ],
+    [
+     734.9,
+     1375.1
+    ]
+   ]
+  },
+  {
+   "a": "P13",
+   "b": "A13",
+   "len_m": 18.8,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     2302.8,
+     942.8
+    ],
+    [
+     2319.1,
+     908.3
+    ]
+   ]
+  },
+  {
+   "a": "P14",
+   "b": "A14",
+   "len_m": 4.2,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     2019.2,
+     1148.0
+    ],
+    [
+     2027.7,
+     1147.2
+    ]
+   ]
+  },
+  {
+   "a": "P15",
+   "b": "N081",
+   "len_m": 15.5,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     780.6,
+     2197.9
+    ],
+    [
+     804.0,
+     2219.0
+    ]
+   ]
+  },
+  {
+   "a": "P16",
+   "b": "A16",
+   "len_m": 27.8,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     890.8,
+     837.2
+    ],
+    [
+     946.4,
+     828.0
+    ]
+   ]
+  },
+  {
+   "a": "P17",
+   "b": "N313",
+   "len_m": 44.3,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     1808.0,
+     562.6
+    ],
+    [
+     1752.0,
+     633.0
+    ]
+   ]
+  },
+  {
+   "a": "P18",
+   "b": "A18",
+   "len_m": 14.8,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     444.2,
+     849.2
+    ],
+    [
+     434.7,
+     877.9
+    ]
+   ]
+  },
+  {
+   "a": "P19",
+   "b": "N126",
+   "len_m": 7.4,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     993.3,
+     1238.5
+    ],
+    [
+     989.0,
+     1224.0
+    ]
+   ]
+  },
+  {
+   "a": "P20",
+   "b": "A20",
+   "len_m": 26.2,
+   "name": "连接步道",
+   "cls": "link",
+   "shape": [
+    [
+     2218.3,
+     449.5
+    ],
+    [
+     2271.2,
+     442.5
+    ]
+   ]
+  }
+ ],
+ "poi": [
+  {
+   "id": 1,
+   "node": "P01",
+   "name": "1号门（主校门）"
+  },
+  {
+   "id": 2,
+   "node": "P02",
+   "name": "南门"
+  },
+  {
+   "id": 3,
+   "node": "P03",
+   "name": "2号门"
+  },
+  {
+   "id": 4,
+   "node": "P04",
+   "name": "3号门"
+  },
+  {
+   "id": 5,
+   "node": "P05",
+   "name": "图书馆"
+  },
+  {
+   "id": 6,
+   "node": "P06",
+   "name": "文达楼"
+  },
+  {
+   "id": 7,
+   "node": "P07",
+   "name": "计算机工程学院"
+  },
+  {
+   "id": 8,
+   "node": "P08",
+   "name": "电子工程学院"
+  },
+  {
+   "id": 9,
+   "node": "P09",
+   "name": "艺术学院"
+  },
+  {
+   "id": 10,
+   "node": "P10",
+   "name": "第1食堂"
+  },
+  {
+   "id": 11,
+   "node": "P11",
+   "name": "第二食堂"
+  },
+  {
+   "id": 12,
+   "node": "P12",
+   "name": "第三食堂"
+  },
+  {
+   "id": 13,
+   "node": "P13",
+   "name": "东区食堂（兴海楼）"
+  },
+  {
+   "id": 14,
+   "node": "P14",
+   "name": "体育馆"
+  },
+  {
+   "id": 15,
+   "node": "P15",
+   "name": "游泳馆"
+  },
+  {
+   "id": 16,
+   "node": "P16",
+   "name": "第一田径场"
+  },
+  {
+   "id": 17,
+   "node": "P17",
+   "name": "第二田径场"
+  },
+  {
+   "id": 18,
+   "node": "P18",
+   "name": "学生公寓A区"
+  },
+  {
+   "id": 19,
+   "node": "P19",
+   "name": "学生公寓B区"
+  },
+  {
+   "id": 20,
+   "node": "P20",
+   "name": "学生公寓D区"
+  }
+ ]
+}
