@@ -127,6 +127,34 @@ python docs/tools/render_route.py --from 18 --to 6 --out route.png   # 底图路
 
 路径输出会附带**转向指引**（按折线方位角判定左转/右转/直行，并结合路名与里程）。
 
+## 图形界面（Win64）
+
+`gui/` 是独立的表示层，用 **Win32 + GDI+** 写成，核心算法一行未改：
+
+```bash
+build_gui.cmd     # 编译 -> build\navgui.exe
+run_gui.cmd       # 打开窗口（默认加载 data/campus_real）
+
+# 离屏渲染一帧，便于回归检查与文档配图
+build\navgui.exe --data data/campus_real --shot out.png --route 1 5 --size 1400x900
+# 开窗 0.8 秒自动关闭，用于自动化冒烟测试
+build\navgui.exe --data data/campus_real --selftest
+```
+
+| 模块 | 职责 |
+|---|---|
+| `gui/gui.h` | 状态结构、视图变换、命中测试、规划接口 |
+| `gui/gui.c` | 数据加载（CSV + meta.json + shapes.csv）、缩放平移、路径规划、转向指引 |
+| `gui/render.c` | GDI+ 双缓冲绘制：底图分级、路网、路径、地点、关键道路、侧栏、状态栏 |
+| `gui/main.c` | 窗口类、消息循环、菜单、键盘鼠标、截图与自检模式 |
+
+交互：滚轮缩放、拖拽平移、单击选点、`1/2` 设为起终点、`Enter` 规划、`F5` 适应窗口、`Esc` 清除；
+右侧栏可切换距离/时间口径、查询最近食堂/校医院、高亮关键道路（桥）。
+
+> 说明：GDI+ 在纯 C 下要用 flat API（`GpGraphics`/`GdipDrawString`），且所有中文串走
+> “UTF-8 源码 + `MultiByteToWideChar` 运行时转换”，不用 `L"..."` 宽字面量（会被执行字符集搞乱）。
+> GitHub Actions 的 Linux runner 只构建命令行版；GUI 仅 Windows 可编译。
+
 ## 文档
 
 - 报告：`docs/课程设计报告.docx` / `.pdf`（仓库内为脱敏版，个人信息处为【请填写】）

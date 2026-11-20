@@ -67,6 +67,12 @@ def main():
             continue
         rows.append((a, b, length, e["cls"], e["name"]))
 
+    # 节点编号映射（供 GUI/渲染脚本使用）
+    with open(os.path.join(OUT, "node_ids.csv"), "w", encoding="utf-8", newline="\n") as f:
+        f.write("# graph_id,numeric_id,kind\n")
+        for n in nodes:
+            f.write(f"{n['id']},{id_map[n['id']]},{n['kind']}\n")
+
     # 写 spots
     with open(os.path.join(OUT, "spots.csv"), "w", encoding="utf-8", newline="\n") as f:
         f.write("# title: 江苏海洋大学（苍梧校区）\n")
