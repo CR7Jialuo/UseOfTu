@@ -253,8 +253,22 @@ static void draw_critical(Gui *g, GpGraphics *gr)
         const Road *r = campus_road(&g->campus, g->bridges[i]);
         const Shape *sh;
         int n = 0, k;
+        int on_path = 0;
         if (r == NULL) {
             continue;
+        }
+        if (g->has_path) {
+            int pi;
+            for (pi = 0; pi + 1 < g->path.count; ++pi) {
+                int a = g->path.nodes[pi], b = g->path.nodes[pi + 1];
+                if ((r->from == a && r->to == b) || (r->from == b && r->to == a)) {
+                    on_path = 1;
+                    break;
+                }
+            }
+            if (!on_path) {
+                continue;   /* 只标注本次路径上的桥 */
+            }
         }
         sh = gui_shape(g, r->from, r->to);
         if (sh != NULL) {
@@ -279,7 +293,7 @@ static void draw_critical(Gui *g, GpGraphics *gr)
             n = 2;
         }
         if (n >= 2) {
-            polyline(gr, xs, ys, n, 0xFFF59E0B, 7.0f);
+            polyline(gr, xs, ys, n, 0xFFF59E0B, on_path ? 8.0f : 4.0f);
         }
     }
 }
@@ -371,6 +385,40 @@ static void draw_spots(Gui *g, GpGraphics *gr)
     }
 }
 
+static void draw_tooltip(Gui *g, GpGraphics *gr)
+{
+    const Spot *s;
+    int x, y, w = 268, h = 86;
+    char line1[128], line2[96];
+
+    if (g->hover <= 0) {
+        return;
+    }
+    s = campus_spot(&g->campus, g->hover);
+    if (s == NULL) {
+        return;
+    }
+    x = g->mouse_x + 18;
+    y = g->mouse_y + 18;
+    if (x + w > g->cw - GUI_PANEL_W - 8) {
+        x = g->cw - GUI_PANEL_W - w - 8;
+    }
+    if (y + h > g->ch - GUI_STATUS_H - 8) {
+        y = g->ch - GUI_STATUS_H - h - 8;
+    }
+    fill(gr, x, y, w, h, 0xF2FFFFFF);
+    stroke(gr, x, y, x + w, y, C_BORDER, 1.0f);
+    stroke(gr, x, y + h, x + w, y + h, C_BORDER, 1.0f);
+    stroke(gr, x, y, x, y + h, C_BORDER, 1.0f);
+    stroke(gr, x + w, y, x + w, y + h, C_BORDER, 1.0f);
+
+    snprintf(line1, sizeof(line1), "%s（编号 %d）", s->name, s->id);
+    snprintf(line2, sizeof(line2), "%s · 地图编号 %02d", spot_type_label(s->type), s->id);
+    text_at(gr, s_font_ui, x + 12, y + 10, w - 24, 24, line1, C_NAVY);
+    text_at(gr, s_font_small, x + 12, y + 36, w - 24, 20, line2, C_MUTED);
+    text_at(gr, s_font_small, x + 12, y + 58, w - 24, 20, s->brief, 0xFF374151);
+}
+
 static void draw_scale_bar(Gui *g, GpGraphics *gr)
 {
     double meters = 100.0;
@@ -445,9 +493,16 @@ static void draw_panel(Gui *g, GpGraphics *gr)
     text_at(gr, s_font_small, x + 162, 305, 130, 20, "最近校医院", C_NAVY);
 
     fill(gr, x + 14, 340, GUI_PANEL_W - 28, 32, g->show_critical ? 0xFFF59E0B : C_LIGHT);
-    text_at(gr, s_font_small, x + 26, 346, 240, 20,
-            g->show_critical ? "关键道路：已高亮（点击关闭）" : "关键道路分析（桥/割点）",
-            g->show_critical ? C_WHITE : C_NAVY);
+    {
+        char crit[80];
+        if (g->show_critical) {
+            snprintf(crit, sizeof(crit), "关键道路：已开（%d 条桥，点击关）", g->n_bridges);
+        } else {
+            snprintf(crit, sizeof(crit), "关键道路分析（桥/割点）");
+        }
+        text_at(gr, s_font_small, x + 26, 346, GUI_PANEL_W - 40, 20, crit,
+                g->show_critical ? C_WHITE : C_NAVY);
+    }
 
     /* 转向指引 */
     fill(gr, x + 14, 384, GUI_PANEL_W - 28, 1, C_BORDER);
@@ -472,9 +527,9 @@ static void draw_panel(Gui *g, GpGraphics *gr)
             text_at(gr, s_font_small, x + 16, ty, GUI_PANEL_W - 32, 20, lines[i], 0xFF374151);
             ty += 22;
         }
-        if (g->path.count > 2) {
+        if (n_lines >= (h - 420 - 34) / 22 && g->path.count > 3) {
             char more[64];
-            snprintf(more, sizeof(more), "共 %d 个节点，指引已按面板高度截断", g->path.count);
+            snprintf(more, sizeof(more), "指引较多，已截断（共 %d 步）", g->path.count - 1);
             text_at(gr, s_font_small, x + 16, h - 48, GUI_PANEL_W - 32, 18, more, C_MUTED);
         }
     }
@@ -518,6 +573,7 @@ void gui_paint(Gui *g, void *grp, int w, int h)
     draw_spots(g, gr);
     draw_scale_bar(g, gr);
     draw_panel(g, gr);
+    draw_tooltip(g, gr);
     draw_status_bar(g, gr);
 }
 

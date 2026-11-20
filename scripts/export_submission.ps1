@@ -36,6 +36,12 @@ if (Test-Path 'build\nav.exe') {
 } else {
     Write-Host 'warning: build\nav.exe missing (run scripts\build.ps1)' -ForegroundColor Yellow
 }
+if (Test-Path 'build\navgui.exe') {
+    Copy-Item 'build\navgui.exe' (Join-Path $stage 'bin\navgui.exe') -Force
+    Write-Host '  + navgui.exe'
+} else {
+    Write-Host 'note: build\navgui.exe missing (run scripts\build_gui.ps1 to include GUI)' -ForegroundColor Yellow
+}
 
 Write-Host 'overlaying final documents ...'
 if (Test-Path 'dist\final') {

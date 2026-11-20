@@ -229,8 +229,10 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
             InvalidateRect(hwnd, NULL, FALSE);
             return 0;
         }
+        g_gui.mouse_x = x;
+        g_gui.mouse_y = y;
         g_gui.hover = gui_hit_test(&g_gui, x, y);
-        if (g_gui.hover != old_hover) {
+        if (g_gui.hover != old_hover || g_gui.hover > 0) {
             InvalidateRect(hwnd, NULL, FALSE);
         }
         return 0;
@@ -330,7 +332,8 @@ static HMENU build_menu(void)
 
 /* ---------------- 截图模式 ---------------- */
 
-static int run_screenshot(int argc, char **argv, const char *out, int route_from, int route_to)
+static int run_screenshot(int argc, char **argv, const char *out, int route_from, int route_to,
+                          int hover_id, int critical)
 {
     GpBitmap *bmp = NULL;
     GpGraphics *gr = NULL;
@@ -353,6 +356,19 @@ static int run_screenshot(int argc, char **argv, const char *out, int route_from
         return 2;
     }
     gui_fit_view(&g_gui, w, h);
+    if (critical) {
+        gui_toggle_critical(&g_gui);
+    }
+    if (hover_id > 0) {
+        const Spot *hs = campus_spot(&g_gui.campus, hover_id);
+        g_gui.hover = hover_id;
+        if (hs != NULL) {
+            double px, py;
+            gui_world_to_screen(&g_gui, hs->x, hs->y, &px, &py);
+            g_gui.mouse_x = (int)px + 6;
+            g_gui.mouse_y = (int)py + 6;
+        }
+    }
     if (route_from > 0 && route_to > 0) {
         g_gui.from_id = route_from;
         g_gui.to_id = route_to;
@@ -387,6 +403,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     MSG msg;
     const char *shot = NULL;
     int route_from = 0, route_to = 0;
+    int hover_id = 0, critical = 0;
     int selftest = 0;
     int i;
 
@@ -403,11 +420,30 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
                 strcpy(g_data_dir, argv[++i]);
             } else if (strcmp(argv[i], "--shot") == 0 && i + 1 < argc) {
                 shot = argv[++i];
+            } else if (strcmp(argv[i], "--hover") == 0 && i + 1 < argc) {
+                hover_id = atoi(argv[++i]);
+            } else if (strcmp(argv[i], "--critical") == 0) {
+                critical = 1;
             } else if (strcmp(argv[i], "--selftest") == 0) {
                 selftest = 1;
             } else if (strcmp(argv[i], "--route") == 0 && i + 2 < argc) {
                 route_from = atoi(argv[++i]);
                 route_to = atoi(argv[++i]);
+            }
+        }
+    }
+
+    /* 高 DPI 感知：避免系统拉伸导致模糊（Win10 1803+ 才有该 API） */
+    {
+        HMODULE user32 = GetModuleHandleW(L"user32.dll");
+        if (user32 != NULL) {
+            typedef BOOL(WINAPI * SetCtxFn)(HANDLE);
+            SetCtxFn set_ctx = (SetCtxFn)(void *)GetProcAddress(user32,
+                                                               "SetProcessDpiAwarenessContext");
+            if (set_ctx != NULL) {
+                set_ctx((HANDLE)-4); /* PER_MONITOR_AWARE_V2 */
+            } else {
+                SetProcessDPIAware();
             }
         }
     }
@@ -426,7 +462,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
         char base[512];
         snprintf(base, sizeof(base), "%s/basemap.png", g_data_dir);
         gui_render_init(base);
-        rc = run_screenshot(0, NULL, shot, route_from, route_to);
+        rc = run_screenshot(0, NULL, shot, route_from, route_to, hover_id, critical);
         gui_render_shutdown();
         GdiplusShutdown(token);
         return rc;

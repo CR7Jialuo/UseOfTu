@@ -518,7 +518,30 @@ int gui_toggle_critical(Gui *g)
         return NAV_ERR_ARG;
     }
     g->show_critical = 1;
-    snprintf(g->status, sizeof(g->status), "关键道路：%d 条桥（琥珀色高亮）", g->n_bridges);
+    {
+        int on_path = 0, i;
+        for (i = 0; i < g->n_bridges; ++i) {
+            const Road *r = campus_road(&g->campus, g->bridges[i]);
+            int pi;
+            if (r == NULL) {
+                continue;
+            }
+            for (pi = 0; pi + 1 < g->path.count; ++pi) {
+                int a = g->path.nodes[pi], b = g->path.nodes[pi + 1];
+                if ((r->from == a && r->to == b) || (r->from == b && r->to == a)) {
+                    ++on_path;
+                    break;
+                }
+            }
+        }
+        if (g->has_path) {
+            snprintf(g->status, sizeof(g->status),
+                     "关键道路：本路径经过 %d 条桥（路网共 %d 条）", on_path, g->n_bridges);
+        } else {
+            snprintf(g->status, sizeof(g->status), "关键道路：路网共 %d 条桥，先规划路径可只看路径上的桥",
+                     g->n_bridges);
+        }
+    }
     g->status_error = 0;
     return 0;
 }

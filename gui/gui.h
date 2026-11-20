@@ -47,6 +47,7 @@ typedef struct {
     int selected;      /* 单击选中的地点 */
     int from_id, to_id;
     int pick_mode;     /* 0 无，1 正在选起点，2 正在选终点 */
+    int mouse_x, mouse_y;
     int dragging;
     POINT drag_pt;
     double drag_x0, drag_y1;
