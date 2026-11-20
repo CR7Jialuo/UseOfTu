@@ -23,7 +23,11 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA = os.path.join(ROOT, "data", "campus_real")
 GRAPH = os.path.join(DATA, "campus_graph.json")
-BASE = os.path.join(ROOT, "build", "road_data", "work_base.png")
+BASE_CANDIDATES = [
+    os.path.join(ROOT, "data", "campus_real", "basemap.png"),
+    os.path.join(ROOT, "build", "road_data", "work_base.png"),
+]
+BASE = next((p for p in BASE_CANDIDATES if os.path.exists(p)), BASE_CANDIDATES[-1])
 NAV = os.path.join(ROOT, "build", "nav.exe")
 M_PER_PX = 0.492
 
