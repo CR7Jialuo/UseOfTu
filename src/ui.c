@@ -850,7 +850,8 @@ static void menu_data(App *app)
                        app->campus.n_roads);
             }
         } else if (choice == 3 || choice == 4) {
-            char path[APP_PATH_MAX];
+            /* 2 倍容量：data_dir 最长 259 字节，再加 "/campus.nvg" 共 271 字节 */
+            char path[APP_PATH_MAX * 2];
             if (choice == 3) {
                 snprintf(path, sizeof(path), "%s/campus.nvg", app->data_dir);
                 if (campus_save_bin(&app->campus, path, err, sizeof(err)) != NAV_OK) {
