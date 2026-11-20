@@ -28,7 +28,7 @@ test: build/tests
 	./build/tests
 
 e2e: build/nav
-	./scripts/e2e.sh
+	bash scripts/e2e.sh
 
 clean:
 	rm -rf build
