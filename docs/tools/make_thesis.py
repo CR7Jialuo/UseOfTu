@@ -43,7 +43,7 @@ TITLE_EN = ("Design and Implementation of a Campus Navigation System "
 PERSON = {
     "college": "理学院", "major": "【请填写】", "class": "信息1241",
     "name": "宋家洛", "sid": "2024122827", "advisor": "李薛",
-    "advisor_title": "【请填写】", "corp_advisor": "无", "corp_title": "无",
+    "advisor_title": "讲师", "corp_advisor": "无", "corp_title": "无",
 }
 DATE_CN = "2026 年 11 月"
 
