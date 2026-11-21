@@ -494,7 +494,7 @@ static int resolve_data_dir(char *out, size_t cap, const char *cli_dir)
 
 static int run_screenshot(int argc, char **argv, const char *out, int route_from, int route_to,
                           int hover_id, int critical, int w, int h, const char *via_csv,
-                          int dpi_force)
+                          int dpi_force, int bench, double zoom)
 {
     GpBitmap *bmp = NULL;
     GpGraphics *gr = NULL;
@@ -513,6 +513,12 @@ static int run_screenshot(int argc, char **argv, const char *out, int route_from
         gui_render_set_dpi(dpi_force);
     }
     gui_fit_view(&g_gui, w, h);
+    if (zoom > 0.0) {
+        g_gui.scale = zoom;
+        if (g_gui.from_id > 0) {
+            gui_center_on(&g_gui, g_gui.from_id, zoom);
+        }
+    }
     if (critical) {
         gui_toggle_critical(&g_gui);
     }
@@ -556,7 +562,23 @@ static int run_screenshot(int argc, char **argv, const char *out, int route_from
     if (GdipGetImageGraphicsContext((GpImage *)bmp, &gr) != Ok) {
         return 3;
     }
-    gui_paint(&g_gui, gr, w, h);
+    if (bench > 0) {
+        LARGE_INTEGER f, t0, t1;
+        int k;
+        QueryPerformanceFrequency(&f);
+        QueryPerformanceCounter(&t0);
+        for (k = 0; k < bench; ++k) {
+            gui_paint(&g_gui, gr, w, h);
+        }
+        QueryPerformanceCounter(&t1);
+        {
+            double ms = (double)(t1.QuadPart - t0.QuadPart) * 1000.0 / (double)f.QuadPart;
+            printf("bench: %d frames, %.2f ms/frame, %.1f fps\n", bench, ms / bench,
+                  1000.0 * bench / ms);
+        }
+    } else {
+        gui_paint(&g_gui, gr, w, h);
+    }
     GdipDeleteGraphics(gr);
     if (save_png(bmp, out) != 0) {
         fprintf(stderr, "save failed: %s\n", out);
@@ -583,6 +605,8 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
     int open_id = 0;
     const char *via_csv = NULL;
     int dpi_force = 0;
+    int bench = 0;
+    double zoom = 0.0;
     int size_w = 1400, size_h = 900;
     int selftest = 0;
     int i;
@@ -602,6 +626,10 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
                 shot = argv[++i];
             } else if (strcmp(argv[i], "--open") == 0 && i + 1 < argc) {
                 open_id = atoi(argv[++i]);
+            } else if (strcmp(argv[i], "--zoom") == 0 && i + 1 < argc) {
+                zoom = atof(argv[++i]);
+            } else if (strcmp(argv[i], "--bench") == 0 && i + 1 < argc) {
+                bench = atoi(argv[++i]);
             } else if (strcmp(argv[i], "--dpi") == 0 && i + 1 < argc) {
                 dpi_force = atoi(argv[++i]);
             } else if (strcmp(argv[i], "--via") == 0 && i + 1 < argc) {
@@ -656,7 +684,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmdline, int show)
         snprintf(base, sizeof(base), "%s/basemap.png", g_data_dir);
         gui_render_init(base);
         rc = run_screenshot(0, NULL, shot, route_from, route_to, hover_id, critical, size_w,
-                            size_h, via_csv, dpi_force);
+                            size_h, via_csv, dpi_force, bench, zoom);
         gui_render_shutdown();
         GdiplusShutdown(token);
         return rc;
