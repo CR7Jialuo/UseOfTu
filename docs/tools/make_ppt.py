@@ -27,7 +27,8 @@ FONT = "微软雅黑"
 
 W, H = Inches(13.333), Inches(7.5)
 
-PERSON = {"class": "信息1241", "name": "宋家洛", "sid": "2024122827", "advisor": "李薛"}
+PERSON = {"college": "理学院", "class": "信息1241", "name": "宋家洛",
+          "sid": "2024122827", "advisor": "李薛"}
 
 
 def apply_mask():
@@ -199,8 +200,8 @@ def main(argv):
             "本科毕业设计（论文）· C11 + Win32/GDI+ · 江苏海洋大学苍梧校区", 18, False,
             RGBColor(0xC7, 0xD2, 0xE0))
     textbox(s, Inches(0.9), Inches(5.4), Inches(11.5), Inches(1.2),
-            PERSON["class"] + "    " + PERSON["name"] + "    " + PERSON["sid"] +
-            "\n指导教师：" + PERSON["advisor"], 16, False,
+            PERSON["college"] + "    " + PERSON["class"] + "    " + PERSON["name"] + "    " +
+            PERSON["sid"] + "\n指导教师：" + PERSON["advisor"], 16, False,
             RGBColor(0xC7, 0xD2, 0xE0))
 
     # 2 选题背景

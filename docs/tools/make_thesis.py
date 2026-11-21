@@ -41,7 +41,7 @@ TITLE_EN = ("Design and Implementation of a Campus Navigation System "
             "Based on Shortest Path Algorithms")
 
 PERSON = {
-    "college": "【请填写】", "major": "【请填写】", "class": "信息1241",
+    "college": "理学院", "major": "【请填写】", "class": "信息1241",
     "name": "宋家洛", "sid": "2024122827", "advisor": "李薛",
     "advisor_title": "【请填写】", "corp_advisor": "无", "corp_title": "无",
 }
@@ -879,7 +879,8 @@ def main(argv):
     args = ap.parse_args(argv[1:])
 
     if args.mask:
-        for k in ("name", "sid", "class", "advisor"):
+        for k in ("college", "name", "sid", "class", "advisor", "advisor_title",
+                  "corp_advisor", "corp_title"):
             PERSON[k] = "【请填写】"
 
     pages = {}
