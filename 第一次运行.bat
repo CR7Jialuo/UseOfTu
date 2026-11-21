@@ -1,11 +1,9 @@
 @echo off
 chcp 65001 >nul
-rem First-run helper: remove Mark-of-the-Web (SmartScreen block) then start the GUI.
-powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-ChildItem -LiteralPath '%~dp0' -Recurse -File -ErrorAction SilentlyContinue | Unblock-File -ErrorAction SilentlyContinue"
-if exist "%~dp0build\navgui.exe" (
-    start "" "%~dp0build\navgui.exe"
-) else (
-    echo 未找到 build\navgui.exe，请先运行 build_gui.cmd 编译。
-    pause
-)
+rem First run helper:
+rem   1) drop "Mark of the Web" from every file in this folder
+rem   2) start the GUI through run_gui.cmd (which uses a clean local copy)
+powershell -NoProfile -ExecutionPolicy Bypass -Command ^
+  "Get-ChildItem -LiteralPath '%~dp0' -Recurse -File -ErrorAction SilentlyContinue | Unblock-File -ErrorAction SilentlyContinue" >nul 2>&1
+call "%~dp0run_gui.cmd"
 exit /b 0
