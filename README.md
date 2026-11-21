@@ -28,10 +28,11 @@ test.cmd           :: 单元测试（1592 项断言）
 run_gui.cmd        :: 打开图形界面（自动定位 data\campus_real）
 ```
 
-已经编译好的可直接双击：
+已经编译好的可直接双击 `build\navgui.exe`；**提交包内**的可执行文件在 `bin\` 下，
+推荐用包内的 `run_gui.cmd`（自动适配 `bin\` / `build\` 两种布局，并规避 SmartScreen）：
 
 ```bat
-build\navgui.exe
+run_gui.cmd
 ```
 
 > 图形界面会按“当前目录 → exe 同级 → exe 上一级”顺序寻找 `data\campus_real`，
