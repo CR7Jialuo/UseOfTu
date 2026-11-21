@@ -610,11 +610,8 @@ def main(argv):
     fig_architecture(root, os.path.join(out_dir, "architecture.png"))
     fig_flowchart(root, os.path.join(out_dir, "flowchart.png"))
     fig_real_map(root, os.path.join(out_dir, "campus-map.png"))
-    fig_campus_map(root, os.path.join(out_dir, "routing-demo.png"),
-                   route=[16, 14, 22, 4], caption="红色为宿舍A区 → 图书馆的最短路径：408.5 米 / 5.2 分钟")
     fig_data_format(root, os.path.join(out_dir, "data-format.png"))
     fig_algo_compare(root, os.path.join(out_dir, "algo-compare.png"))
-    fig_test_summary(root, os.path.join(out_dir, "test-summary.png"))
     fig_terminal(root, os.path.join(out_dir, "terminal-demo.png"))
     print("figures written to", out_dir)
 

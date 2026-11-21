@@ -229,6 +229,21 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
     case WM_PAINT:
         paint_window(hwnd);
         return 0;
+    case WM_GETMINMAXINFO: {
+        MINMAXINFO *mm = (MINMAXINFO *)lp;
+        mm->ptMinTrackSize.x = 900;     /* 再小右侧栏就没地方放了 */
+        mm->ptMinTrackSize.y = 600;
+        return 0;
+    }
+    case WM_DPICHANGED: {
+        /* 拖到另一块 DPI 不同的显示器：重建字体、按建议尺寸重设窗口 */
+        RECT *rc = (RECT *)lp;
+        gui_render_set_dpi((int)HIWORD(wp));
+        SetWindowPos(hwnd, NULL, rc->left, rc->top, rc->right - rc->left, rc->bottom - rc->top,
+                     SWP_NOZORDER | SWP_NOACTIVATE);
+        InvalidateRect(hwnd, NULL, FALSE);
+        return 0;
+    }
     case WM_SIZE:
         if (wp != SIZE_MINIMIZED) {
             g_gui.cw = LOWORD(lp);

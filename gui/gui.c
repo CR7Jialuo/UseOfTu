@@ -155,7 +155,7 @@ const Shape *gui_shape(const Gui *g, int a, int b)
 
 int gui_init(Gui *g, const char *data_dir, char *err, size_t cap)
 {
-    char sp[512], rd[512], meta[512], shapes[512];
+    char sp[1024], rd[1024], meta[1024], shapes[1024];
     int rc;
 
     memset(g, 0, sizeof(*g));

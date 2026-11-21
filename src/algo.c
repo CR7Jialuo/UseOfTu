@@ -777,8 +777,8 @@ static int tsp_cost_build(const Graph *g, const int *term, int m, TspCost *c, ch
 
     c->g = g;
     c->n = m;
-    c->dist = (double *)malloc((size_t)m * (size_t)m * sizeof(double));
-    c->prev_all = (int *)malloc((size_t)m * ((size_t)g->n + 1) * sizeof(int));
+    c->dist = (double *)calloc((size_t)m * (size_t)m, sizeof(double));
+    c->prev_all = (int *)calloc((size_t)m * ((size_t)g->n + 1), sizeof(int));
     dist = (double *)malloc(((size_t)g->n + 1) * sizeof(double));
     if (c->dist == NULL || c->prev_all == NULL || dist == NULL) {
         free(dist);
@@ -803,6 +803,9 @@ static int tsp_cost_build(const Graph *g, const int *term, int m, TspCost *c, ch
 
 static double tsp_segment_cost(const TspCost *c, int a, int b)
 {
+    if (c == NULL || c->dist == NULL || c->n <= 0 || a < 0 || b < 0 || a >= c->n || b >= c->n) {
+        return NAV_INF;   /* 越界视为不可达，避免读未初始化内存 */
+    }
     return c->dist[(size_t)a * (size_t)c->n + (size_t)b];
 }
 

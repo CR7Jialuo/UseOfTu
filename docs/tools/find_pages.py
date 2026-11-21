@@ -3,12 +3,12 @@
 """在导出的 PDF 中定位报告标题所在页，回填目录页码（两遍法第二遍）。
 
 用法：
-  python find_pages.py 课程设计报告.pdf toc_entries.json toc_pages.json
+  python find_pages.py 报告.pdf toc_entries.json thesis_pages.json
 
 逻辑：
   1. 正文每页页眉都有“课程设计报告”，据此确定正文起始页；
   2. 按目录顺序单调向后扫描，找到每个标题首次出现的正文页；
-  3. 输出 {标题: 正文页码} 供 make_report.py --pages 使用。
+  3. 输出 {标题: 正文页码}，供 make_thesis.py --pages 回填目录。
 """
 
 import json

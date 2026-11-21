@@ -38,7 +38,28 @@
 #define C_MUTED     0xFF6B7280
 
 static GpImage *s_basemap = NULL;
-static GpImage *s_basemap_small = NULL;   /* 预缩放副本，避免每帧缩放 2572x2582 */
+static GpImage *s_basemap_small = NULL;   /* 预缩放副本，避免每帧缩放整幅底图 */
+static int s_bm_w, s_bm_h;
+
+#define PEN_CACHE 24
+#define BRUSH_CACHE 24
+
+typedef struct {
+    ARGB color;
+    float width;
+    GpPen *pen;
+} PenSlot;
+
+typedef struct {
+    ARGB color;
+    GpSolidFill *brush;
+} BrushSlot;
+
+static PenSlot s_pens[PEN_CACHE];
+static int s_n_pens;
+static BrushSlot s_brushes[BRUSH_CACHE];
+static int s_n_brushes;
+                /* 底图原始像素尺寸（世界范围按它算） */
 static GpFontFamily *s_family = NULL;
 static GpFont *s_font_ui = NULL;
 static GpFont *s_font_title = NULL;
@@ -124,6 +145,13 @@ int gui_render_init(const char *basemap_path)
         }
         snprintf(s_basemap_path, sizeof(s_basemap_path), "%s", basemap_path);
     }
+    if (s_basemap != NULL) {
+        UINT ow = 0, oh = 0;
+        GdipGetImageWidth(s_basemap, &ow);
+        GdipGetImageHeight(s_basemap, &oh);
+        s_bm_w = (int)ow;
+        s_bm_h = (int)oh;
+    }
     if (s_basemap != NULL && s_basemap_small == NULL) {
         UINT bw = 0, bh = 0;
         int dw, dh;
@@ -149,6 +177,21 @@ int gui_render_init(const char *basemap_path)
 
 void gui_render_shutdown(void)
 {
+    int i;
+    for (i = 0; i < s_n_pens; ++i) {
+        if (s_pens[i].pen != NULL) {
+            GdipDeletePen(s_pens[i].pen);
+            s_pens[i].pen = NULL;
+        }
+    }
+    s_n_pens = 0;
+    for (i = 0; i < s_n_brushes; ++i) {
+        if (s_brushes[i].brush != NULL) {
+            GdipDeleteBrush((GpBrush *)s_brushes[i].brush);
+            s_brushes[i].brush = NULL;
+        }
+    }
+    s_n_brushes = 0;
     if (s_basemap_small != NULL) {
         GdipDisposeImage(s_basemap_small);
         s_basemap_small = NULL;
@@ -180,25 +223,6 @@ void gui_render_shutdown(void)
  * 每帧要创建数百个 GDI+ 对象，实测 81 ms/帧。这里改为按 (颜色, 线宽) 缓存，
  * 首次创建后复用，绘制阶段零分配。
  */
-
-#define PEN_CACHE 24
-#define BRUSH_CACHE 24
-
-typedef struct {
-    ARGB color;
-    float width;
-    GpPen *pen;
-} PenSlot;
-
-typedef struct {
-    ARGB color;
-    GpSolidFill *brush;
-} BrushSlot;
-
-static PenSlot s_pens[PEN_CACHE];
-static int s_n_pens;
-static BrushSlot s_brushes[BRUSH_CACHE];
-static int s_n_brushes;
 
 static GpPen *pen_get(ARGB color, float width)
 {
@@ -351,8 +375,8 @@ static void draw_basemap(Gui *g, GpGraphics *gr)
     /* 底图覆盖的世界范围：像素(0,0)=世界(-ox*m, oy*m) */
     x0 = -g->ox * g->m_per_px;
     y1 = g->oy * g->m_per_px;
-    x1 = x0 + 2572.0 * g->m_per_px;
-    y0 = y1 - 2582.0 * g->m_per_px;
+    x1 = x0 + (double)s_bm_w * g->m_per_px;
+    y0 = y1 - (double)s_bm_h * g->m_per_px;
 
     gui_world_to_screen(g, x0, y1, &sx0, &sy0);
     gui_world_to_screen(g, x1, y0, &sx1, &sy1);

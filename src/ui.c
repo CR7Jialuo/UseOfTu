@@ -304,7 +304,7 @@ void ui_ascii_map(const App *app)
             for (j = 0; j < 3; ++j) {
                 int idx = k + j * rows;
                 if (idx < c->n_spots) {
-                    char item[64];
+                    char item[160];
                     snprintf(item, sizeof(item), "%c %s", spot_symbol(c->spots[idx].id),
                              c->spots[idx].name);
                     nav_print_padded(item, 24);

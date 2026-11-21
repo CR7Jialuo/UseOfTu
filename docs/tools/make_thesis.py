@@ -11,7 +11,7 @@
   4. 目录页码用两遍法：先占位，导出 PDF 后用 find_pages.py 回填。
 
 用法：
-  python make_thesis.py [--pages docs/toc_pages.json] [--out xxx.docx] [--mask]
+  python make_thesis.py [--pages docs/thesis_pages.json] [--out xxx.docx] [--mask]
 """
 
 import argparse
@@ -871,7 +871,7 @@ doc = None
 def main(argv):
     global doc
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pages", default=os.path.join(ROOT, "docs", "toc_pages.json"))
+    ap.add_argument("--pages", default=os.path.join(ROOT, "docs", "thesis_pages.json"))
     ap.add_argument("--out", default=os.path.join(ROOT, "docs", "课程设计报告.docx"))
     ap.add_argument("--mask", action="store_true")
     ap.add_argument("--template", default=TEMPLATE)

@@ -62,3 +62,13 @@ Write-Host ('package: ' + $zip) -ForegroundColor Green
 $count = (Get-ChildItem $stage -Recurse -File | Measure-Object).Count
 Write-Host ("total files in package: " + $count)
 Get-ChildItem $stage | Select-Object Name | ForEach-Object { Write-Host ("  - " + $_.Name) }
+
+# Clean the staging directory so dist/ does not accumulate intermediates.
+if (Test-Path $stage) {
+    try {
+        Remove-Item -Recurse -Force $stage
+        Write-Host 'staging directory removed.'
+    } catch {
+        Write-Host 'note: staging directory is in use; remove it manually.' -ForegroundColor Yellow
+    }
+}

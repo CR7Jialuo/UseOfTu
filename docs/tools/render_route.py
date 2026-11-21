@@ -3,7 +3,7 @@
 """在真实底图上渲染一条最短路径（报告/答辩用图）。
 
 用法：
-  python render_route.py --from 1 --to 5 --out docs/diagrams/route_gate_library.png \
+  python render_route.py --from 1 --to 5 --out docs/diagrams/route_dorm_class.png \
       --title "1号门 → 图书馆"
 
 数据来自 data/campus_real/{spots,roads}.csv；路径由内置 Dijkstra 计算，
