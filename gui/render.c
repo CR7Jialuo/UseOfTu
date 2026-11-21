@@ -547,14 +547,16 @@ static void draw_spots(Gui *g, GpGraphics *gr)
                 if (g->via[vi] == s->id) {
                     char tag[8];
                     snprintf(tag, sizeof(tag), "%d", vi + 1);
-                    dot(gr, x + 14, y - 14, 8, 0xFFF59E0B, C_WHITE);
-                    text_at(gr, s_font_small, x + 10, y - 23, 20, 18, tag, C_WHITE);
+                    dot(gr, x + UI(14), y - UI(14), UI(8), 0xFFF59E0B, C_WHITE);
+                    text_at(gr, s_font_small, x + UI(9), y - UI(25), UI(24), UI(26), tag, C_WHITE);
                 }
             }
         }
         if (s->id == g->from_id || s->id == g->to_id || s->id == g->selected ||
             s->id == g->hover || g->scale > 0.55) {
-            text_at(gr, s_font_small, x + 12, y - 10, 220, 20, s->name, 0xFF111827);
+            /* 高度必须大于字号，否则 GdipDrawString 会把字形下半截裁掉（高 DPI 下尤其明显） */
+            text_at(gr, s_font_small, x + UI(12), y - UI(14), UI(360), UI(30), s->name,
+                    0xFF111827);
         }
     }
 }
