@@ -241,7 +241,7 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         int x = GET_X_LPARAM(lp), y = GET_Y_LPARAM(lp);
         int old_hover = g_gui.hover;
         if (g_gui.dragging) {
-            gui_pan(&g_gui, g_gui.drag_pt.x - x, g_gui.drag_pt.y - y);
+            gui_pan(&g_gui, x - g_gui.drag_pt.x, y - g_gui.drag_pt.y);
             g_gui.drag_pt.x = x;
             g_gui.drag_pt.y = y;
             InvalidateRect(hwnd, NULL, FALSE);
@@ -273,13 +273,18 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
                 g_gui.dragging = 1;
                 g_gui.drag_pt.x = x;
                 g_gui.drag_pt.y = y;
+                SetCapture(hwnd);      /* 拖出窗口也继续跟随 */
+                SetCursor(LoadCursorW(NULL, IDC_SIZEALL));
             }
             InvalidateRect(hwnd, NULL, FALSE);
         }
         return 0;
     }
     case WM_LBUTTONUP:
-        g_gui.dragging = 0;
+        if (g_gui.dragging) {
+            g_gui.dragging = 0;
+            ReleaseCapture();
+        }
         return 0;
     case WM_RBUTTONDOWN: {
         int x = GET_X_LPARAM(lp), y = GET_Y_LPARAM(lp);
