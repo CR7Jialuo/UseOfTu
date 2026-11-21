@@ -5,11 +5,9 @@
 输出到 docs/diagrams/：
   architecture.png    总体架构图
   flowchart.png       程序主流程图
-  campus-map.png      校园路网图（按真实坐标绘制）
-  routing-demo.png    路径规划示意（宿舍A区 → 图书馆）
+  campus-map.png      真实校园路网图（底图 + 路网 + 地点编号）
   data-format.png     CSV 与二进制快照格式
   algo-compare.png    算法耗时随规模变化
-  test-summary.png    测试分组统计
 
 用法：python make_figures.py [项目根目录]
 """
