@@ -13,9 +13,31 @@
 | 图形 `build\navgui.exe` | ✅ 底图 / 路网 / 路径动画 / 巡游 / 关键道路 / 导出 / DPI / 图标 |
 | 报告（学校模板） | ✅ 28 页，含真实路网与多点巡游插图 |
 | PPT | ✅ 12 页 + 每页演讲者备注 |
-| 提交包 | ✅ `dist\campus-nav-submit.zip`（112 文件，双 exe + 文档） |
+| 提交包 | ✅ `dist\campus-nav-submit.zip`（108 文件，双 exe + 文档） |
 | CI | ✅ Linux 与 Windows 两个作业，Windows 会构建 GUI 并离屏出图 |
 | 使用说明 | ✅ `docs/使用说明.md` |
+
+## 一之一、代码审查与清理（2026-11-21）
+
+**修掉的问题**
+
+1. 底图世界范围写死 `2572×2582` → 改按实际图片尺寸，换底图不会错位
+2. 巡游代价矩阵可能读未初始化内存 → 取值加边界检查，矩阵改用 `calloc`
+3. `ui.c` 地名拼接缓冲 64 字节偏小 → 160（`-fanalyzer` 报截断）
+4. `gui_init` 路径缓冲 512 与 `data_dir` 拼接可能截断 → 1024
+5. 窗口可缩到 0 宽导致布局错乱 → `WM_GETMINMAXINFO` 限制最小 900×600
+6. 拖到另一块不同 DPI 的显示器后不重排 → 处理 `WM_DPICHANGED`
+7. 画笔/画刷缓存未释放 → `gui_render_shutdown` 统一释放
+
+**清理**
+
+- `build/`：594 文件 / 65.4 MB → 2 文件（仅两个 exe） / 0.5 MB
+- 删除旧报告生成器 `docs/tools/make_report.py` + `docs/toc_pages.json`
+- 删除无人引用的图：`route_gate_library` / `route_gym_dorm` / `routing-demo` / `test-summary`
+- `scripts/make_docs.ps1` 重写为论文模板流水线（7 步，一条命令出全部文档）
+- `scripts/export_submission.ps1` 打包后自动清理 `dist/stage`
+
+**已知非 bug**：页眉“共 N 页”是 NUMPAGES 域，LibreOffice 转换会比实际多 1~2 页；未签名 exe 首次运行会触发 SmartScreen。
 
 ## 二、关键坐标
 
